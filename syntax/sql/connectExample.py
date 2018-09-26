@@ -1,10 +1,9 @@
-import pymysql as pymysql
-import pymysql.cursors
-
+import pymysql
 # Kết nối vào database.
-connection = pymysql.connect(host='192.168.1.87',
-                             user='root',
-                             password='1234',
+
+connection = pymysql.connect(host='localhost',
+                             user='namtran',
+                             password='123456',
                              db='simplehr',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
