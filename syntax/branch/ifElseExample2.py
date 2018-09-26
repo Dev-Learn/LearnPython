@@ -10,13 +10,13 @@ age = int(inputStr)
 print("Your age: ", age)
 
 # Kiểm tra nếu age nhỏ hơn 80 thì ...
-if (age < 80):
+if age < 80:
 
     print("You are pretty young")
 
 
 # Ngược lại nếu tuổi nằm trong khoảng 80, 100 thì
-elif (age >= 80 and age <= 100):
+elif 80 <= age <= 100:
 
     print("You are old")
 
