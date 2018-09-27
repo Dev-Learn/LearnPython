@@ -1,6 +1,7 @@
 """
     Chương trình tải các bài viết từ tuổi trẻ
 """
+import os
 import bs4
 import requests
 import json
@@ -15,7 +16,7 @@ def get_content_detail(url):
         Lấy content bài viết detail
     """
 
-    print(url)
+    # print(url)
 
     data = {}
     r = requests.get(url)
@@ -37,16 +38,20 @@ def get_content_detail(url):
         pub_date = s.select_one('span.time.left')
         pub_date = pub_date.text.replace(' (GMT+7)','').split(',')[1] + pub_date.text.replace(' (GMT+7)','').split(',')[2] if  pub_date else ''
         # print(pub_date.text.strip() if  pub_date else '')
-        print(pub_date.strip().split('/'))
-        # if pub_date.strip().split('/')[1].strip().__len__() == 1 and pub_date.split('/')[0].strip().__len__() == 2:
-        #     pub_date = arrow.get(pub_date,'DD/M/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
-        # elif pub_date.strip().split('/')[1].strip().__len__() == 2 and pub_date.split('/')[0].strip().__len__() == 1:
-        #     pub_date = arrow.get(pub_date, 'D/MM/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
-        # elif pub_date.strip().split('/')[1] if pub_date.strip().split('/')[1].strip().__len__() == 1 else '' and pub_date.split('/')[0].strip().__len__() == 1:
-        #     pub_date = arrow.get(pub_date, 'D/M/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
-        # else:
-        #     pub_date = arrow.get(pub_date, 'DD/MM/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
-        # data['pub_date'] = pub_date.format(locale='vi')
+        # print(pub_date.strip().split('/'))
+        if pub_date.strip().split('/')[1].strip().__len__() == 1 and pub_date.split('/')[0].strip().__len__() == 2:
+            pub_date = arrow.get(pub_date,'DD/M/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
+            print('DD/M/YYYY HH:mm')
+        elif pub_date.strip().split('/')[1].strip().__len__() == 2 and pub_date.split('/')[0].strip().__len__() == 1:
+            pub_date = arrow.get(pub_date, 'D/MM/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
+            print('D/MM/YYYY HH:mm')
+        elif pub_date.strip().split('/')[1] if pub_date.strip().split('/')[1].strip().__len__() == 1 else '' and pub_date.split('/')[0].strip().__len__() == 1:
+            pub_date = arrow.get(pub_date, 'D/M/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
+            print('D/M/YYYY HH:mm')
+        else:
+            pub_date = arrow.get(pub_date, 'DD/MM/YYYY HH:mm').replace(tzinfo='Asia/Ho_Chi_Minh')
+            print('DD/MM/YYYY HH:mm')
+        data['pub_date'] = pub_date.format(locale='vi')
 
     return data
 
@@ -57,14 +62,21 @@ def main():
         s = bs4.BeautifulSoup(r.content, 'lxml')
         items = s.select('.list_news h3 > a')
         for item in items:
-            if 'html#box_comment' in item.attrs['href']:
-                pass
-            else:
+            if 'html#box_comment' not in item.attrs['href']:
                 article = get_content_detail(item.attrs['href'])
-                # # print(article)
-                # file_name = arrow.get(article['pub_date']).format('DD-MM-YYYY HH-mm')
-                # f = codecs.open(file_name + '.json', encoding='utf-8', mode='w')
-                # json.dump(article, f, ensure_ascii=False,indent=2)
+                # print(article)
+                dir_name = arrow.get(article['pub_date']).format('MM-YYYY')
+
+                # tạo thư mục
+                if not os.path.isdir(dir_name):
+                    os.mkdir(dir_name)
+
+                # tạo tên tệp
+                file_name = arrow.get(article['pub_date']).format('DD-MM-YYYY-HH-mm')
+                article['id'] = file_name
+                file_name = os.path.join(dir_name,file_name)
+                f = codecs.open(file_name + '.json', encoding='utf-8', mode='w')
+                json.dump(article, f, ensure_ascii=False, indent=2)
 
     else:
         print('Không truy cập được !!!')
