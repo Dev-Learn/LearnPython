@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+        {% for item in articles %}
+        <article>
+            <h2><a href="/article/{{title}}/{{item.id}}">{{item.title}}</a></h2>
+        </article>
+        {% endfor %}
+
+</body>
+</html>

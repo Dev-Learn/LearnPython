@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home Page</title>
 </head>
 <body>
-<h1>Các bài viết từ báo VnExpress</h1>
-        {% for item in articles %}
-        <article>
-            <h2><a href="/article/{{item.id}}">{{item.title}}</a></h2>
-        </article>
-        {% endfor %}
+    <h1>Các bài viết từ báo VnExpress</h1>
+
+    {% for item in folders %}
+    <h2><a href="/day/{{item}}">{{item}}</a></h2>
+    {% endfor %}
 </body>
 </html>
