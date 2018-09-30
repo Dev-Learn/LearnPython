@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699}
+    </style>
+{% endblock %}
+
+{% block title %}
+    Test Extend Template
+{% endblock %}
+
+{% block content %}
+   <h1> This is content</h1>
+{% endblock %}

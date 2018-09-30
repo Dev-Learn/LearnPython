@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Template Jinja 2</title>
+</head>
+<body>
+    <h1>{{val}}</h1>
+    <h2>{% print(val)%}</h2>
+
+    <ul id="navigation">
+        {% for item in nav %}
+        <li><a href="{{item.href}}">{item.caption}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
