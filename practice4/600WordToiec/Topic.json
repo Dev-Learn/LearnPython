@@ -1,0 +1,302 @@
+[
+  {
+    "topic_en": "Contracts",
+    "id": 1,
+    "image": "contracts.jpg",
+    "topic_vi": "Hợp Đồng"
+  },
+  {
+    "topic_en": "Marketing",
+    "id": 2,
+    "image": "marketing.jpg",
+    "topic_vi": "Nghiên Cứu Thị Trường"
+  },
+  {
+    "topic_en": "Warranties",
+    "id": 3,
+    "image": "warranties.jpg",
+    "topic_vi": "Sự Bảo Hành"
+  },
+  {
+    "topic_en": "Business Planning",
+    "id": 4,
+    "image": "business_planning.jpg",
+    "topic_vi": "Kế Hoạch Kinh Doanh"
+  },
+  {
+    "topic_en": "Conferences",
+    "id": 5,
+    "image": "conferences.jpg",
+    "topic_vi": "Hội Nghị"
+  },
+  {
+    "topic_en": "Computers & the Internet",
+    "id": 6,
+    "image": "computers_and_the_internet.jpg",
+    "topic_vi": "Máy Vi Tính và Mạng Internet"
+  },
+  {
+    "topic_en": "Office Technology",
+    "id": 7,
+    "image": "office_technology.jpg",
+    "topic_vi": "Công Nghệ Cho Công Sở"
+  },
+  {
+    "topic_en": "Office Procedures",
+    "id": 8,
+    "image": "office_procedures.jpg",
+    "topic_vi": "Các Quy Trình Trong Công Sở"
+  },
+  {
+    "topic_en": "Electronics",
+    "id": 9,
+    "image": "electronics.jpg",
+    "topic_vi": "Điện Tử"
+  },
+  {
+    "topic_en": "Correspondence",
+    "id": 10,
+    "image": "correspondence.jpg",
+    "topic_vi": "Thư Tín Thương Mại"
+  },
+  {
+    "topic_en": "Job Ads & Recruitment",
+    "id": 11,
+    "image": "job_ads_and_recruitment.jpg",
+    "topic_vi": "Quảng Cáo Tìm Người & Tuyển Dụng"
+  },
+  {
+    "topic_en": "Apply and Interviewing",
+    "id": 12,
+    "image": "apply_and_interviewing.jpg",
+    "topic_vi": "Ứng Tuyển và Phỏng Vấn"
+  },
+  {
+    "topic_en": "Hiring and Training",
+    "id": 13,
+    "image": "hiring_and_training.jpg",
+    "topic_vi": "Tuyển Dụng & Đào Tạo"
+  },
+  {
+    "topic_en": "Salaries & Benefits",
+    "id": 14,
+    "image": "salaries_and_benefits.jpg",
+    "topic_vi": "Lương & Các Chế Độ Đãi Ngộ"
+  },
+  {
+    "topic_en": "Promotions & Awards",
+    "id": 15,
+    "image": "promotion.jpg",
+    "topic_vi": "Thăng Chức, Lương Hưu & Thưởng"
+  },
+  {
+    "topic_en": "Shopping",
+    "id": 16,
+    "image": "shopping.jpg",
+    "topic_vi": "Mua sắm"
+  },
+  {
+    "topic_en": "Ordering Supplies",
+    "id": 17,
+    "image": "ordering_supplies.jpg",
+    "topic_vi": "Đặt Hàng"
+  },
+  {
+    "topic_en": "Shipping",
+    "id": 18,
+    "image": "shipping.jpg",
+    "topic_vi": "Vận Chuyển Hàng"
+  },
+  {
+    "topic_en": "Invoices",
+    "id": 19,
+    "image": "invoices.jpg",
+    "topic_vi": "In Hóa Đơn"
+  },
+  {
+    "topic_en": "Inventory",
+    "id": 20,
+    "image": "inventory.jpg",
+    "topic_vi": "Hàng Hóa / Kiểm Kê Hàng Hóa"
+  },
+  {
+    "topic_en": "Banking",
+    "id": 21,
+    "image": "banking.jpg",
+    "topic_vi": "Ngân Hàng"
+  },
+  {
+    "topic_en": "Accounting",
+    "id": 22,
+    "image": "accounting.jpg",
+    "topic_vi": "Kế Toán"
+  },
+  {
+    "topic_en": "Investments",
+    "id": 23,
+    "image": "investments.jpg",
+    "topic_vi": "Sự Đầu Tư"
+  },
+  {
+    "topic_en": "Taxes",
+    "id": 24,
+    "image": "taxes.jpg",
+    "topic_vi": "Thuế"
+  },
+  {
+    "topic_en": "Financial Statements",
+    "id": 25,
+    "image": "financial_statements.jpg",
+    "topic_vi": "Bản Báo Cáo Tài Chính"
+  },
+  {
+    "topic_en": "Property & Departments",
+    "id": 26,
+    "image": "property_and_departments.jpg",
+    "topic_vi": "Bất Động Sản & Căn Hộ"
+  },
+  {
+    "topic_en": "Board Meeting",
+    "id": 27,
+    "image": "board_meeting.jpg",
+    "topic_vi": "Họp Hội Đồng Ban Quản Trị & Ủy Ban"
+  },
+  {
+    "topic_en": "Quality Control",
+    "id": 28,
+    "image": "quality_control.jpg",
+    "topic_vi": "Ban Quản Lý Chất Lượng"
+  },
+  {
+    "topic_en": "Product Development",
+    "id": 29,
+    "image": "product_development.jpg",
+    "topic_vi": "Phát Triển Sản Phẩm"
+  },
+  {
+    "topic_en": "Renting & Leasing",
+    "id": 30,
+    "image": "renting_and_leasing.jpg",
+    "topic_vi": "Thuê & Cho Thuê"
+  },
+  {
+    "topic_en": "Selecting A Restaurant",
+    "id": 31,
+    "image": "selecting_a_restaurant.jpg",
+    "topic_vi": "Chọn Lựa Nhà Hàng"
+  },
+  {
+    "topic_en": "Eating Out",
+    "id": 32,
+    "image": "eating_out.jpg",
+    "topic_vi": "Ăn Bên Ngoài"
+  },
+  {
+    "topic_en": "Ordering Lunch",
+    "id": 33,
+    "image": "ordering_lunch.jpg",
+    "topic_vi": "Đặt Ăn Trưa"
+  },
+  {
+    "topic_en": "Cooking As A Career",
+    "id": 34,
+    "image": "cook.jpg",
+    "topic_vi": "Nghề Nấu Ăn"
+  },
+  {
+    "topic_en": "Events",
+    "id": 35,
+    "image": "events.jpg",
+    "topic_vi": "Sự Kiện"
+  },
+  {
+    "topic_en": "General Travel",
+    "id": 36,
+    "image": "general_travel.jpg",
+    "topic_vi": "Du Lịch Tổng Quan"
+  },
+  {
+    "topic_en": "Airlines",
+    "id": 37,
+    "image": "airlines.jpg",
+    "topic_vi": "Đường / Hảng Hàng Không"
+  },
+  {
+    "topic_en": "Trains",
+    "id": 38,
+    "image": "trains.jpg",
+    "topic_vi": "Tàu Điện"
+  },
+  {
+    "topic_en": "Hotels",
+    "id": 39,
+    "image": "hotels.jpg",
+    "topic_vi": "Khách Sạn"
+  },
+  {
+    "topic_en": "Car Rentals",
+    "id": 40,
+    "image": "car_rentals.jpg",
+    "topic_vi": "Thuê Xe Hơi"
+  },
+  {
+    "topic_en": "Movies",
+    "id": 41,
+    "image": "movies.jpg",
+    "topic_vi": "Phim"
+  },
+  {
+    "topic_en": "Theater",
+    "id": 42,
+    "image": "theater.jpg",
+    "topic_vi": "Rạp Hát"
+  },
+  {
+    "topic_en": "Music",
+    "id": 43,
+    "image": "music.jpg",
+    "topic_vi": "Âm Nhạc"
+  },
+  {
+    "topic_en": "Museums",
+    "id": 44,
+    "image": "museums.jpg",
+    "topic_vi": "Bảo Tàng"
+  },
+  {
+    "topic_en": "Media",
+    "id": 45,
+    "image": "media.jpg",
+    "topic_vi": "Truyền Thông"
+  },
+  {
+    "topic_en": "Doctor's Office",
+    "id": 46,
+    "image": "doctors_office.jpg",
+    "topic_vi": "Văn Phòng Bác Sĩ"
+  },
+  {
+    "topic_en": "Dentist's Office",
+    "id": 47,
+    "image": "dentists_office.jpg",
+    "topic_vi": "Văn Phòng Nha Sĩ"
+  },
+  {
+    "topic_en": "Health",
+    "id": 48,
+    "image": "health.jpg",
+    "topic_vi": "Sức Khỏe"
+  },
+  {
+    "topic_en": "Hopitals",
+    "id": 49,
+    "image": "hopitals.jpg",
+    "topic_vi": "Bệnh Viện"
+  },
+  {
+    "topic_en": "Pharmacy",
+    "id": 50,
+    "image": "pharmacy.jpg",
+    "topic_vi": "Ngành Dược"
+  }
+]
