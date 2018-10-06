@@ -182,6 +182,7 @@ def downloadFile(dir, url):
         os.mkdir(dir)
 
     file_name = url.split('/')[-1]
+    file_name = file_name.lower()
     if '-' in file_name:
         file_name = file_name.replace('-',"_")
 

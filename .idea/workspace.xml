@@ -2,20 +2,1267 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="493e912d-7ec8-43f3-9466-18c86cab35f1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dump.rdb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syntax/sql/connectExample.py" afterPath="$PROJECT_DIR$/syntax/sql/connectExample.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/LearnPython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LearnPython.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/600WordToiec/Topic.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/600WordToiec/Word.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/600WordToiec/WordError.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/abide_by.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ability.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/abundant.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accept.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/access.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accommodate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accomplishment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accounting.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accumulate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accurately.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/accustom_to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/achievement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/acquire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/action.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/address.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/adhere%to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/adjacent.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/adjustment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/admire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/admit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/advanced.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/affordable.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/agenda.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/agent.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/aggressively.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/agreement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/allocate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/allow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/alternative.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/announcement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/annually.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/anxious.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/appeal.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/apply.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/appointment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/appreciation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/apprehensive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/apprentice.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/approach.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/arrangement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/arrive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/as_needed.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ascertain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/aspect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assemble.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assess.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/asset.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assignment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assist.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/association.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assume.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/assurance.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/attainment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/attend.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/attitude.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/attract.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/audience.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/audit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/authorize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/automatically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/available.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/avoid.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/aware.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/background.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/balance.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/bargain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/basis.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/be_aware_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/be_in_charge%_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/be_made_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/be_ready_for.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/bear.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/beforehand.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/behaviour.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/benefit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/beverage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/blanket.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/board.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/borrow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/brand.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/bring_in.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/bring_together.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/bring_up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/broaden.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/budget.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/build%up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/burden.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/busy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/calculation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/call_in.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/cancellation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/candidate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/capacity.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/carrier.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/casually.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/catalog.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/catch_up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/category.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/cautiously.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/chain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/characteristic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/charge.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/check%in.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/checkout.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/choose.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/circumstance.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/claim.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/client.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/code.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/coincide.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/collaboration.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/collection.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/combine.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/come_up_with.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/comfort.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/commensurate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/commit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/commonly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/compare.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/compatible.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/compensate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/competition.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/compile.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/complete.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/complication.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/comprehensive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/compromise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/concentrate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/concern.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/conclude.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/condition.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/conducive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/conduct.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/confidence.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/confirm.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/conform.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/confusion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/consequence.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/conservative.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/consider.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/constantly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/constitute.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/consult.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/consume.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/contact.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/continue.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/contribute.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/control.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/convenient.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/convince.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/coordinate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/courier.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/cover.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/creative.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/criticism.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/crucial.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/culinary.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/currently.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/customer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/daringly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/deadline.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/deal_with.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/debt.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/decade.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/decision.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/dedication.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/deduct.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/defect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/delay.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/delete.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/delicately.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/delivery.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/deluxe.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/demand.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/demonstrate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/depart.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/description.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/designate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/desire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/destination.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/detail.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/detect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/determine.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/develop.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/diagnose.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/dialogue.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/dimension.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/directory.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disappoint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/discount.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/discrepancy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disk.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disparate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disperse.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/display.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disruption.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disseminate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/distinguish.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/distraction.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/disturb.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/diversify.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/divide.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/dividend.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/down_payment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/draw.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/due_to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/duplicate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/durable.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/duration.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/economize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/effective.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/efficient.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/elegance.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/element.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/eligible.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/embarkation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/emphasize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/encouragement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/engage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/enhance.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/enterprise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/entertainment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/entitle.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/equivalent.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/escort.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/essentially.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/establish.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/estimate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/evaluate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/everyday.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/evident.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/exact.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/examine.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/excite.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/excursion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expand.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expense.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/experience.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/experiment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expert.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expiration.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/explore.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/expose.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/express.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/extend.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/facilitate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/factor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fad.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/failure.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fall%to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/familiar.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fare.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fashion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/favor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/figure_out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/file.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fill_out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/flavor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/flexibly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fluctuate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fold.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/follow_up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/forecast.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/forget.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/frequently.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fulfill.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/function.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/fund.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/garment.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/gather.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/general.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/generate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/get_in_touch.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/get_out_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/give_up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/glimpse.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/go%ahead.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/goal.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/guide.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/habit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/hamper.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/hesitant.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/hire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/hold.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/housekeeper.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ideally.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/identify.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ignore.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/illuminate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/impact.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/imply.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/impose.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/impress.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/in_depth.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/inconsiderately.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/incorporate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/incur.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/indicator.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/individual.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/influence.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/influx.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ingredient.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/initiative.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/inspect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/inspiration.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/instinct.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/instrument.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/integral.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/intend.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/interaction.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/inventory.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/invest.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/investigate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/irritate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/item.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/itinerary.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/joint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/judge.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/keep_up_with.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/layout.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/lead%time.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/lease.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/leisure.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/lengthy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/level.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/liability.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/license.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/limit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/link.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/list.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/lobby.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/location.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/lock%into.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/logical.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/long_term.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/look_forward_to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/look_to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/look_up_to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/loyal.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/maintain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/majority.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/manage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mandatory.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/market.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/match.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/matter.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mention.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mentor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/merchandise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/merit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/method.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/minimize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mission.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mistake.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mix%up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mix.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/monitor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/mortgage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/move%up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/multiple.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/narrow.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/negotiate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/nervously.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/network.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/notify.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/obligate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/obtain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/obviously.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/occupy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/occur.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/offer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/offset.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/on_hand.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ontrack.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/open%to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/operate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/opt.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/option.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/optional.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/order.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/out_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/outdated.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/outlet.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/outstanding.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/overall.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/overcrowded.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/overview.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/owe.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/party.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/patron.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/penalty.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/perceptive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/perform.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/periodically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/permit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/personnel.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/perspective.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/persuasion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/pertinent.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/petition.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/physically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/pick%up.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/plan.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/policy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/popularity.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/portfolio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/portion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/position.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/potential.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/practice.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/preclude.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/predict.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/prefer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/preparation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/prerequisite.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/present.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/prevent.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/primarily.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/priority.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/procedure.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/process.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/productive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/profession.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/profile.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/profitably.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/progress.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/prohibit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/project.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/promise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/promote.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/promptly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/proof.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/prospective.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/protect.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/provider.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/provision.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/proximity.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/pull%out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/punctually.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/qualification.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/quality.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/quote.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/raise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/randomly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/range.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/rate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/realistic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reason.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/recognition.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/recommendation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reconcile.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/record.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/recruit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/rectify.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/recur.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reduction.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/refer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reflection.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/refund.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/regardless.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/register.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/regularly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/regulate.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/rehearse.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reinforce.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reject.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/relatively.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/relaxation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/release.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/relinquish.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/rely.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/remainder.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/remember.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/remind.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/remote.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/repel.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/replace.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/representation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reputation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/require.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/research.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/reservation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/resolve.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/resource.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/respond.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/responsibility.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/restore.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/restricted.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/result.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/retire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/return.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/review.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/revise.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/revolution.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/risk.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/run.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/salary.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/sample.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/satisfaction.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/scan.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/schedule.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/scrutiny.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/search.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/secure.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/select.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/sell%out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/sense.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/separately.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/serious.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/service.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/session.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/settle.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/setup.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/sharp.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/ship.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/shut_down.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/signature.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/significant.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/site.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/situation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/skill.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/smooth.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/software.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/solve.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/source.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/specialize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/specific.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/spectrum.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/spouse.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/stage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/statement.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/stationery.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/stay_on_top_of.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/stock.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/store.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/strategy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/strictly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/strong.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/subject%to.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/subjective.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/submit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/subscribe.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/substantially.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/substitution.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/subtract.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/success.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/successive.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/sufficiently.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/suggestion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/suit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/supervisor.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/supply.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/system.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/systematically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/take_back.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/take_out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/take_part_in.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/target.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/taste.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/technically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/tedious.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/tempt.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/terms.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/theme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/thorough.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/thrill.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/throw%out.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/tier.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/time_consuming.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/training.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/transaction.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/translation.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/trend.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/turnover.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/typically.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/uniformly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/update.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/urge.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/usually.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/valid.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/value.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/variety.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/verbally.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/verify.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/vested.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/volunteer.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/wage.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/warning.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/waste.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/weakly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/wisely.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/withhold.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/wrinkle.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/audio/yield.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice4/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/accounting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/airlines.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/apply_and_interviewing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/banking.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/board_meeting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/business_planning.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/car_rentals.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/computers_and_the_internet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/conferences.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/contracts.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/cook.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/correspondence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/dentists_office.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/doctors_office.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/eating_out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/electronics.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/events.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/financial_statements.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/general_travel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/health.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/hiring_and_training.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/hopitals.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/hotels.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/inventory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/investments.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/invoices.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/job_ads_and_recruitment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/marketing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/media.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/movies.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/museums.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/music.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/office_procedures.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/office_technology.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/ordering_lunch.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/ordering_supplies.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/pharmacy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/product_development.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/promotion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/property_and_departments.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/quality_control.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/renting_and_leasing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/salaries_and_benefits.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/selecting_a_restaurant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/shipping.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/shopping.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/taxes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/theater.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/trains.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/topic_image/warranties.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/Mix_up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/abide_by.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ability.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/abundant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accept.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/access.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accommodate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accomplishment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accounting.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accumulate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accurately.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/accustom%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/achievement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/acquire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/action.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/address.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/adhere%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/adjacent.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/adjustment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/admire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/admit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/advanced.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/affordable.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/agenda.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/agent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/aggressively.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/agreement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/allocate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/allow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/alternative.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/announcement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/annually.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/anxious.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/appeal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/apply.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/appointment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/appreciation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/apprehensive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/apprentice.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/approach.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/arrangement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/arrive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/as_need.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ascertain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/aspect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assemble.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assess.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/asset.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assignment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assist.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/association.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assume.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/assurance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/attainment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/attend.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/attitude.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/attract.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/audience.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/audit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/authorize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/automatically.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/available.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/avoid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/aware.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/balance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/bargain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/basic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/basis.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/be_aware_of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/be_in_charge_of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/be_made_of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/be_ready_for.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/bear.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/beforehand.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/behaviour.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/benefit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/beverage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/blanket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/board.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/borrow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/brand.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/bring%up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/bring_in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/bring_together.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/broaden.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/budget.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/build_up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/burden.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/business.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/busy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/calculation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/call_in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/cancellation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/candidate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/capacity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/carrier.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/casually.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/catalog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/catch%up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/category.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/cautiously.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/chain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/characteristic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/charge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/check%in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/checkout.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/choose.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/circumstance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/claim.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/client.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/code.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/coincide.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/collaboration.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/collection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/combine.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/come_up_with.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/comfort.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/commensurate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/commit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/commonly.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/compare.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/compatible.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/compensate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/competition.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/compile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/complete.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/complication.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/comprehensive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/compromise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/concentrate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/concern.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/conclude.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/condition.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/conducive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/conduct.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/confidence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/confirm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/conform.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/confusion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/consequence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/conservative.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/consider.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/constantly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/constitute.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/consult.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/consume.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/contact.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/continue.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/contribute.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/control.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/convenient.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/convince.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/coordinate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/courier.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/creative.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/criticism.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/crucial.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/culinary.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/currently.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/customer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/daringly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/deadline.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/deal%with.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/debt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/decade.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/decision.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/dedication.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/deduct.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/defect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/delay.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/delicately.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/delivery.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/deluxe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/demand.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/demonstrate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/depart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/description.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/designate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/desire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/destination.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/detail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/detect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/determine.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/develop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/diagnose.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/dialogue.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/dimension.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/directory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disappoint.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/discount.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/discrepancy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disparate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disperse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/display.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disruption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disseminate.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/distinguish.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/distraction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/disturb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/diversify.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/divide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/dividend.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/down%payment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/draw.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/due%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/duplicate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/durable.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/duration.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/economize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/effective.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/efficient.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/elegance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/element.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/eligible.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/embarkation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/emphasize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/encouragement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/engage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/enhance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/entertainment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/entitle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/equivalent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/escort.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/essentially.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/establish.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/estimate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/evaluate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/everyday.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/evident.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/exact.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/examine.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/excite.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/excursion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/expect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/expense.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/experience.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/experiment.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/expert.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/expired.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/explore.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/expose.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/express.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/extend.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/facilitate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/factor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/failure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fall%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/familiar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fare.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fashion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/favor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/figure_out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/file.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fill%out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/flavor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/flexibly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fluctuate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fold.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/follow_up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/forecast.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/forget.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/frequently.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fulfill.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/function.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/fund.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/garment.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/gather.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/general.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/generate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/get%out%of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/get_in_touch.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/give_up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/glimpse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/go%ahead.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/goal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/guide.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/habit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/hamper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/hesitant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/hire.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/hold.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/housekeeper.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ideally.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/identify.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ignore.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/illuminate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/impact.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/imply.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/impose.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/impress.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/in_depth.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/inconsiderately.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/incorporate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/incur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/indicator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/individual.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/influence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/influx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ingredient.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/initiative.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/inspect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/inspiration.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/instinct.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/instrument.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/integral.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/intend.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/interaction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/inventory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/invest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/investigate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/irritate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/item.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/itinerary.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/joint.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/judge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/keep_up_with.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/layout.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/lead%time.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/lease.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/leisure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/lengthy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/level.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/liability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/license.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/limit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/link.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/list.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/lobby%=%foyer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/location.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/lock%into.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/logical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/long_term.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/look_forward_to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/look_to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/look_up_to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/loyal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/maintain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/majority.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/manage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mandatory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/market.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/match.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/matter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mention.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mentor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/merchandise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/merit.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/method.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/minimize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mission.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mistake.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mix.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mo%rong.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/monitor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/mortgage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/move%up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/multiple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/narrow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/negotiate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/nervously.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/network.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/notify.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/obligate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/obviously.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/occupy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/occur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/offer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/offset.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/on%hand.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/on_track.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/open%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/operate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/opt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/option.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/optional.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/order.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/otain.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/out_of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/outdated.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/outlet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/outstanding.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/overall.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/overcrowded.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/overview.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/owe.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/party.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/patron.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/penalty.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/perceptive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/perform.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/periodically.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/permit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/personnel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/perspective.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/persuasion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/pertinent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/petition.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/physically.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/pick%up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/plan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/policy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/popularity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/portfolio.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/portion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/position.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/potential.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/practice.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/preclude.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/predict.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/prefer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/preparation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/prerequisite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/present.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/prevent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/primarily.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/priority.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/procedure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/process.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/productive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/profession.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/profitably.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/progress.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/prohibit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/project.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/promise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/promote.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/promptly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/proof.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/prospective.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/protect.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/provider.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/provision.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/proximity.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/pull%out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/punctually.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/qualifications.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/quality.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/quote.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/raise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/randomly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/range.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/rate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/realistic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reason.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/recognition.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/recommendation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reconcile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/record.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/recruit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/rectify.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/recur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reduction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/refer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reflection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/refund.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/regardless.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/register.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/regularl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/regulate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/rehearse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reinforce.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reject.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/relatively.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/relaxation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/release.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/relinquish.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/rely.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/remainder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/remember.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/remind.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/remote.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/repel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/replace.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/representation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reputation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/require.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/research.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/reservation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/resolve.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/resource.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/respond.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/responsibility.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/restore.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/restricted.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/result.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/retire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/return.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/review.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/revise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/revolution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/risk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/run.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/salary.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/sample.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/satisfaction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/scan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/schedule.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/scrutiny.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/search.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/secure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/select.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/sell%out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/sense.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/separately.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/serious.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/service.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/session.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/set_up.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/settle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/sharp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/ship.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/shut_down.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/signature.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/significant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/site.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/situation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/skill.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/smooth.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/software.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/solve.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/source.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/specialize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/specific.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/spectrum.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/spouse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/stage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/statement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/stationery.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/stay_on_top_of.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/stock.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/store.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/strategy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/strictly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/strong.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/subject%to.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/subjective.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/submit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/subscribe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/substantially.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/substitution.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/subtract.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/success.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/successive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/sufficiently.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/suggestion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/suit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/supervisor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/supply.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/system.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/systematically.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/take%back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/take%out.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/take_part_in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/target.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/taste.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/technically.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/tedious.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/tempt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/terms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/theme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/thorough.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/thrill.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/throw%out.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/tier.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/time_consuming.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/training.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/transaction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/translation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/trend.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/turnover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/typically.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/uniformly.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/update.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/urge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/usually.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/valid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/value.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/variety.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/verbally.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/verify.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/vested.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/volunteer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/wage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/warning.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/waste.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/weak.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/wisely.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/withhold.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/wrinkle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice4/word_image/yield.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/syntax/sql/connectExample.py" beforeDir="false" afterPath="$PROJECT_DIR$/syntax/sql/connectExample.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/LearnPython$connectExample.coverage" NAME="connectExample Coverage Results" MODIFIED="1537891359874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/sql" />
+    <SUITE FILE_PATH="coverage/LearnPython$InteractingDB.coverage" NAME="InteractingDB Coverage Results" MODIFIED="1538808624977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice4" />
     <SUITE FILE_PATH="coverage/LearnPython$vnexpress.coverage" NAME="vnexpress Coverage Results" MODIFIED="1538058976609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice" />
+    <SUITE FILE_PATH="coverage/LearnPython$connectExample.coverage" NAME="connectExample Coverage Results" MODIFIED="1538796915687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/sql" />
+    <SUITE FILE_PATH="coverage/LearnPython$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1538804543530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice4" />
     <SUITE FILE_PATH="coverage/LearnPython$time_strptime_example.coverage" NAME="time_strptime_example Coverage Results" MODIFIED="1537883841712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/date_time" />
     <SUITE FILE_PATH="coverage/LearnPython$time_mktime_example.coverage" NAME="time_mktime_example Coverage Results" MODIFIED="1537883719787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/date_time" />
     <SUITE FILE_PATH="coverage/LearnPython$app.coverage" NAME="app Coverage Results" MODIFIED="1538057972744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice" />
@@ -23,18 +1270,34 @@
     <SUITE FILE_PATH="coverage/LearnPython$time_asctime_ctime_example.coverage" NAME="time_asctime_ctime_example Coverage Results" MODIFIED="1537883786017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/date_time" />
     <SUITE FILE_PATH="coverage/LearnPython$time_gmtimeExample.coverage" NAME="time_gmtimeExample Coverage Results" MODIFIED="1537883646080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/syntax/date_time" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1884700767">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="5" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,57 +1306,46 @@
           <entry key="css" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="9" />
-          <entry key="json" value="1" />
+          <entry key="json" value="5" />
           <entry key="nt" value="3" />
-          <entry key="py" value="18" />
+          <entry key="py" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="9" />
-          <entry key="JSON" value="1" />
+          <entry key="JSON" value="5" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="18" />
+          <entry key="Python" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="923" />
           <entry key="nt" value="185" />
-          <entry key="py" value="1479" />
+          <entry key="py" value="2430" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="923" />
           <entry key="PLAIN_TEXT" value="185" />
-          <entry key="Python" value="1479" />
+          <entry key="Python" value="2425" />
+          <entry key="SQL" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practice5/main.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/practice4/InteractingDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="223">
+              <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="18" />
               <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice4/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="48" />
-              <folding>
-                <element signature="e#67#76#0" expanded="true" />
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,13 +1415,14 @@
         <option value="$PROJECT_DIR$/practice/vnexpress.py" />
         <option value="$PROJECT_DIR$/practice4/600WordToiec/Topic" />
         <option value="$PROJECT_DIR$/practice4/600WordToiec/WordError.json" />
-        <option value="$PROJECT_DIR$/practice4/main.py" />
         <option value="$PROJECT_DIR$/practice3/redis_demo.py" />
         <option value="$PROJECT_DIR$/practice3/api.py" />
         <option value="$PROJECT_DIR$/practice3/run.sh" />
         <option value="$PROJECT_DIR$/practice3/api_demo.py" />
-        <option value="$PROJECT_DIR$/syntax/sql/connectExample.py" />
         <option value="$PROJECT_DIR$/practice5/main.py" />
+        <option value="$PROJECT_DIR$/syntax/sql/connectExample.py" />
+        <option value="$PROJECT_DIR$/practice4/main.py" />
+        <option value="$PROJECT_DIR$/practice4/InteractingDB.py" />
       </list>
     </option>
   </component>
@@ -207,17 +1460,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -233,25 +1476,19 @@
               <item name="LearnPython" type="462c0819:PsiDirectoryNode" />
               <item name="practice4" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LearnPython" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnPython" type="462c0819:PsiDirectoryNode" />
-              <item name="practice5" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -279,8 +1516,75 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.InteractingDB">
+    <configuration name="InteractingDB" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LearnPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice4/InteractingDB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="connectExample" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LearnPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/syntax/sql" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/syntax/sql/connectExample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LearnPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice4/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -291,20 +1595,30 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LearnPython" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice5/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.connectExample" />
+      <item itemvalue="Python.InteractingDB" />
+      <item itemvalue="Python.main (1)" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+      <list>
+        <item itemvalue="Python.InteractingDB" />
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.connectExample" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -329,31 +1643,47 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="979" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2802198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39953542" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29562983" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329849" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32876712" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39863014" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32876712" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.329849" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="R Packages" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="SciView" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -368,7 +1698,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/practice/vnexpress.py</url>
-          <line>21</line>
+          <line>24</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -381,6 +1711,11 @@
           <line>40</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/practice4/InteractingDB.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -389,12 +1724,20 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="35" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>item['topic_en']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>item['id']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>s.select_one('article').text</expression-string>
         <language-id>Python</language-id>
@@ -430,31 +1773,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>s.select_one('h1').contents</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>s.select_one('h1').contents.strip()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/flask/app.py" />
-    <entry file="file://$PROJECT_DIR$/practice/templates/detail_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/09-2018/25-09-2018-00-00.json" />
-    <entry file="file://$PROJECT_DIR$/practice2/run_practice2.sh" />
-    <entry file="file://$PROJECT_DIR$/practice/07-2018/17-07-2018-09-36.json" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-502983299/posix.py" />
     <entry file="file://$PROJECT_DIR$/practice/templates/folder_page.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -466,29 +1787,29 @@
     <entry file="file://$PROJECT_DIR$/practice/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="37" />
+          <caret line="3" column="33" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice2/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice/templates/home_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice2/run.bat" />
     <entry file="file://$PROJECT_DIR$/practice2/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -496,74 +1817,38 @@
     <entry file="file://$PROJECT_DIR$/practice2/templates/base_template.html" />
     <entry file="file://$PROJECT_DIR$/practice2/templates/test_extend_template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+        <state>
+          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/requests/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/requests/__init__.py" />
     <entry file="file://$PROJECT_DIR$/practice2/templates/test_cookie_session_template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice2/getBitcon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/arrow/parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/arrow/parser.py" />
     <entry file="file://$PROJECT_DIR$/practice/09-2018/27-09-2018-15-08.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/practice4/accounting.jpg" />
-    <entry file="file://$PROJECT_DIR$/practice4/word_image/abide_by.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice4/word_image/agreement.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice4/word_image/assurance.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/practice4/word_image/abide_by.jpg" />
+    <entry file="file://$PROJECT_DIR$/practice4/word_image/agreement.jpg" />
+    <entry file="file://$PROJECT_DIR$/practice4/word_image/assurance.jpg" />
     <entry file="file://$PROJECT_DIR$/practice/vnexpress.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="92" column="37" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="37" />
+          <caret line="92" column="37" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="37" />
           <folding>
             <element signature="e#54#63#0" expanded="true" />
           </folding>
@@ -572,95 +1857,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/practice4/600WordToiec.json" />
     <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/Topic" />
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-502983299/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="3623" column="34" lean-forward="false" selection-start-line="3623" selection-start-column="34" selection-end-line="3623" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/Topic.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/Word.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33719">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-502983299/builtins.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="1598" column="0" lean-forward="false" selection-start-line="1598" selection-start-column="0" selection-end-line="1598" selection-end-column="0" />
+          <caret line="1598" selection-start-line="1598" selection-end-line="1598" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/genericpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/WordError.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/genericpath.py" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
+          <first_editor />
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dump.rdb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_redis.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/redis/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="488" column="8" lean-forward="false" selection-start-line="488" selection-start-column="8" selection-end-line="488" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/run_redis.sh" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/redis/client.py" />
     <entry file="file://$PROJECT_DIR$/practice2/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -671,76 +1897,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice3/run.sh">
+    <entry file="file://$PROJECT_DIR$/practice3/run.sh" />
+    <entry file="file://$PROJECT_DIR$/practice3/redis_simple_demo.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/practice3/api_demo.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/codecs.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/bs4/element.py" />
+    <entry file="file://$PROJECT_DIR$/practice5/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice3/redis_simple_demo.py">
+    <entry file="file://$PROJECT_DIR$/syntax/file/file_example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="11" lean-forward="true" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        <state relative-caret-position="323">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="11" selection-end-line="19" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/__init__.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="119" column="12" lean-forward="false" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="12" />
+        <state relative-caret-position="188">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice3/api_demo.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="8" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/syntax/sql/connectExample.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="360">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="30" selection-end-line="32" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/codecs.py">
+    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/Topic.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/bs4/element.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymysql/cursors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="1360" column="8" lean-forward="false" selection-start-line="1360" selection-start-column="8" selection-end-line="1360" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="146">
+          <caret line="328" selection-start-line="328" selection-end-line="328" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/WordError.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice4/600WordToiec/Word.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice4/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="48" />
-          <folding>
-            <element signature="e#67#76#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="337">
+          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice5/main.py">
+    <entry file="file://$PROJECT_DIR$/practice4/InteractingDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state relative-caret-position="223">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="18" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
