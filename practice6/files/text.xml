@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">EnglishForKids</string>
+
+    <string name="text_hair">Hair</string>
+    <string name="text_head">Head</string>
+    <string name="text_eye">Eye</string>
+    <string name="text_ear">Ear</string>
+    <string name="text_nose">Nose</string>
+    <string name="text_mouth">Mouth</string>
+    <string name="text_neck">Neck</string>
+    <string name="text_chest">Chest</string>
+    <string name="text_arm">Arm</string>
+    <string name="text_stomach">Stomach</string>
+    <string name="text_hand">Hand</string>
+    <string name="text_leg">Leg</string>
+    <string name="text_knee">Knee</string>
+    <string name="text_foot">Foot</string>
+    <string name="text_toe">Toe</string>
+    <string name="text_helper_flash_card">It\'s exciting for baby, toddler, preschooler, kid and everyone who want to learn English. \n Let\'s discover the world with over 400 words with beautiful images, voices and sounds. All of us can enjoy 18 categories which designed professionally and they are totally FREE. \n\nCategories include: Numbers, Alphabet, Transportation, Colors, Shapes, Animals, Clothing, Household items, Music Instruments, Birds, Flowers, Fruits, School, Fishes, Vegetable &amp; Food,Sports and Traveling to discover the beautiful world.</string>
+    <string name="text_helper_sentences_game_topic_1">Answer that the Picture and Text are matched or not.</string>
+    <string name="text_helper_sentences_game_topic_2">Choose the correct sentence which is the text of picture.</string>
+    <string name="text_helper_sentences_game_topic_3">You need to drag and drop words to make a meaning sentence match with picture.</string>
+    <string name="text_helper_word_game_topic_1">Let\'s type words matching with picture displayed with text box.</string>
+    <string name="text_helper_word_game_topic_2">You need to choose the right picture which has the meaning with text below it.</string>
+    <string name="text_helper_word_game_topic_3">You need to drag and drop words to make a meaning word match with picture.</string>
+    <string name="text_helper_word_game_topic_4">Drag the text from center place to the correspond picture at above or below the center place.</string>
+    <string name="text_helper_word_game_topic_5">Choose the correct word which is the text of picture.</string>
+    <string name="text_helper_word_game_topic_6">You need to drag and drop 3 images from bottom places to the correct boxes. Each box will be a place of a picture which has a relationship with the picture you put in it. Example: Motorcycle and Airplane are 2 items which have same category of transportation relationship here.</string>
+    <string name="text_helper_word_game_topic_7">Answer that the Picture and Text are matched or not. Yes for the case of Picture match the Text meaning.</string>
+    <string name="text_helper_word_game_topic_8">Choose an Picture that don\'t have relationship with others. Example: A Bird is not related to a Knife, Plate, Bowl which are in the kitcheen items.</string>
+    <string name="text_helper_word_game_topic_9">You need to drag and drop Words or Numbers so that they can arrange in a sequence order like descendant or ascendant. Ex: 1,2,3,4,5,6</string>
+    <string name="text_helper_sentence">Sentences are a new level of children\'s learning. We categorized 6 menu items for sentence part. \n\nI am, Have something, Action Verb 1, Action Verb 2, Daily Routines, Senses and Feelings to help children can easily to start first step of making sentences. \nChildren are visual learners so having a wide range of pictures really helps them to focus on the new sentences they are learning. Currently, we use tatoeba.org for audio sentences.</string>
+</resources>
