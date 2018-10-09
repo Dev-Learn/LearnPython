@@ -35,12 +35,12 @@ def upload():
             listValue = []
             for item in items:
                 listName.append(item.attributes['name'].value)
-                listValue.append(item.firstChild.data)
+                data = item.firstChild
+                listValue.append(data.data if data else '')
             targetExcel = os.path.join(APP_ROOT, 'excels')
             if not os.path.isdir(targetExcel):
                 os.mkdir(targetExcel)
-            excelFile = '/'.join([targetExcel, 'localize.xlsx'])
-            workbook = xlsxwriter.Workbook(excelFile)
+            workbook = xlsxwriter.Workbook('/'.join([targetExcel, 'localize.xlsx']))
             worksheet = workbook.add_worksheet()
             worksheet.write('A1', 'Name')
             worksheet.write('B1', 'Value')
@@ -48,12 +48,11 @@ def upload():
             worksheet.write_column('B2',listValue)
             workbook.close()
 
-    return render_template('complete.html',path = excelFile)
+    return render_template('complete.html',path = 'localize.xlsx')
 
-@app.route('/download-files/<path>', methods=['GET'])
-def return_file(path):
-    return send_from_directory(directory='uploads', filename=path, as_attachment=True)
-
+@app.route('/download-files/<path:filename>', methods=['GET', 'POST'])
+def download(filename):
+    return send_from_directory(directory='excels', filename=filename,as_attachment=True)
 
 if __name__ == '__main__':
     app.run(port=3555, debug=True)
