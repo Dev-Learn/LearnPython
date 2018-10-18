@@ -73,25 +73,32 @@ def insertTaskFollowIdToDo():
 
 @app.route('/todos')
 def getAllTodos():
-    # try:
-    mycursor = connection.cursor()
-    mycursor.execute('SELECT * FROM `todos`')
-    data = {'success': True, 'results': mycursor.fetchall()}
-    return make_response(json.dumps(data))
+    try:
+        mycursor = connection.cursor(pymysql.cursors.DictCursor)
+        mycursor.execute('SELECT * FROM `todos`')
+        data = {'success': True, 'results': mycursor.fetchall()}
+        return make_response(json.dumps(data))
+    except :
+        print("Error")
     # finally:
-    #     connection.close()
+    #     connection.close()\
+    return make_response(json.dumps({'success' : False}))
 
 @app.route('/task',methods=['POST'])
 def getTaskFollowIdToDo():
-    id = request.form.get('todoId')
-    # try:
-    mycursor = connection.cursor()
-    mycursor.execute('SELECT * FROM `tasks` WHERE todoId = %s' % id)
-    data = {'success': True, 'results': mycursor.fetchall()}
-    return make_response(json.dumps(data))
+    try:
+        id = request.form.get('todoId')
+        # try:
+        mycursor = connection.cursor(pymysql.cursors.DictCursor)
+        mycursor.execute('SELECT * FROM `tasks` WHERE todoId = %s' % id)
+        data = {'success': True, 'results': mycursor.fetchall()}
+        return make_response(json.dumps(data))
+    except:
+        print("Error")
+    return make_response(json.dumps({'success': False}))
 
 
 if __name__ == '__main__':
     # insertTodosTable()
     # insertTaskFollowIdToDo()
-    app.run(debug=True)
+    app.run(host='192.168.7.61',debug=True)
