@@ -3,7 +3,7 @@ import bs4
 import time
 import requests
 
-URL = 'https://www.examenglish.com/TOEIC/TOEIC_reading.htm'
+URL = 'https://www.examenglish.com/TOEIC/TOEIC_reading.html'
 
 # install chromedriver
 # install ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
