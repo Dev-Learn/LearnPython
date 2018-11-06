@@ -5,7 +5,7 @@ import pymysql
 import requests
 from selenium import webdriver
 
-SOURCE_URL = 'https://blogtruyen.com/danhsach/tatca'
+SOURCE_URL = 'https://blogtruyen.com/theloai/truyen-full'
 data = []
 
 # Kết nối vào database.
@@ -17,7 +17,7 @@ connection = pymysql.connect(host='localhost',
 
 
 def main():
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
     driver.implicitly_wait(30)
     driver.get(SOURCE_URL)
     source = driver.page_source
@@ -31,7 +31,7 @@ def clickNextPage(source, driver):
     if page == '4':
         print('close')
         return
-    driver.find_element_by_xpath("//a[contains(@href, 'LoadListMangaPage(%s)')]" % str(int(page) + 1)).click()
+    driver.find_element_by_xpath("//a[contains(@href, 'LoadMangaPage(%s)')]" % str(int(page) + 1)).click()
     driver.implicitly_wait(30)
     time.sleep(2)
     source = driver.page_source
@@ -60,6 +60,9 @@ def getComic(data):
         s = bs4.BeautifulSoup(r.content, 'lxml')
         description = s.select_one('div.detail > div.content').text
         comic['description'] = description
+        image = s.select_one('div.thumbnail > img')
+        image = image.attrs['src'] if image else ''
+        comic['image'] = image
         genre = []
         for item in s.select('span.category'):
             genre.append(item.text)
@@ -69,23 +72,20 @@ def getComic(data):
         for i in range(images.__len__() - 1,-1,-1):
             linkImage = images[i].select_one('a')
             linkImage = linkImage.attrs['href'] if linkImage else ''
-            listImages.append(getImagesComic("https://blogtruyen.com/%s" % linkImage))
+            getImagesComic("https://blogtruyen.com/%s" % linkImage, listImages)
         comic['linkImages'] = listImages
     return comic
 
 
-def getImagesComic(link):
+def getImagesComic(link,listImages):
     r = requests.get(link)
     print(r.url)
-    linkImages = []
     if r.ok:
         s = bs4.BeautifulSoup(r.content, 'lxml')
-        items = s.select('article')
+        items = s.select('article > img')
         for item in items:
-            linkImage = item.select_one('img')
-            linkImage = linkImage.attrs['src'] if linkImage else ''
-            linkImages.append(linkImage)
-    return linkImages
+            linkImage = item.attrs['src']
+            listImages.append(linkImage)
 
 
 if __name__ == '__main__':
@@ -95,17 +95,17 @@ if __name__ == '__main__':
         try:
             mycursor = connection.cursor()
             mycursor.execute(
-                'CREATE TABLE IF NOT EXISTS linkimage (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY , idcomic INT ,image VARCHAR(255))')
+                'CREATE TABLE IF NOT EXISTS linkimage (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY , idcomic INT ,image VARCHAR(255))')
             mycursor.execute(
                 'CREATE TABLE IF NOT EXISTS genre (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, idcomic INT ,genre VARCHAR(255))')
             mycursor.execute(
-                'CREATE TABLE IF NOT EXISTS comic (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), description VARCHAR(255)) DEFAULT CHARSET=utf8')
+                'CREATE TABLE IF NOT EXISTS comic (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), description VARCHAR(255),image VARCHAR(255)) DEFAULT CHARSET=utf8')
             for item in data:
                 # print('Link : ' + link)
                 try:
                     comic = getComic(item)
-                    sql = 'INSERT INTO comic (title,description) VALUES (%s, %s)'
-                    val = (comic['title'], comic['description'])
+                    sql = 'INSERT INTO comic (title,description,image) VALUES (%s, %s, %s)'
+                    val = (comic['title'], comic['description'],comic['image'])
                     mycursor.execute(sql, val)
                     connection.commit()
                     id = mycursor.lastrowid
