@@ -12,8 +12,8 @@ connection = pymysql.connect(host='localhost',
 app = Flask(__name__)
 
 
-@app.route('/getComic')
-def getComic():
+@app.route('/getComicOffset')
+def getComicOffset():
     try:
         offset = request.args.get('offset')
         count = request.args.get('count')
@@ -27,19 +27,45 @@ def getComic():
     except Exception as e:
         return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
 
+@app.route('/getComic')
+def getComic():
+    try:
+        after = request.args.get('after')
+        limit = request.args.get('limit')
+        mycursor = connection.cursor()
+        if after:
+            mycursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after),str(limit)))
+        else:
+            mycursor.execute("SELECT * FROM comic LIMIT %s" % (str(limit)))
+        comics = mycursor.fetchall()
+        for comic in comics:
+            mycursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
+            comic['genre'] = mycursor.fetchall()
+        return Response(json.dumps({'success': True, 'result': comics}), mimetype='application/json')
+    except Exception as e:
+        return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
+
 
 @app.route('/getComicImage', methods=['POST'])
 def getComicImage():
     try:
-        requestBody = request.json
+        after = request.args.get('after')
+        limit = request.args.get('limit')
+        idComic = request.json
         # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         mycursor = connection.cursor()
-        mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s,%s" % (
-            str(requestBody['id']), str(requestBody['offset']), str(requestBody['count'])))
+
+        if after:
+            mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
+                str(idComic), after, limit))
+        else:
+            mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s" % (
+                str(idComic), limit))
+
         return Response(json.dumps({'success': True, 'result': mycursor.fetchall()}), mimetype='application/json')
     except Exception as e:
         return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="192.168.7.61",debug=True)
