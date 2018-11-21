@@ -1,5 +1,6 @@
 import json
 import pymysql
+import pyrebase
 from flask import Flask, request, Response
 
 connection = pymysql.connect(host='localhost',
@@ -10,6 +11,8 @@ connection = pymysql.connect(host='localhost',
                              cursorclass=pymysql.cursors.DictCursor)
 
 app = Flask(__name__)
+
+
 
 
 @app.route('/getComicOffset')
@@ -27,6 +30,7 @@ def getComicOffset():
     except Exception as e:
         return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
 
+
 @app.route('/getComic')
 def getComic():
     try:
@@ -34,7 +38,7 @@ def getComic():
         limit = request.args.get('limit')
         mycursor = connection.cursor()
         if after:
-            mycursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after),str(limit)))
+            mycursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
         else:
             mycursor.execute("SELECT * FROM comic LIMIT %s" % (str(limit)))
         comics = mycursor.fetchall()
@@ -46,26 +50,29 @@ def getComic():
         return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
 
 
-@app.route('/getComicImage', methods=['POST'])
-def getComicImage():
+@app.route('/getComicImage/<int:id>')
+def getComicImage(id):
     try:
         after = request.args.get('after')
         limit = request.args.get('limit')
-        idComic = request.json
+        # idComic = request.json
         # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         mycursor = connection.cursor()
 
         if after:
             mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
-                str(idComic), after, limit))
+                str(id), after, limit))
         else:
             mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s" % (
-                str(idComic), limit))
+                str(id), limit))
 
-        return Response(json.dumps({'success': True, 'result': mycursor.fetchall()}), mimetype='application/json')
+        data = mycursor.fetchall()
+        mycursor.close()
+        return Response(json.dumps({'success': True, 'result': data}), mimetype='application/json')
     except Exception as e:
+
         return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.7.61",debug=True)
+    app.run(host="192.168.7.152", debug=True)
