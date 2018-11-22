@@ -1,1 +1,4 @@
 *.xml
+/LearnPython.iml
+/misc.xml
+/workspace.xml
