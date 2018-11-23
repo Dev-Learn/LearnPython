@@ -3,8 +3,6 @@ from flask import Flask, make_response,request
 import time
 import json
 
-from multiprocessing import Process
-
 # Kết nối vào database.
 connection = pymysql.connect(host='localhost',
                              user='root',
