@@ -9,21 +9,19 @@ config = {
     "messagingSenderId": "132293237205"
 }
 
-
 firebase = pyrebase.initialize_app(config=config)
 
 auth = firebase.auth()
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    email = input("Please input email")
-    password = input("Please input password")
+# email = input("Please input email")
+# password = input("Please input password")
 
-    user = auth.create_user_with_email_and_password(email,password)
+# user = auth.create_user_with_email_and_password(email,password)
 #
 #     user = auth.sign_in_with_email_and_password(email,password)
 #
-    if user['idToken']:
-        print(auth.get_account_info(user['idToken']))
-#         # auth.send_email_verification(user['idToken'])
-
+# if user['idToken']:
+# print(auth.get_account_info(user['idToken']))
+# auth.send_email_verification(user['idToken'])

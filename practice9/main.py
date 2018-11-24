@@ -2,9 +2,12 @@ import json
 import pymysql
 from requests import HTTPError
 from secrets import token_hex
+from flask import jsonify
 
 from practice10.main import auth
 from flask import Flask, request, Response
+
+from util.error import ErrorHandler
 
 connection = pymysql.connect(host='localhost',
                              user='root',
@@ -15,7 +18,11 @@ connection = pymysql.connect(host='localhost',
 
 app = Flask(__name__)
 
-KEY_PASSWORD = 'Key Password'
+INVALID_TOKEN = 401
+SERVER_ERROR = 500
+BAD_REQUEST = 400
+NOT_FOUND = 404
+VERIFY_EMAIL = 600
 
 
 @app.route('/getComicOffset')
@@ -25,7 +32,7 @@ def getComicOffset():
         offset = request.args.get('offset')
         count = request.args.get('count')
         if not token:
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
         mycursor = connection.cursor()
         if validToken(mycursor, token):
             mycursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
@@ -34,12 +41,12 @@ def getComicOffset():
                 mycursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
                 comic['genre'] = mycursor.fetchall()
             mycursor.close()
-            return Response(json.dumps({'success': True, 'result': comics}), mimetype='application/json')
+            return Response(json.dumps(comics), mimetype='application/json')
         else:
             mycursor.close()
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComic')
@@ -49,7 +56,7 @@ def getComic():
         after = request.args.get('after')
         limit = request.args.get('limit')
         if not token:
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
         mycursor = connection.cursor()
         if validToken(mycursor, token):
             if after:
@@ -61,12 +68,12 @@ def getComic():
                 mycursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
                 comic['genre'] = mycursor.fetchall()
             mycursor.close()
-            return Response(json.dumps({'success': True, 'result': comics}), mimetype='application/json')
+            return Response(json.dumps(comics), mimetype='application/json')
         else:
             mycursor.close()
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComicImage/<int:id>')
@@ -78,7 +85,7 @@ def getComicImage(id):
         # idComic = request.json
         # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         if not token:
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
         mycursor = connection.cursor()
         if validToken(mycursor, token):
             if after:
@@ -90,13 +97,12 @@ def getComicImage(id):
 
             data = mycursor.fetchall()
             mycursor.close()
-            return Response(json.dumps({'success': True, 'result': data}), mimetype='application/json')
+            return Response(json.dumps(data), mimetype='application/json')
         else:
             mycursor.close()
-            return Response(json.dumps({'success': False, 'message': 'Invalid Token'}), mimetype='application/json')
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-
-        return Response(json.dumps({'success': False, 'message': str(e)}), mimetype='application/json')
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/register', methods=['PUT'])
@@ -113,15 +119,12 @@ def register():
         val = (data['name'], data['email'], user['idToken'], '')
         mycursor.execute(sql, val)
         connection.commit()
-        if mycursor.rowcount > 0:
-            mycursor.close()
-            return Response(json.dumps({'success': True}), mimetype='application/json')
         mycursor.close()
-        return Response(json.dumps({'success': False}), mimetype='application/json')
+        return Response()
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
-        return Response(json.dumps({'success': False, 'message': error}), mimetype='application/json')
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
 
 
 @app.route('/login', methods=['POST'])
@@ -142,32 +145,40 @@ def login():
                 (data['email'],)
             )
             id = mycursor.fetchone()['id']
-            if id :
+            if id:
                 utoken = token_hex(32)
                 sql = "UPDATE user SET token = %s WHERE id = %s"
                 val = (utoken, str(id))
                 mycursor.execute(sql, val)
                 connection.commit()
                 mycursor.close()
-                return Response(json.dumps({'success': True, 'token': utoken}), mimetype='application/json')
+                return Response(json.dumps({'token': utoken}), mimetype='application/json')
             else:
                 mycursor.close()
-                return Response(json.dumps({'success': False, 'message': 'User Not Found'}), mimetype='application/json')
+                return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
-            return Response(json.dumps({'success': False, 'message': 'Verify email'}), mimetype='application/json')
+            return error_return(ErrorHandler('Verify email', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
-        return Response(json.dumps({'success': False, 'message': error}), mimetype='application/json')
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+
 
 def validToken(cursor, token):
     cursor.execute(
         "SELECT COUNT(*) FROM user WHERE token = %s",
-        (token)
+        token
     )
     count = cursor.fetchone()
     return count['COUNT(*)'] == 1
 
 
+@app.errorhandler(ErrorHandler)
+def error_return(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
+
+
 if __name__ == '__main__':
-    app.run(host="192.168.7.152", debug=True)
+    app.run(host="192.168.1.84", debug=True)
