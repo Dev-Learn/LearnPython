@@ -120,7 +120,7 @@ def register():
         mycursor.execute(sql, val)
         connection.commit()
         mycursor.close()
-        return Response()
+        return Response(json.dumps('Please verify email !!!'))
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
@@ -152,16 +152,48 @@ def login():
                 mycursor.execute(sql, val)
                 connection.commit()
                 mycursor.close()
-                return Response(json.dumps({'token': utoken}), mimetype='application/json')
+                return Response(json.dumps(utoken), mimetype='application/json')
             else:
                 mycursor.close()
                 return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
-            return error_return(ErrorHandler('Verify email', status_code=VERIFY_EMAIL))
+            return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+
+
+@app.route('/resetPassword', methods=['POST'])
+def resetPassword():
+    try:
+        data = request.json
+        print(data)
+        auth.send_password_reset_email(data)
+        return Response(json.dumps('Please check email !!!'))
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+
+
+@app.route('/sendEmailVerify', methods=['POST'])
+def sendEmailVerify():
+    try:
+        data = request.json
+        print(data['email'])
+        print(data['password'])
+        user = auth.sign_in_with_email_and_password(data['email'],data['password'])
+        auth.send_email_verification(user['idToken'])
+        return Response()
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 def validToken(cursor, token):
