@@ -28,13 +28,13 @@ VERIFY_EMAIL = 600
 
 @app.route('/getComicOffset')
 def getComicOffset():
+    mycursor = connection.cursor()
     try:
         token = request.headers.get('token')
         offset = request.args.get('offset')
         count = request.args.get('count')
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        mycursor = connection.cursor()
         if validToken(mycursor, token):
             mycursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
             comics = mycursor.fetchall()
@@ -47,18 +47,20 @@ def getComicOffset():
             mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
+        mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComic')
 def getComic():
+    mycursor = connection.cursor()
     try:
         token = request.headers.get('token')
         after = request.args.get('after')
         limit = request.args.get('limit')
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        mycursor = connection.cursor()
+
         if validToken(mycursor, token):
             if after:
                 mycursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
@@ -74,11 +76,13 @@ def getComic():
             mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
+        mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComicImage/<int:id>')
 def getComicImage(id):
+    mycursor = connection.cursor()
     try:
         token = request.headers.get('token')
         after = request.args.get('after')
@@ -87,7 +91,7 @@ def getComicImage(id):
         # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        mycursor = connection.cursor()
+
         if validToken(mycursor, token):
             if after:
                 mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
@@ -103,6 +107,7 @@ def getComicImage(id):
             mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
+        mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
@@ -112,10 +117,10 @@ def register():
     print(data['name'])
     print(data['email'])
     print(data['password'])
+    mycursor = connection.cursor()
     try:
         user = auth.create_user_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
-        mycursor = connection.cursor()
         sql = "INSERT INTO `user` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
         val = (data['name'], data['email'], user['idToken'], '')
         mycursor.execute(sql, val)
@@ -123,6 +128,7 @@ def register():
         mycursor.close()
         return Response(json.dumps('Please verify email !!!'))
     except HTTPError as e:
+        mycursor.close()
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
@@ -133,6 +139,7 @@ def login():
     data = request.json
     print(data['email'])
     print(data['password'])
+    mycursor = connection.cursor()
     try:
         user = auth.sign_in_with_email_and_password(data['email'], data['password'])
         token_firebase = user['idToken']
@@ -140,7 +147,6 @@ def login():
         info = auth.get_account_info(token_firebase)
         user = info['users'][0]
         if user['emailVerified']:
-            mycursor = connection.cursor()
             mycursor.execute(
                 "SELECT user.id FROM user WHERE email = %s",
                 (data['email'],)
@@ -158,6 +164,7 @@ def login():
                 mycursor.close()
                 return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
+            mycursor.close()
             return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
@@ -214,4 +221,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
