@@ -9,9 +9,10 @@ from flask import Flask, request, Response
 
 from util.error import ErrorHandler
 
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             db='comic',
+connection = pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
+                             user='b40fd74efb18c2',
+							 password='e2547e43',
+                             db='heroku_4a4d86265c8552e',
                              use_unicode=True,
                              charset='utf8',
                              cursorclass=pymysql.cursors.DictCursor)
@@ -213,4 +214,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.84", debug=True)
+    app.run(host="https://api-for-manga.herokuapp.com/", debug=True)
