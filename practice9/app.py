@@ -17,6 +17,8 @@ connection = pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
                              charset='utf8',
                              cursorclass=pymysql.cursors.DictCursor)
 
+connection.execute('set max_allowed_packet=67108864')
+
 app = Flask(__name__)
 
 INVALID_TOKEN = 401
