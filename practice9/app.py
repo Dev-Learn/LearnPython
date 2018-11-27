@@ -17,7 +17,10 @@ connection = pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
                              charset='utf8',
                              cursorclass=pymysql.cursors.DictCursor)
 
-connection.execute('set max_allowed_packet=67108864')
+mycursor = connection.cursor()
+
+mycursor.execute('set max_allowed_packet=67108864')
+mycursor.close()
 
 app = Flask(__name__)
 
@@ -36,7 +39,7 @@ def getComicOffset():
         offset = request.args.get('offset')
         count = request.args.get('count')
 
-        cursor = connection.cursor()
+        cursor = connection.cursor(buffered=True)
 
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
@@ -46,13 +49,13 @@ def getComicOffset():
             for comic in comics:
                 cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
                 comic['genre'] = cursor.fetchall()
-            # mycursor.close()
+            cursor.close()
             return Response(json.dumps(comics), mimetype='application/json')
         else:
-            # mycursor.close()
+            cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        # mycursor.close()
+        cursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
@@ -76,13 +79,12 @@ def getComic():
             for comic in comics:
                 cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
                 comic['genre'] = cursor.fetchall()
-            # mycursor.close()
+            cursor.close()
             return Response(json.dumps(comics), mimetype='application/json')
         else:
-            # mycursor.close()
+            cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        # mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
@@ -110,13 +112,12 @@ def getComicImage(id):
                     str(id), limit))
 
             data = cursor.fetchall()
-            # mycursor.close()
+            cursor.close()
             return Response(json.dumps(data), mimetype='application/json')
         else:
-            # mycursor.close()
+            cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        # mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
@@ -134,10 +135,9 @@ def register():
         val = (data['name'], data['email'], user['idToken'], '')
         cursor.execute(sql, val)
         connection.commit()
-        # mycursor.close()
+        cursor.close()
         return Response(json.dumps('Please verify email !!!'))
     except HTTPError as e:
-        # mycursor.close()
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
@@ -168,13 +168,13 @@ def login():
                 val = (utoken, str(id))
                 cursor.execute(sql, val)
                 connection.commit()
-                # mycursor.close()
+                cursor.close()
                 return Response(json.dumps(utoken), mimetype='application/json')
             else:
-                # mycursor.close()
+                cursor.close()
                 return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
-            # mycursor.close()
+            cursor.close()
             return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
