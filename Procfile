@@ -1,1 +1,1 @@
-web: python practice9/main.py
+web: gunicorn app:practice9/main
