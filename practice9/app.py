@@ -17,11 +17,6 @@ connection = pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
                              charset='utf8',
                              cursorclass=pymysql.cursors.DictCursor)
 
-mycursor = connection.cursor()
-
-mycursor.execute('set max_allowed_packet=67108864')
-mycursor.close()
-
 app = Flask(__name__)
 
 INVALID_TOKEN = 401
@@ -55,7 +50,6 @@ def getComicOffset():
             cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        cursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
