@@ -1,1 +1,1 @@
-web: python index.html
+web: python practice9/main.py
