@@ -1,3 +1,4 @@
+requests==2.11.1
 Flask==1.0.2
 pymysql==0.9.2
 pyrebase==3.0.27
