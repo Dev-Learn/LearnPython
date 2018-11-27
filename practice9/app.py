@@ -28,86 +28,93 @@ VERIFY_EMAIL = 600
 
 @app.route('/getComicOffset')
 def getComicOffset():
-    mycursor = connection.cursor()
+
     try:
         token = request.headers.get('token')
         offset = request.args.get('offset')
         count = request.args.get('count')
+
+        cursor = connection.cursor()
+
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        if validToken(mycursor, token):
-            mycursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
-            comics = mycursor.fetchall()
+        if validToken(cursor, token):
+            cursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
+            comics = cursor.fetchall()
             for comic in comics:
-                mycursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
-                comic['genre'] = mycursor.fetchall()
-            mycursor.close()
+                cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
+                comic['genre'] = cursor.fetchall()
+            # mycursor.close()
             return Response(json.dumps(comics), mimetype='application/json')
         else:
-            mycursor.close()
+            # mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        mycursor.close()
+        # mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComic')
 def getComic():
-    mycursor = connection.cursor()
     try:
         token = request.headers.get('token')
         after = request.args.get('after')
         limit = request.args.get('limit')
+
+        cursor = connection.cursor()
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validToken(mycursor, token):
+        if validToken(cursor, token):
             if after:
-                mycursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
+                cursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
             else:
-                mycursor.execute("SELECT * FROM comic LIMIT %s" % (str(limit)))
-            comics = mycursor.fetchall()
+                cursor.execute("SELECT * FROM comic LIMIT %s" % (str(limit)))
+            comics = cursor.fetchall()
             for comic in comics:
-                mycursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
-                comic['genre'] = mycursor.fetchall()
-            mycursor.close()
+                cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
+                comic['genre'] = cursor.fetchall()
+            # mycursor.close()
             return Response(json.dumps(comics), mimetype='application/json')
         else:
-            mycursor.close()
+            # mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        mycursor.close()
+        # mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
 @app.route('/getComicImage/<int:id>')
 def getComicImage(id):
-    mycursor = connection.cursor()
+
     try:
         token = request.headers.get('token')
         after = request.args.get('after')
         limit = request.args.get('limit')
+
+        cursor = connection.cursor()
+
         # idComic = request.json
         # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validToken(mycursor, token):
+        if validToken(cursor, token):
             if after:
-                mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
+                cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
                     str(id), after, limit))
             else:
-                mycursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s" % (
+                cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s" % (
                     str(id), limit))
 
-            data = mycursor.fetchall()
-            mycursor.close()
+            data = cursor.fetchall()
+            # mycursor.close()
             return Response(json.dumps(data), mimetype='application/json')
         else:
-            mycursor.close()
+            # mycursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
-        mycursor.close()
+        # mycursor.close()
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
 
@@ -117,18 +124,18 @@ def register():
     print(data['name'])
     print(data['email'])
     print(data['password'])
-    mycursor = connection.cursor()
     try:
+        cursor = connection.cursor()
         user = auth.create_user_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
         sql = "INSERT INTO `user` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
         val = (data['name'], data['email'], user['idToken'], '')
-        mycursor.execute(sql, val)
+        cursor.execute(sql, val)
         connection.commit()
-        mycursor.close()
+        # mycursor.close()
         return Response(json.dumps('Please verify email !!!'))
     except HTTPError as e:
-        mycursor.close()
+        # mycursor.close()
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
@@ -139,32 +146,33 @@ def login():
     data = request.json
     print(data['email'])
     print(data['password'])
-    mycursor = connection.cursor()
+
     try:
+        cursor = connection.cursor()
         user = auth.sign_in_with_email_and_password(data['email'], data['password'])
         token_firebase = user['idToken']
         print(token_firebase)
         info = auth.get_account_info(token_firebase)
         user = info['users'][0]
         if user['emailVerified']:
-            mycursor.execute(
+            cursor.execute(
                 "SELECT user.id FROM user WHERE email = %s",
                 (data['email'],)
             )
-            id = mycursor.fetchone()['id']
+            id = cursor.fetchone()['id']
             if id:
                 utoken = token_hex(32)
                 sql = "UPDATE user SET token = %s WHERE id = %s"
                 val = (utoken, str(id))
-                mycursor.execute(sql, val)
+                cursor.execute(sql, val)
                 connection.commit()
-                mycursor.close()
+                # mycursor.close()
                 return Response(json.dumps(utoken), mimetype='application/json')
             else:
-                mycursor.close()
+                # mycursor.close()
                 return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
-            mycursor.close()
+            # mycursor.close()
             return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
