@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn practice9/app:app
