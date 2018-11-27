@@ -185,13 +185,34 @@ def sendEmailVerify():
         data = request.json
         print(data['email'])
         print(data['password'])
-        user = auth.sign_in_with_email_and_password(data['email'],data['password'])
+        user = auth.sign_in_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
         return Response()
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+
+
+@app.route('/userInfo', methods=['POST'])
+def userInfo():
+    try:
+        token = request.headers.get('token')
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+        mycursor = connection.cursor()
+        if validToken(mycursor, token):
+            mycursor.execute(
+                "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user AS tbUser WHERE token = %s",
+                token
+            )
+            data = mycursor.fetchone()
+            return Response(json.dumps(data), mimetype='application/json')
+        else:
+            mycursor.close()
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
 
@@ -213,4 +234,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.84", debug=True)
+    app.run(host="192.168.7.152", debug=True)
