@@ -17,14 +17,15 @@ BAD_REQUEST = 400
 NOT_FOUND = 404
 VERIFY_EMAIL = 600
 
+
 def conn():
     return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
-                                 user='b40fd74efb18c2',
-                                 password='e2547e43',
-                                 db='heroku_4a4d86265c8552e',
-                                 use_unicode=True,
-                                 charset='utf8',
-                                 cursorclass=pymysql.cursors.DictCursor)
+                           user='b40fd74efb18c2',
+                           password='e2547e43',
+                           db='heroku_4a4d86265c8552e',
+                           use_unicode=True,
+                           charset='utf8',
+                           cursorclass=pymysql.cursors.DictCursor)
 
 
 @app.route('/getComicOffset')
@@ -209,6 +210,33 @@ def sendEmailVerify():
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+
+
+@app.route('/userInfo', methods=['POST'])
+def userInfo():
+    token = request.headers.get('token')
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
+
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validToken(cursor, token):
+            cursor.execute(
+                "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user AS tbUser WHERE token = %s",
+                token
+            )
+            data = cursor.fetchone()
+            return Response(json.dumps(data), mimetype='application/json')
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 def validToken(cursor, token):
