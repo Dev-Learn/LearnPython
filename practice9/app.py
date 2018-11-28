@@ -134,7 +134,7 @@ def register():
         val = (data['name'], data['email'], user['idToken'], '')
         cursor.execute(sql, val)
         connection.commit()
-        return Response(json.dumps('Please verify email !!!'))
+        return Response(json.dumps('Please verify email !!!'),mimetype='application/json')
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
@@ -188,7 +188,7 @@ def resetPassword():
     try:
         data = request.json
         auth.send_password_reset_email(data['email'])
-        return Response(json.dumps('Please check email !!!'))
+        return Response(json.dumps('Please check email !!!'),mimetype='application/json')
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
