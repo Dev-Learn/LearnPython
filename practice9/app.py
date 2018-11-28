@@ -1,128 +1,259 @@
-import bs4
-import time
-
+import json
 import pymysql
-import requests
-from selenium import webdriver
+from requests import HTTPError
+from secrets import token_hex
+from flask import jsonify
 
-SOURCE_URL = 'https://blogtruyen.com/theloai/truyen-full'
-data = []
+from practice10.main import auth
+from flask import Flask, request, Response
 
-# Kết nối vào database.
-connection = pymysql.connect(host='localhost',
-                             user='root',
-                             db='comic',
-                             charset='utf8',
-                             cursorclass=pymysql.cursors.DictCursor)
+from util.error import ErrorHandler
 
+app = Flask(__name__)
 
-def main():
-    driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
-    driver.implicitly_wait(30)
-    driver.get(SOURCE_URL)
-    source = driver.page_source
-    clickNextPage(source, driver)
+INVALID_TOKEN = 401
+SERVER_ERROR = 500
+BAD_REQUEST = 400
+NOT_FOUND = 404
+VERIFY_EMAIL = 600
 
 
-# noinspection PyUnreachableCode
-def clickNextPage(source, driver):
-    page = getData(source)
-    print(page)
-    if page == '4':
-        print('close')
-        return
-    driver.find_element_by_xpath("//a[contains(@href, 'LoadMangaPage(%s)')]" % str(int(page) + 1)).click()
-    driver.implicitly_wait(30)
-    time.sleep(2)
-    source = driver.page_source
-    clickNextPage(source, driver)
+def conn():
+    return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
+                           user='b40fd74efb18c2',
+                           password='e2547e43',
+                           db='heroku_4a4d86265c8552e',
+                           use_unicode=True,
+                           charset='utf8',
+                           cursorclass=pymysql.cursors.DictCursor)
 
 
-def getData(get):
-    s = bs4.BeautifulSoup(get, 'lxml')
-    page = s.select_one('div.paging > span.current_page').text
-    items = s.select('div.list > p > span.tiptip.fs-12.ellipsis')
-    for item in items:
-        title = item.select_one('a').text
-        link = item.select_one('a')
-        link = link.attrs['href'] if link else ''
-        data.append({'title' : title,'link': link})
+@app.route('/getComicOffset')
+def getComicOffset():
+    token = request.headers.get('token')
+    offset = request.args.get('offset')
+    count = request.args.get('count')
 
-    return page
+    connection = conn()
+    cursor = connection.cursor()
 
+    try:
 
-def getComic(data):
-    r = requests.get("https://blogtruyen.com/%s" % data['link'])
-    # print(r.url)
-    comic = {}
-    comic['title'] = data['title']
-    if r.ok:
-        s = bs4.BeautifulSoup(r.content, 'lxml')
-        description = s.select_one('div.detail > div.content').text
-        comic['description'] = description
-        image = s.select_one('div.thumbnail > img')
-        image = image.attrs['src'] if image else ''
-        comic['image'] = image
-        genre = []
-        for item in s.select('span.category'):
-            genre.append(item.text)
-        comic['genre'] = genre
-        images = s.select('div.list-wrap > p')
-        listImages = []
-        for i in range(images.__len__() - 1,-1,-1):
-            linkImage = images[i].select_one('a')
-            linkImage = linkImage.attrs['href'] if linkImage else ''
-            getImagesComic("https://blogtruyen.com/%s" % linkImage, listImages)
-        comic['linkImages'] = listImages
-    return comic
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+        if validToken(cursor, token):
+            cursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
+            comics = cursor.fetchall()
+            for comic in comics:
+                cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
+                comic['genre'] = cursor.fetchall()
+            cursor.close()
+            return Response(json.dumps(comics), mimetype='application/json')
+        else:
+            cursor.close()
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
-def getImagesComic(link,listImages):
-    r = requests.get(link)
-    print(r.url)
-    if r.ok:
-        s = bs4.BeautifulSoup(r.content, 'lxml')
-        items = s.select('article > img')
-        for item in items:
-            linkImage = item.attrs['src']
-            listImages.append(linkImage)
+@app.route('/getComic')
+def getComic():
+    token = request.headers.get('token')
+    after = request.args.get('after')
+    limit = request.args.get('limit')
+
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validToken(cursor, token):
+            if after:
+                cursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
+            else:
+                cursor.execute("SELECT * FROM comic LIMIT %s" % (str(limit)))
+            comics = cursor.fetchall()
+            for comic in comics:
+                cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
+                comic['genre'] = cursor.fetchall()
+            return Response(json.dumps(comics), mimetype='application/json')
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+@app.route('/getComicImage/<int:id>')
+def getComicImage(id):
+    token = request.headers.get('token')
+    after = request.args.get('after')
+    limit = request.args.get('limit')
+
+    connection = conn()
+    cursor = connection.cursor()
+    try:
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validToken(cursor, token):
+            if after:
+                cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
+                    str(id), after, limit))
+            else:
+                cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s LIMIT %s" % (
+                    str(id), limit))
+
+            data = cursor.fetchall()
+            return Response(json.dumps(data), mimetype='application/json')
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+@app.route('/register', methods=['PUT'])
+def register():
+    data = request.json
+    connection = conn()
+    cursor = connection.cursor()
+    try:
+        user = auth.create_user_with_email_and_password(data['email'], data['password'])
+        auth.send_email_verification(user['idToken'])
+        sql = "INSERT INTO `user` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
+        val = (data['name'], data['email'], user['idToken'], '')
+        cursor.execute(sql, val)
+        connection.commit()
+        return Response(json.dumps('Please verify email !!!'))
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
+        user = auth.sign_in_with_email_and_password(data['email'], data['password'])
+        token_firebase = user['idToken']
+        print(token_firebase)
+        info = auth.get_account_info(token_firebase)
+        user = info['users'][0]
+        if user['emailVerified']:
+            cursor.execute(
+                "SELECT user.id FROM user WHERE email = %s",
+                (data['email'],)
+            )
+            id = cursor.fetchone()['id']
+            if id:
+                utoken = token_hex(32)
+                sql = "UPDATE user SET token = %s WHERE id = %s"
+                val = (utoken, str(id))
+                cursor.execute(sql, val)
+                connection.commit()
+                return Response(json.dumps(utoken), mimetype='application/json')
+            else:
+                return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
+        else:
+            return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+@app.route('/resetPassword', methods=['POST'])
+def resetPassword():
+    try:
+        data = request.json
+        auth.send_password_reset_email(data['email'])
+        return Response(json.dumps('Please check email !!!'))
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+
+
+@app.route('/sendEmailVerify', methods=['POST'])
+def sendEmailVerify():
+    try:
+        data = request.json
+        user = auth.sign_in_with_email_and_password(data['email'], data['password'])
+        auth.send_email_verification(user['idToken'])
+        return Response()
+    except HTTPError as e:
+        response = e.args[0].response
+        error = response.json()['error']['message']
+        return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+
+
+@app.route('/userInfo', methods=['POST'])
+def userInfo():
+    token = request.headers.get('token')
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
+
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validToken(cursor, token):
+            cursor.execute(
+                "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user AS tbUser WHERE token = %s",
+                token
+            )
+            data = cursor.fetchone()
+            return Response(json.dumps(data), mimetype='application/json')
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+def validToken(cursor, token):
+    cursor.execute(
+        "SELECT COUNT(*) FROM user WHERE token = %s",
+        token
+    )
+    count = cursor.fetchone()
+    return count['COUNT(*)'] == 1
+
+
+@app.errorhandler(ErrorHandler)
+def error_return(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
 
 
 if __name__ == '__main__':
-    main()
-    if (data):
-        # print(data)
-        try:
-            mycursor = connection.cursor()
-            mycursor.execute(
-                'CREATE TABLE IF NOT EXISTS linkimage (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY , idcomic INT ,image VARCHAR(255))')
-            mycursor.execute(
-                'CREATE TABLE IF NOT EXISTS genre (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, idcomic INT ,genre VARCHAR(255))')
-            mycursor.execute(
-                'CREATE TABLE IF NOT EXISTS comic (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), description VARCHAR(255),image VARCHAR(255)) DEFAULT CHARSET=utf8')
-            for item in data:
-                # print('Link : ' + link)
-                try:
-                    comic = getComic(item)
-                    sql = 'INSERT INTO comic (title,description,image) VALUES (%s, %s, %s)'
-                    val = (comic['title'], comic['description'],comic['image'])
-                    mycursor.execute(sql, val)
-                    connection.commit()
-                    id = mycursor.lastrowid
-                    if id:
-                        for item in comic['genre']:
-                            sql = 'INSERT INTO genre (idcomic,genre) VALUES (%s, %s)'
-                            val = (id, item)
-                            mycursor.execute(sql, val)
-                            connection.commit()
-
-                        for item in comic['linkImages']:
-                            sql = 'INSERT INTO linkimage (idcomic,image) VALUES (%s, %s)'
-                            val = (id, item)
-                            mycursor.execute(sql, val)
-                            connection.commit()
-                except Exception as e:
-                    print('Error : %s' % str(e))
-
-        finally:
-            connection.close()
+    app.run()
