@@ -9,14 +9,6 @@ from flask import Flask, request, Response
 
 from util.error import ErrorHandler
 
-connection = pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
-                             user='b40fd74efb18c2',
-                             password='e2547e43',
-                             db='heroku_4a4d86265c8552e',
-                             use_unicode=True,
-                             charset='utf8',
-                             cursorclass=pymysql.cursors.DictCursor)
-
 app = Flask(__name__)
 
 INVALID_TOKEN = 401
@@ -25,16 +17,26 @@ BAD_REQUEST = 400
 NOT_FOUND = 404
 VERIFY_EMAIL = 600
 
+def conn():
+    return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
+                                 user='b40fd74efb18c2',
+                                 password='e2547e43',
+                                 db='heroku_4a4d86265c8552e',
+                                 use_unicode=True,
+                                 charset='utf8',
+                                 cursorclass=pymysql.cursors.DictCursor)
+
 
 @app.route('/getComicOffset')
 def getComicOffset():
+    token = request.headers.get('token')
+    offset = request.args.get('offset')
+    count = request.args.get('count')
+
+    connection = conn()
+    cursor = connection.cursor()
 
     try:
-        token = request.headers.get('token')
-        offset = request.args.get('offset')
-        count = request.args.get('count')
-
-        cursor = connection.cursor(buffered=True)
 
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
@@ -51,16 +53,21 @@ def getComicOffset():
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 @app.route('/getComic')
 def getComic():
-    try:
-        token = request.headers.get('token')
-        after = request.args.get('after')
-        limit = request.args.get('limit')
+    token = request.headers.get('token')
+    after = request.args.get('after')
+    limit = request.args.get('limit')
 
-        cursor = connection.cursor()
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
@@ -73,27 +80,25 @@ def getComic():
             for comic in comics:
                 cursor.execute("SELECT * FROM genre WHERE idcomic = %s" % comic['id'])
                 comic['genre'] = cursor.fetchall()
-            cursor.close()
             return Response(json.dumps(comics), mimetype='application/json')
         else:
-            cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 @app.route('/getComicImage/<int:id>')
 def getComicImage(id):
+    token = request.headers.get('token')
+    after = request.args.get('after')
+    limit = request.args.get('limit')
 
+    connection = conn()
+    cursor = connection.cursor()
     try:
-        token = request.headers.get('token')
-        after = request.args.get('after')
-        limit = request.args.get('limit')
-
-        cursor = connection.cursor()
-
-        # idComic = request.json
-        # print(requestBody['id'] + " - " + requestBody['offset'] + " - " + requestBody['count'])
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
@@ -106,45 +111,46 @@ def getComicImage(id):
                     str(id), limit))
 
             data = cursor.fetchall()
-            cursor.close()
             return Response(json.dumps(data), mimetype='application/json')
         else:
-            cursor.close()
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 @app.route('/register', methods=['PUT'])
 def register():
     data = request.json
-    print(data['name'])
-    print(data['email'])
-    print(data['password'])
+    connection = conn()
+    cursor = connection.cursor()
     try:
-        cursor = connection.cursor()
         user = auth.create_user_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
         sql = "INSERT INTO `user` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
         val = (data['name'], data['email'], user['idToken'], '')
         cursor.execute(sql, val)
         connection.commit()
-        cursor.close()
         return Response(json.dumps('Please verify email !!!'))
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
-    print(data['email'])
-    print(data['password'])
+
+    connection = conn()
+    cursor = connection.cursor()
 
     try:
-        cursor = connection.cursor()
         user = auth.sign_in_with_email_and_password(data['email'], data['password'])
         token_firebase = user['idToken']
         print(token_firebase)
@@ -162,25 +168,24 @@ def login():
                 val = (utoken, str(id))
                 cursor.execute(sql, val)
                 connection.commit()
-                cursor.close()
                 return Response(json.dumps(utoken), mimetype='application/json')
             else:
-                cursor.close()
                 return error_return(ErrorHandler('User Not Found', status_code=NOT_FOUND))
         else:
-            cursor.close()
             return error_return(ErrorHandler('Email not verify !!!', status_code=VERIFY_EMAIL))
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
 
 
 @app.route('/resetPassword', methods=['POST'])
 def resetPassword():
     try:
         data = request.json
-        print(data)
         auth.send_password_reset_email(data)
         return Response(json.dumps('Please check email !!!'))
     except HTTPError as e:
@@ -195,8 +200,6 @@ def resetPassword():
 def sendEmailVerify():
     try:
         data = request.json
-        print(data['email'])
-        print(data['password'])
         user = auth.sign_in_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
         return Response()
