@@ -187,7 +187,7 @@ def login():
 def resetPassword():
     try:
         data = request.json
-        auth.send_password_reset_email(data)
+        auth.send_password_reset_email(data['email'])
         return Response(json.dumps('Please check email !!!'))
     except HTTPError as e:
         response = e.args[0].response
