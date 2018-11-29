@@ -3,6 +3,7 @@ import pymysql
 from requests import HTTPError
 from secrets import token_hex
 from flask import jsonify
+import os
 
 from practice10.main import auth
 from flask import Flask, request, Response
@@ -10,12 +11,15 @@ from flask import Flask, request, Response
 from util.error import ErrorHandler
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 INVALID_TOKEN = 401
 SERVER_ERROR = 500
 BAD_REQUEST = 400
 NOT_FOUND = 404
 VERIFY_EMAIL = 600
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def conn():
@@ -41,7 +45,7 @@ def getComicOffset():
 
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        if validToken(cursor, token):
+        if validData(cursor, 'user', 'token', token):
             cursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
             comics = cursor.fetchall()
             for comic in comics:
@@ -72,7 +76,7 @@ def getComic():
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validToken(cursor, token):
+        if validData(cursor, 'user', 'token', token):
             if after:
                 cursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
             else:
@@ -103,7 +107,7 @@ def getComicImage(id):
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validToken(cursor, token):
+        if validData(cursor, 'user', 'token', token):
             if after:
                 cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
                     str(id), after, limit))
@@ -134,7 +138,7 @@ def register():
         val = (data['name'], data['email'], user['idToken'], '')
         cursor.execute(sql, val)
         connection.commit()
-        return Response(json.dumps('Please verify email !!!'),mimetype='application/json')
+        return Response(json.dumps('Please verify email !!!'), mimetype='application/json')
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
@@ -188,7 +192,7 @@ def resetPassword():
     try:
         data = request.json
         auth.send_password_reset_email(data['email'])
-        return Response(json.dumps('Please check email !!!'),mimetype='application/json')
+        return Response(json.dumps('Please check email !!!'), mimetype='application/json')
     except HTTPError as e:
         response = e.args[0].response
         error = response.json()['error']['message']
@@ -223,7 +227,7 @@ def userInfo():
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validToken(cursor, token):
+        if validData(cursor, 'user', 'token', token):
             cursor.execute(
                 "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user AS tbUser WHERE token = %s",
                 token
@@ -239,10 +243,62 @@ def userInfo():
         cursor.close()
 
 
-def validToken(cursor, token):
+@app.route('/updateInfo', methods=['POST'])
+def updateInfo():
+    token = request.headers.get('token')
+    connection = conn()
+    cursor = connection.cursor()
+    try:
+        id = request.form.get('id')
+        name = request.form.get('name')
+        email = request.form.get('email')
+        avarta = request.files['picture']
+
+        if not token or not id or not name or not email:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validData(cursor, 'user', 'token', token):
+            if validData(cursor, 'user', 'id', id):
+                sql = "UPDATE `user` SET `name` = %s , `email` = %s WHERE id = %s"
+                val = [name, email, id]
+                cursor.execute(sql, val)
+                connection.commit()
+
+                target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'avarta')
+                print(target)
+
+                if not os.path.isdir(target):
+                    os.mkdir(target)
+
+                filename = avarta.filename
+                destination = '/'.join([target, filename])
+                print(destination)
+                avarta.save(destination)
+
+                if validData(cursor, 'picture', 'id_user', id):
+                    sql2 = "UPDATE `picture` SET `link` = %s WHERE id_user = %s"
+                    val2 = [request.url_root + "/" + destination, id]
+                else:
+                    sql2 = "INSERT INTO `picture` (id_user, link) VALUES (%s, %s)"
+                    val2 = [id, request.url_root + "/" + destination]
+
+                cursor.execute(sql2, val2)
+                connection.commit()
+                return Response()
+            else:
+                return error_return(ErrorHandler('Not found User', status_code=BAD_REQUEST))
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+def validData(cursor, table, field, value):
     cursor.execute(
-        "SELECT COUNT(*) FROM user WHERE token = %s",
-        token
+        "SELECT COUNT(*) FROM %s WHERE %s = '%s'" % (table, field, value)
     )
     count = cursor.fetchone()
     return count['COUNT(*)'] == 1
