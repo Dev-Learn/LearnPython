@@ -5,7 +5,7 @@ from secrets import token_hex
 from flask import jsonify
 import os
 
-from practice10.main import auth
+from practice10.main import auth, storage
 from flask import Flask, request, Response
 
 from util.error import ErrorHandler
@@ -251,18 +251,15 @@ def updateInfo():
     try:
         id = request.form.get('id')
         name = request.form.get('name')
-        email = request.form.get('email')
         avarta = request.files['picture']
 
-        if not token or not id or not name or not email:
+        if not token or not id or not name:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
         if validData(cursor, 'user', 'token', token):
             if validData(cursor, 'user', 'id', id):
-                sql = "UPDATE `user` SET `name` = %s , `email` = %s WHERE id = %s"
-                val = [name, email, id]
-                cursor.execute(sql, val)
-                connection.commit()
+                sql = "UPDATE `user` SET `name` = %s WHERE id = %s"
+                val = [name, id]
 
                 target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'avarta')
                 print(target)
@@ -270,18 +267,22 @@ def updateInfo():
                 if not os.path.isdir(target):
                     os.mkdir(target)
 
-                filename = avarta.filename
-                destination = '/'.join([target, filename])
-                print(destination)
-                avarta.save(destination)
+                cursor.execute(
+                    "SELECT token_firebase FROM user WHERE id = '%s'" % id
+                )
+                token = cursor.fetchone()['token_firebase']
+
+                url = "images/%s" % id
+                storage.child(url).put(avarta,token)
 
                 if validData(cursor, 'picture', 'id_user', id):
                     sql2 = "UPDATE `picture` SET `link` = %s WHERE id_user = %s"
-                    val2 = [request.url_root + "/" + destination, id]
+                    val2 = [storage.child(url).get_url(token), id]
                 else:
                     sql2 = "INSERT INTO `picture` (id_user, link) VALUES (%s, %s)"
-                    val2 = [id, request.url_root + "/" + destination]
+                    val2 = [id, storage.child(url).get_url(token)]
 
+                cursor.execute(sql, val)
                 cursor.execute(sql2, val2)
                 connection.commit()
                 return Response()

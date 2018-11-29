@@ -13,6 +13,8 @@ firebase = pyrebase.initialize_app(config=config)
 
 auth = firebase.auth()
 
+storage = firebase.storage()
+
 # if __name__ == '__main__':
 # auth.send_password_reset_email("namtran09061992@gmail.com")
 # email = input("Please input email")
