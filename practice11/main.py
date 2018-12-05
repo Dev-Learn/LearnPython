@@ -1,5 +1,6 @@
 import bs4
 import time
+import requests
 
 import pymysql
 from selenium import webdriver
@@ -15,15 +16,14 @@ connection = pymysql.connect(host='localhost',
 
 
 def main():
-    driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
+    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
     driver.implicitly_wait(30)
     driver.get(SOURCE_URL)
     position = 0
     source = driver.page_source
     while position < 501:
         driver.find_element_by_xpath('//*[@id="__next"]/div/div[3]/div[1]/div[2]/div/div[2]/button').click()
-        driver.implicitly_wait(10)
-        time.sleep(1)
+        driver.implicitly_wait(5)
         source = driver.page_source
         position += 1
         print(position)
@@ -70,4 +70,53 @@ def getData(source):
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM article")
+    articles = cursor.fetchall()
+    for item in articles:
+        try:
+            r = requests.get(item['link'])
+            if r.ok:
+                s = bs4.BeautifulSoup(r.content, 'lxml')
+                author = s.select_one('div.author > a')
+                author_link = author.attrs['href'] if author else ''
+                author_name = ''
+                author_avarta = ''
+                author_image = author.select_one('img')
+                author_name = author_image.attrs['alt'] if author_image else ''
+                author_avarta = author_image.attrs['src'] if author_image else ''
+
+                cursor.execute("SELECT id FROM author WHERE link = '%s'" % pymysql.escape_string(author_link))
+                id = cursor.fetchone()
+
+                if id:
+                    cursor.execute("UPDATE article SET id_author = %s WHERE id = %s" % (id['id'], item['id']))
+                    connection.commit()
+                else:
+                    cursor.execute("INSERT author (author_name,avarta,link) VALUES ('%s','%s','%s')" % (
+                        author_name, author_avarta, author_link))
+                    connection.commit()
+                    cursor.execute("SELECT LAST_INSERT_ID()")
+                    id_author = cursor.fetchone()
+                    cursor.execute(
+                        "UPDATE article SET id_author = '%s' WHERE id = %s" % (
+                        id_author['LAST_INSERT_ID()'], item['id']))
+                    connection.commit()
+
+                detail = s.select('blockquote')
+                detail = detail[0] if detail.__len__() > 0 else ''
+                detail = detail.text if detail else ''
+
+                cursor.execute("INSERT article_detail (detail) VALUES ('%s')" % pymysql.escape_string(detail.strip()))
+                connection.commit()
+                cursor.execute("SELECT LAST_INSERT_ID()")
+
+                id_detail = cursor.fetchone()
+                cursor.execute("UPDATE article SET id_detail = '%s' WHERE id = %s" % (id_detail['LAST_INSERT_ID()'],item['id']))
+                connection.commit()
+        except Exception as e:
+            print(e)
+
+
