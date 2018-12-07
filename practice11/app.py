@@ -1,7 +1,7 @@
 import json
 
-from flask import Flask, request, Response, jsonify
 import pymysql
+from flask import Flask, request, Response
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
@@ -25,7 +25,8 @@ def getArticle():
     cursor = connection.cursor()
 
     if before:
-        cursor.execute("SELECT * FROM article WHERE article.id < %s LIMIT %s" % (str(before), str(limit)))
+        after_ = int(before) - int(limit) - 1
+        cursor.execute("SELECT * FROM article WHERE article.id < %s AND article.id > %s  LIMIT %s" % (str(before), str(after_), str(limit)))
     elif after:
         cursor.execute("SELECT * FROM article WHERE article.id > %s LIMIT %s" % (str(after), str(limit)))
     else:
@@ -41,8 +42,6 @@ def getArticle():
         item['detail'] = detail
 
     return Response(json.dumps(articles), mimetype='application/json')
-    # if articles:
-    #     pass
 
 
 if __name__ == '__main__':

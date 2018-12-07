@@ -273,7 +273,7 @@ def updateInfo():
                 token = cursor.fetchone()['token_firebase']
 
                 url = "images/%s" % id
-                storage.child(url).put(avarta,token)
+                storage.child(url).put(avarta, token)
 
                 if validData(cursor, 'picture', 'id_user', id):
                     sql2 = "UPDATE `picture` SET `link` = %s WHERE id_user = %s"
@@ -288,6 +288,53 @@ def updateInfo():
                 return Response()
             else:
                 return error_return(ErrorHandler('Not found User', status_code=BAD_REQUEST))
+        else:
+            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
+    finally:
+        connection.close()
+        cursor.close()
+
+
+@app.route('/getArticle')
+def getArticle():
+    after = request.args.get('after')
+    before = request.args.get('before')
+    limit = request.args.get('limit')
+
+    token = request.headers.get('token')
+
+    connection = conn()
+    cursor = connection.cursor()
+
+    try:
+
+        if not token:
+            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+
+        if validData(cursor, 'user', 'token', token):
+
+            if before:
+                after_ = int(before) - int(limit) - 1
+                cursor.execute(
+                    "SELECT * FROM article WHERE id < %s AND id > %s  LIMIT %s" % (
+                        str(before), str(after_), str(limit)))
+            elif after:
+                cursor.execute("SELECT * FROM article WHERE id > %s LIMIT %s" % (str(after), str(limit)))
+            else:
+                cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
+            articles = cursor.fetchall()
+            for item in articles:
+                cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
+                author = cursor.fetchone()
+                item['author'] = author
+
+                cursor.execute("SELECT * FROM article_detail WHERE id = %s" % item['id_detail'])
+                detail = cursor.fetchone()
+                item['detail'] = detail
+
+            return Response(json.dumps(articles), mimetype='application/json')
         else:
             return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
