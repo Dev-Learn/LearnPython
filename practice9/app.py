@@ -324,7 +324,7 @@ def getArticle():
                 cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
             articles = cursor.fetchall()
             if before:
-                articles = articles.reverse()
+                articles.reverse()
 
             for item in articles:
                 cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])

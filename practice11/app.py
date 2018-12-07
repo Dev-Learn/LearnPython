@@ -25,13 +25,15 @@ def getArticle():
     cursor = connection.cursor()
 
     if before:
-        after_ = int(before) - int(limit) - 1
-        cursor.execute("SELECT * FROM article WHERE article.id < %s AND article.id > %s  LIMIT %s" % (str(before), str(after_), str(limit)))
+        cursor.execute(
+            "SELECT * FROM article WHERE id < %s ORDER BY id DESC LIMIT %s" % (str(before), str(limit)))
     elif after:
         cursor.execute("SELECT * FROM article WHERE article.id > %s LIMIT %s" % (str(after), str(limit)))
     else:
         cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
     articles = cursor.fetchall()
+    if before:
+        articles.reverse()
     for item in articles:
         cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
         author = cursor.fetchone()
