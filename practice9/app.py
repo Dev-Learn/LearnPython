@@ -316,7 +316,7 @@ def getArticle():
         if validData(cursor, 'user', 'token', token):
 
             if before:
-                after_ = int(before) - int(limit) - 1
+                after_ = int(before) - int(limit)
                 cursor.execute(
                     "SELECT * FROM article WHERE id < %s AND id > %s  LIMIT %s" % (
                         str(before), str(after_), str(limit)))
