@@ -316,15 +316,15 @@ def getArticle():
         if validData(cursor, 'user', 'token', token):
 
             if before:
-                after_ = int(before) - int(limit)
                 cursor.execute(
-                    "SELECT * FROM article WHERE id < %s AND id > %s  LIMIT %s" % (
-                        str(before), str(after_), str(limit)))
+                    "SELECT * FROM article WHERE id < %s ORDER BY id DESC LIMIT %s" % (str(before), str(limit)))
             elif after:
                 cursor.execute("SELECT * FROM article WHERE id > %s LIMIT %s" % (str(after), str(limit)))
             else:
                 cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
             articles = cursor.fetchall()
+            if before:
+                articles = articles.__reversed__()
             for item in articles:
                 cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
                 author = cursor.fetchone()
