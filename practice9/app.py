@@ -45,7 +45,7 @@ def getComicOffset():
 
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
             cursor.execute("SELECT * FROM comic LIMIT %s,%s" % (offset, count))
             comics = cursor.fetchall()
             for comic in comics:
@@ -76,7 +76,7 @@ def getComic():
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
             if after:
                 cursor.execute("SELECT * FROM comic WHERE comic.id > %s LIMIT %s" % (str(after), str(limit)))
             else:
@@ -107,7 +107,7 @@ def getComicImage(id):
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
             if after:
                 cursor.execute("SELECT * FROM linkimage WHERE idcomic = %s AND linkimage.id > %s LIMIT %s" % (
                     str(id), after, limit))
@@ -134,7 +134,7 @@ def register():
     try:
         user = auth.create_user_with_email_and_password(data['email'], data['password'])
         auth.send_email_verification(user['idToken'])
-        sql = "INSERT INTO `user` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO `user_manga` (name, email, token_firebase, token) VALUES (%s, %s, %s, %s)"
         val = (data['name'], data['email'], user['idToken'], '')
         cursor.execute(sql, val)
         connection.commit()
@@ -163,13 +163,14 @@ def login():
         user = info['users'][0]
         if user['emailVerified']:
             cursor.execute(
-                "SELECT user.id FROM user WHERE email = %s",
+                "SELECT user_manga.id FROM user_manga WHERE email = %s",
                 (data['email'],)
             )
-            id = cursor.fetchone()['id']
+            id = cursor.fetchone()
             if id:
+                id = id['id']
                 utoken = token_hex(32)
-                sql = "UPDATE user SET token = %s WHERE id = %s"
+                sql = "UPDATE user_manga SET token = %s WHERE id = %s"
                 val = (utoken, str(id))
                 cursor.execute(sql, val)
                 connection.commit()
@@ -182,6 +183,8 @@ def login():
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
     finally:
         connection.close()
         cursor.close()
@@ -227,9 +230,9 @@ def userInfo():
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
             cursor.execute(
-                "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user AS tbUser WHERE token = %s",
+                "SELECT tbUser.id,tbUser.name,tbUser.email,(SELECT link FROM picture WHERE id_user = tbUser.id) as avarta FROM user_manga AS tbUser WHERE token = %s",
                 token
             )
             data = cursor.fetchone()
@@ -256,9 +259,9 @@ def updateInfo():
         if not token or not id or not name:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
             if validData(cursor, 'user', 'id', id):
-                sql = "UPDATE `user` SET `name` = %s WHERE id = %s"
+                sql = "UPDATE `user_manga` SET `name` = %s WHERE id = %s"
                 val = [name, id]
 
                 target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'avarta')
@@ -268,7 +271,7 @@ def updateInfo():
                     os.mkdir(target)
 
                 cursor.execute(
-                    "SELECT token_firebase FROM user WHERE id = '%s'" % id
+                    "SELECT token_firebase FROM user_manga WHERE id = '%s'" % id
                 )
                 token = cursor.fetchone()['token_firebase']
 
@@ -313,7 +316,7 @@ def getArticle():
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user', 'token', token):
+        if validData(cursor, 'user_manga', 'token', token):
 
             if before:
                 cursor.execute(
@@ -361,4 +364,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="192.168.1.84")
