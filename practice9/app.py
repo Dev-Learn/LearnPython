@@ -323,7 +323,7 @@ def getArticle():
             else:
                 cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
             articles = cursor.fetchall()
-            if before:
+            if before and articles:
                 articles.reverse()
 
             for item in articles:

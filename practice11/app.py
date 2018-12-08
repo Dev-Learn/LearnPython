@@ -32,7 +32,7 @@ def getArticle():
     else:
         cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
     articles = cursor.fetchall()
-    if before:
+    if before and articles:
         articles.reverse()
     for item in articles:
         cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
@@ -47,4 +47,4 @@ def getArticle():
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.7.152', debug=True)
+    app.run(host='192.168.1.84', debug=True)
