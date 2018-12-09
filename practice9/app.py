@@ -23,10 +23,9 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def conn():
-    return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
-                           user='b40fd74efb18c2',
-                           password='e2547e43',
-                           db='heroku_4a4d86265c8552e',
+    return pymysql.connect(host='localhost',
+                           user='root',
+                           db='comic',
                            use_unicode=True,
                            charset='utf8',
                            cursorclass=pymysql.cursors.DictCursor)
@@ -143,6 +142,8 @@ def register():
         response = e.args[0].response
         error = response.json()['error']['message']
         return error_return(ErrorHandler(error, status_code=SERVER_ERROR))
+    except Exception as e:
+        return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
     finally:
         connection.close()
         cursor.close()
@@ -226,7 +227,6 @@ def userInfo():
     cursor = connection.cursor()
 
     try:
-
         if not token:
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
@@ -260,7 +260,7 @@ def updateInfo():
             return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
         if validData(cursor, 'user_manga', 'token', token):
-            if validData(cursor, 'user', 'id', id):
+            if validData(cursor, 'user_manga', 'id', id):
                 sql = "UPDATE `user_manga` SET `name` = %s WHERE id = %s"
                 val = [name, id]
 
@@ -364,4 +364,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.84")
+    app.run(host="192.168.1.84", debug=True)
