@@ -4,6 +4,7 @@ import time
 import pymysql
 import requests
 from selenium import webdriver
+from datetime import datetime, timedelta
 
 SOURCE_URL = 'https://blogtruyen.com/danhsach/tatca'
 data = []
@@ -46,7 +47,7 @@ def getData(get):
         title = item.select_one('a').text
         link = item.select_one('a')
         link = link.attrs['href'] if link else ''
-        data.append({'title' : title,'link': link})
+        data.append({'title': title, 'link': link})
 
     return page
 
@@ -66,7 +67,7 @@ def getComic(data):
         comic['genre'] = genre
         images = s.select('div.list-wrap > p')
         listImages = []
-        for i in range(images.__len__() - 1,-1,-1):
+        for i in range(images.__len__() - 1, -1, -1):
             linkImage = images[i].select_one('a')
             linkImage = linkImage.attrs['href'] if linkImage else ''
             listImages.append(getImagesComic("https://blogtruyen.com/%s" % linkImage))
@@ -88,9 +89,51 @@ def getImagesComic(link):
     return linkImages
 
 
-if __name__ == '__main__':
-    main()
-    if (data):
+def pretty_date(time=False):
+    """
+    Get a datetime object or a int() Epoch timestamp and return a
+    pretty string like 'an hour ago', 'Yesterday', '3 months ago',
+    'just now', etc
+    """
+    now = datetime.now()
+    if type(time) is int:
+        diff = now - datetime.fromtimestamp(time)
+    elif isinstance(time, datetime):
+        diff = now - time
+    elif not time:
+        diff = now - now
+    second_diff = diff.seconds
+    day_diff = diff.days
+
+    if day_diff < 0:
+        return ''
+
+    if day_diff == 0:
+        if second_diff < 10:
+            return "just now"
+        if second_diff < 60:
+            return str(second_diff) + " seconds ago"
+        if second_diff < 120:
+            return "a minute ago"
+        if second_diff < 3600:
+            return str(second_diff / 60) + " minutes ago"
+        if second_diff < 7200:
+            return "an hour ago"
+        if second_diff < 86400:
+            return str(second_diff / 3600) + " hours ago"
+    if day_diff == 1:
+        return "Yesterday"
+    if day_diff < 7:
+        return str(day_diff) + " days ago"
+    if day_diff < 31:
+        return str(day_diff / 7) + " weeks ago"
+    if day_diff < 365:
+        return str(day_diff / 30) + " months ago"
+    return str(day_diff / 365) + " years ago"
+
+
+def updateSQL():
+    if data:
         # print(data)
         try:
             mycursor = connection.cursor()
@@ -126,3 +169,36 @@ if __name__ == '__main__':
 
         finally:
             connection.close()
+
+
+if __name__ == '__main__':
+    # main()
+    # updateSQL()
+    date = datetime.now()
+    print(date)
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM article")
+    articles = cursor.fetchall()
+    for item in articles:
+        time = item['time_ago']
+        if "giờ trước" in time:
+            time = date.date()
+            print(time)
+        elif " ngày trước" in time:
+            time = time.split(" ngày trước")
+            if "một" in time[0]:
+                time = date - timedelta(1)
+                print(time.date())
+            else:
+                time = date - timedelta(int(time[0]))
+                print(time.date())
+        else:
+            time = time.split(" tháng trước")
+            if "một" in time[0]:
+                time = date - timedelta(1 * 30)
+                print(time.date())
+            else:
+                time = date - timedelta(int(time[0]) * 30)
+                print(time.date())
+        cursor.execute("UPDATE article SET time_ago = %s where id = %s" % (str(time), item['id']))
+        connection.commit()
