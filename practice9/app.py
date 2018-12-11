@@ -23,9 +23,10 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def conn():
-    return pymysql.connect(host='localhost',
-                           user='root',
-                           db='comic',
+    return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
+                           user='b7fe90252ed781',
+                           password='f69ea6e0',
+                           db='heroku_843d6c241c5744a',
                            use_unicode=True,
                            charset='utf8',
                            cursorclass=pymysql.cursors.DictCursor)
@@ -364,4 +365,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.84", debug=True)
+    app.run(host="192.168.7.152", debug=True)
