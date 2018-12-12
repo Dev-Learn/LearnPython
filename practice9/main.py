@@ -200,5 +200,5 @@ if __name__ == '__main__':
             else:
                 time = date - timedelta(int(time[0]) * 30)
                 print(time.date())
-        cursor.execute("UPDATE article SET time_ago = %s where id = %s" % (str(time), item['id']))
+        cursor.execute("UPDATE article SET time_ago = '%s' where id = %s" % (str(time), item['id']))
         connection.commit()

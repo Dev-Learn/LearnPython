@@ -23,13 +23,11 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def conn():
-    return pymysql.connect(host='us-cdbr-iron-east-01.cleardb.net',
-                           user='b7fe90252ed781',
-                           password='f69ea6e0',
-                           db='heroku_843d6c241c5744a',
-                           use_unicode=True,
-                           charset='utf8',
-                           cursorclass=pymysql.cursors.DictCursor)
+    return pymysql.connect(host='localhost',
+                             user='root',
+                             db='comic',
+                             charset='utf8',
+                             cursorclass=pymysql.cursors.DictCursor)
 
 
 @app.route('/getComicOffset')
