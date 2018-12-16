@@ -182,23 +182,23 @@ if __name__ == '__main__':
     for item in articles:
         time = item['time_ago']
         if "giờ trước" in time:
-            time = date.date()
+            time = date
             print(time)
         elif " ngày trước" in time:
             time = time.split(" ngày trước")
             if "một" in time[0]:
                 time = date - timedelta(1)
-                print(time.date())
+                print(time)
             else:
                 time = date - timedelta(int(time[0]))
-                print(time.date())
+                print(time)
         else:
             time = time.split(" tháng trước")
             if "một" in time[0]:
                 time = date - timedelta(1 * 30)
-                print(time.date())
+                print(time)
             else:
                 time = date - timedelta(int(time[0]) * 30)
-                print(time.date())
+                print(time)
         cursor.execute("UPDATE article SET time_ago = '%s' where id = %s" % (str(time), item['id']))
         connection.commit()

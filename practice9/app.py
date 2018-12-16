@@ -312,10 +312,10 @@ def getArticle():
 
     try:
 
-        if not token:
-            return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
+        # if not token:
+        #     return error_return(ErrorHandler('Invalid Request', status_code=BAD_REQUEST))
 
-        if validData(cursor, 'user_manga', 'token', token):
+        # if validData(cursor, 'user_manga', 'token', token):
 
             if before:
                 cursor.execute(
@@ -338,8 +338,8 @@ def getArticle():
                 item['detail'] = detail
 
             return Response(json.dumps(articles), mimetype='application/json')
-        else:
-            return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+        # else:
+        #     return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
     finally:
@@ -363,4 +363,4 @@ def error_return(error):
 
 
 if __name__ == '__main__':
-    app.run(host="192.168.7.152", debug=True)
+    app.run(host="192.168.1.84", debug=True)
