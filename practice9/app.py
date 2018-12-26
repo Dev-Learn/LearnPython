@@ -24,10 +24,10 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def conn():
     return pymysql.connect(host='localhost',
-                             user='root',
-                             db='comic',
-                             charset='utf8',
-                             cursorclass=pymysql.cursors.DictCursor)
+                           user='root',
+                           db='comic',
+                           charset='utf8',
+                           cursorclass=pymysql.cursors.DictCursor)
 
 
 @app.route('/getComicOffset')
@@ -317,29 +317,29 @@ def getArticle():
 
         # if validData(cursor, 'user_manga', 'token', token):
 
-            if before:
-                cursor.execute(
-                    "SELECT * FROM article WHERE id < %s ORDER BY id DESC LIMIT %s" % (str(before), str(limit)))
-            elif after:
-                cursor.execute("SELECT * FROM article WHERE id > %s LIMIT %s" % (str(after), str(limit)))
-            else:
-                cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
-            articles = cursor.fetchall()
-            if before and articles:
-                articles.reverse()
+        if before:
+            cursor.execute(
+                "SELECT * FROM article WHERE id < %s ORDER BY id DESC LIMIT %s" % (str(before), str(limit)))
+        elif after:
+            cursor.execute("SELECT * FROM article WHERE id > %s LIMIT %s" % (str(after), str(limit)))
+        else:
+            cursor.execute("SELECT * FROM article LIMIT %s" % str(limit))
+        articles = cursor.fetchall()
+        if before and articles:
+            articles.reverse()
 
-            for item in articles:
-                cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
-                author = cursor.fetchone()
-                item['author'] = author
+        for item in articles:
+            cursor.execute("SELECT * FROM author WHERE id = %s" % item['id_author'])
+            author = cursor.fetchone()
+            item['author'] = author
 
-                cursor.execute("SELECT * FROM article_detail WHERE id = %s" % item['id_detail'])
-                detail = cursor.fetchone()
-                item['detail'] = detail
+            cursor.execute("SELECT * FROM article_detail WHERE id = %s" % item['id_detail'])
+            detail = cursor.fetchone()
+            item['detail'] = detail
 
-            return Response(json.dumps(articles), mimetype='application/json')
-        # else:
-        #     return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
+        return Response(json.dumps(articles), mimetype='application/json')
+    # else:
+    #     return error_return(ErrorHandler('Invalid Token', status_code=INVALID_TOKEN))
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=SERVER_ERROR))
     finally:
