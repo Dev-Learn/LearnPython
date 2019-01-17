@@ -32,12 +32,12 @@ def openJson(path, isTopic):
             try:
                 mycursor = connection.cursor()
                 mycursor.execute(
-                    'CREATE TABLE IF NOT EXISTS `Word` (`id` INT PRIMARY KEY, `id_topic` INT ,`vocabulary` VARCHAR(255),`spelling` VARCHAR(255)'
-                    ',`from_type` VARCHAR(255),`explain_vi` VARCHAR(255),`explain_en` VARCHAR(255),`example_en` VARCHAR(255),`example_vi` VARCHAR(255)'
-                    ',`image` VARCHAR(255),`audio` VARCHAR(255))')
+                    """CREATE TABLE IF NOT EXISTS word (id INT PRIMARY KEY, id_topic INT ,vocabulary VARCHAR(255),spelling VARCHAR(255)
+                    ,from_type VARCHAR(255),explain_vi VARCHAR(255),explain_en VARCHAR(255),example_en VARCHAR(255),example_vi VARCHAR(255)
+                    ,image VARCHAR(255),audio VARCHAR(255))""")
                 for item in data:
-                    sql = 'INSERT INTO `Word` (`id`, `id_topic`,`vocabulary`,`spelling`,`from_type`,`explain_vi`,`explain_en`,`example_en`,`example_vi`,`image`,`audio`) ' \
-                          'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+                    sql = """INSERT INTO word (id, id_topic,vocabulary,spelling,from_type,explain_vi,explain_en,example_en,example_vi,image,audio) 
+                          VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
                     val = (item['id'], item['id_topic'], item['vocabulary'], item['spelling'], item['from_type'],
                            item['explain_vi']
                            , item['explain_en'], item['example_en'], item['example_vi'], item['image'], item['audio'])
@@ -47,68 +47,7 @@ def openJson(path, isTopic):
                 connection.close()
 
 
-def randomGameTopic():
-    try:
-        mycursor = connection.cursor()
-        mycursor.execute(
-            'CREATE TABLE IF NOT EXISTS `Word_Topic_Game` (`id` INT AUTO_INCREMENT PRIMARY KEY,idword1 INT,idword2 INT,idword3 INT,idword4 INT,idWord INT, `id_topic` INT ,`vocabulary` VARCHAR(255),`spelling` VARCHAR(255)'
-            ',`from_type` VARCHAR(255),`explain_vi` VARCHAR(255),`explain_en` VARCHAR(255),`example_en` VARCHAR(255),`example_vi` VARCHAR(255)'
-            ',`image` VARCHAR(255),`audio` VARCHAR(255))')
-        mycursor.execute('SELECT id FROM topic')
-        #  WHERE id_topic = 1 ORDER BY RAND() LIMIT 3
-        result = mycursor.fetchall()
-        for item in result:
-            mycursor.execute('SELECT * FROM Word WHERE id_topic = %s' % item['id'])
-            words = mycursor.fetchall()
-            for word in words:
-                print(word)
-                mycursor.execute('SELECT id FROM Word WHERE id_topic = %s AND NOT id = %s ORDER BY RAND() LIMIT 3' % (
-                item['id'], word['id']))
-                listId = mycursor.fetchall()
-                print(listId)
-                sql = 'INSERT INTO `Word_Topic_Game` (idword1,idword2, idword3,idword4,idWord,`id_topic`,`vocabulary`,`spelling`,`from_type`,`explain_vi`,`explain_en`,`example_en`,`example_vi`,`image`,`audio`) ' \
-                      'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s,%s,%s)'
-                val = (word['id'], listId[0]['id'], listId[1]['id'], listId[2]['id'], word['id'], word['id_topic'], word['vocabulary'],
-                       word['spelling'], word['from_type'],word['explain_vi'], word['explain_en'], word['example_en'],
-                       word['example_vi'], word['image'],word['audio'])
-                mycursor.execute(sql, val)
-                connection.commit()
-
-    finally:
-        connection.close()
-
-def randomGame():
-    try:
-        mycursor = connection.cursor()
-        mycursor.execute(
-            'CREATE TABLE IF NOT EXISTS `Word_Game` (`id` INT AUTO_INCREMENT PRIMARY KEY,idword1 INT,idword2 INT,idword3 INT,idword4 INT,idWord INT'
-            ', `id_topic` INT ,`vocabulary` VARCHAR(255),`spelling` VARCHAR(255)'
-            ',`from_type` VARCHAR(255),`explain_vi` VARCHAR(255),`explain_en` VARCHAR(255),`example_en` VARCHAR(255),`example_vi` VARCHAR(255)'
-            ',`image` VARCHAR(255),`audio` VARCHAR(255))')
-        mycursor.execute('SELECT id FROM topic')
-        #  WHERE id_topic = 1 ORDER BY RAND() LIMIT 3
-        mycursor.execute('SELECT * FROM Word')
-        words = mycursor.fetchall()
-        for word in words:
-            print(word)
-            mycursor.execute('SELECT id FROM Word WHERE NOT id = %s ORDER BY RAND() LIMIT 3' % (word['id']))
-            listId = mycursor.fetchall()
-            print(listId)
-            sql = 'INSERT INTO `Word_Game` (idword1,idword2, idword3,idword4,idWord,`id_topic`,`vocabulary`,`spelling`,`from_type`,`explain_vi`,`explain_en`' \
-                  ',`example_en`,`example_vi`,`image`,`audio`) ' \
-                  'VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s,%s,%s)'
-            val = (word['id'], listId[0]['id'], listId[1]['id'], listId[2]['id'], word['id'], word['id_topic'],
-                   word['vocabulary'],
-                   word['spelling'], word['from_type'], word['explain_vi'], word['explain_en'], word['example_en'],
-                   word['example_vi'], word['image'], word['audio'])
-            mycursor.execute(sql, val)
-            connection.commit()
-    finally:
-        connection.close()
-
 if __name__ == '__main__':
-    # openJson('600WordToiec/Topic.json',True)
-    # openJson('600WordToiec/Word.json',False)
-    # randomGameTopic()
-    randomGame()
-
+    openJson('600WordToiec/Topic.json', True)
+    openJson('600WordToiec/Word.json', False)
+#
