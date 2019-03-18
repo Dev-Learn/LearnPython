@@ -1,9 +1,9 @@
 import cv2
 
 # flags = 0 : ảnh trắng đen , 1 : ảnh màu
-img = cv2.imread('girl.png', 1)
+img = cv2.imread('accounting.png', 0)
 # draw line on image exist
-cv2.line(img, (0, 0), (300, 400), (255, 0, 0), 5)
+# cv2.line(img, (0, 0), (300, 400), (255, 0, 0), 5)
 cv2.imwrite('girl2.png', img)
 img2 = cv2.imread('girl2.png', 1)
 #  show ảnh ( Default sẽ tự tắt sau khi mở

@@ -26,6 +26,16 @@ def getTopic():
         cursor.execute(
             "SELECT * FROM topic")
         topics = cursor.fetchall()
+        for item in topics:
+            if item['isOpen'] == 1:
+                item['isOpen'] = True
+            else:
+                item['isOpen'] = False
+
+            if item['isLearn'] == 1:
+                item['isLearn'] = True
+            else:
+                item['isLearn'] = False
         return Response(json.dumps(topics), mimetype='application/json')
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=500))
@@ -42,6 +52,11 @@ def getWord():
         cursor.execute(
             "SELECT * FROM word")
         words = cursor.fetchall()
+        for item in words:
+            if item['isRemember'] == 1:
+                item['isRemember'] = True
+            else:
+                item['isRemember'] = False
         return Response(json.dumps(words), mimetype='application/json')
     except Exception as e:
         return error_return(ErrorHandler(str(e), status_code=500))

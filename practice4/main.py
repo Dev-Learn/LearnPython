@@ -8,13 +8,14 @@ import requests
 import shutil
 import json
 import codecs
+import cv2
 
 SOURCE_URL = 'https://600tuvungtoeic.com/'
 
 idWord = 1
 
-def main():
 
+def main():
     r = requests.get(SOURCE_URL)
     if r.ok:
         s = bs4.BeautifulSoup(r.content, 'lxml')
@@ -44,9 +45,16 @@ def main():
             image_url = item.select_one('img')
             image_url = image_url.attrs['src'] if image_url else ''
 
-            data['image'] = downloadFile('topic_image', image_url)
+            data['image'] = downloadFile('topic_image', image_url, True)
 
-            topicDetail(page, data,listWord,listWordError)
+            image_topic = 'topic_image/' + data['image']
+            if not os.path.isdir('topic_image/image_unpass'):
+                os.mkdir('topic_image/image_unpass')
+            img = cv2.imread(image_topic, 0)
+            data['image_unpass'] = data['image'].split('.')[0] + '_unpass.jpg'
+            cv2.imwrite('topic_image/image_unpass/' + data['image_unpass'], img)
+
+            topicDetail(page, data, listWord, listWordError)
 
             listTopic.append(data)
 
@@ -62,18 +70,18 @@ def main():
         if not os.path.isdir(dir):
             os.mkdir(dir)
 
-        topic = codecs.open(os.path.join(dir,'Topic.json'), encoding='utf-8', mode='w')
-        word = codecs.open(os.path.join(dir,'Word.json'), encoding='utf-8', mode='w')
-        wordError = codecs.open(os.path.join(dir,'WordError.json'), encoding='utf-8', mode='w')
+        topic = codecs.open(os.path.join(dir, 'Topic.json'), encoding='utf-8', mode='w')
+        word = codecs.open(os.path.join(dir, 'Word.json'), encoding='utf-8', mode='w')
+        wordError = codecs.open(os.path.join(dir, 'WordError.json'), encoding='utf-8', mode='w')
         json.dump(listTopic, topic, ensure_ascii=False, indent=2)
         json.dump(listWord, word, ensure_ascii=False, indent=2)
         json.dump(listWordError, wordError, ensure_ascii=False, indent=2)
 
 
-def topicDetail(url, topic,listWord,listError):
+def topicDetail(url, topic, listWord, listError):
     global idWord
     isError = False
-    r = requests.get(os.path.join(SOURCE_URL,url))
+    r = requests.get(os.path.join(SOURCE_URL, url))
     print(r.url)
     if r.ok:
         s = bs4.BeautifulSoup(r.content, 'lxml')
@@ -130,66 +138,75 @@ def topicDetail(url, topic,listWord,listError):
             except TypeError:
                 continue
 
-            example_en = contents[4].next_sibling.strip()
-            example_en = example_en if example_en else ''
-            word['example_en'] = example_en
+            try:
+                example_en = contents[4].next_sibling.strip()
+                example_en = example_en if example_en else ''
+                word['example_en'] = example_en
 
-            example_vi = item.select_one('.noidung > b')
-            example_vi = example_vi.text.strip() if example_vi else ''
-            word['example_vi'] = example_vi
+                example_vi = item.select_one('.noidung > b')
+                example_vi = example_vi.text.strip() if example_vi else ''
+                word['example_vi'] = example_vi
 
-            image_word = item.select_one('.hinhanh > img')
-            image_word = image_word.attrs['src'] if image_word else ''
-            if image_word:
-                if ' ' in image_word:
-                    image_word = image_word.replace(' ', '%')
-                word['image'] = downloadFile('word_image', image_word)
-            else:
-                isError = True
+                image_word = item.select_one('.hinhanh > img')
+                image_word = image_word.attrs['src'] if image_word else ''
+                if image_word:
+                    if ' ' in image_word:
+                        image_word = image_word.replace(' ', '_')
+                    word['image'] = downloadFile('word_image', image_word, True)
+                else:
+                    isError = True
 
-            audio = item.select_one('.noidung > audio > source')
-            audio = audio.attrs['src']  if audio else ''
-            if audio:
-                if ' ' in audio:
-                    audio = audio.replace(' ', '%')
-                word['audio'] = downloadFile('audio',os.path.join(SOURCE_URL,audio))
-            else:
-                isError = True
-                contentAudio = item.select_one('.noidung').contents[-1]
-                contentAudio = str(contentAudio) if contentAudio else ''
-                if contentAudio:
-                    contentAudio = contentAudio.split('<audio')[1]
+                audio = item.select_one('.noidung > audio > source')
+                audio = audio.attrs['src'] if audio else ''
+                if audio:
+                    if ' ' in audio:
+                        audio = audio.replace(' ', '_')
+                    word['audio'] = downloadFile('audio', os.path.join(SOURCE_URL, audio))
+                else:
+                    isError = True
+                    contentAudio = item.select_one('.noidung').contents[-1]
+                    contentAudio = str(contentAudio) if contentAudio else ''
                     if contentAudio:
-                        contentAudio = contentAudio.split('<source src="')[1]
+                        contentAudio = contentAudio.split('<audio')[1]
                         if contentAudio:
-                            contentAudio = contentAudio.split('" type')[0]
-                            if ' ' in contentAudio:
-                                contentAudio = contentAudio.replace(' ', '%')
-                            word['audio'] = downloadFile('audio', os.path.join(SOURCE_URL, contentAudio))
-                            isError = False
-            idWord += 1
+                            contentAudio = contentAudio.split('<source src="')[1]
+                            if contentAudio:
+                                contentAudio = contentAudio.split('" type')[0]
+                                if ' ' in contentAudio:
+                                    contentAudio = contentAudio.replace(' ', '_')
+                                word['audio'] = downloadFile('audio', os.path.join(SOURCE_URL, contentAudio))
+                                isError = False
+                idWord += 1
 
-            print(word)
-            if isError:
-                isError = False
-                listError.append(word)
-            else:
-                listWord.append(word)
+                print(word)
+                if isError:
+                    isError = False
+                    listError.append(word)
+                else:
+                    listWord.append(word)
+            except Exception:
+                pass
 
-def downloadFile(dir, url):
+
+def downloadFile(dir, url, is_image=False):
     # tạo thư mục
     if not os.path.isdir(dir):
         os.mkdir(dir)
 
     file_name = url.split('/')[-1]
+    if is_image:
+        file_name = file_name.split('.')[0] + ".jpg"
     file_name = file_name.lower()
     if '-' in file_name:
-        file_name = file_name.replace('-',"_")
+        file_name = file_name.replace('-', "_")
 
     if os.path.exists(file_name):
         return file_name
 
     response = requests.get(url, stream=True)
+    if response.status_code == 404:
+        print('Error Not Found')
+        print(url)
     with open(dir + '/' + file_name, 'wb') as out_file:
         shutil.copyfileobj(response.raw, out_file)
 
