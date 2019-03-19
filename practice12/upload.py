@@ -43,5 +43,5 @@ if __name__ == '__main__':
         # cursor.execute(sql, val)
         # connection.commit()
         if "https://firebasestorage.googleapis.com" not in item['link_local']:
-            item['link_local'] = client.files_get_temporary_link(item['link_local'])
+            item['link_local'] = client.files_get_temporary_link(item['link_local']).link
         print(item)
