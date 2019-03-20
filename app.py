@@ -115,7 +115,6 @@ def getSongSinger():
             cursor.execute(
                 "SELECT * FROM song WHERE id = '%s'" % song['id_song'])
             song = cursor.fetchone()
-            song['singer'] = singer_name
             if "https://firebasestorage.googleapis.com" not in song['link_local']:
                 song['link_local'] = client.files_get_temporary_link(song['link_local']).link
             data.append(song)
