@@ -61,9 +61,9 @@ def getSongWeek():
             cursor.execute(
                 "SELECT id_singer FROM singer_song WHERE id_song = '%s'" % song['id'])
             idSinger = cursor.fetchone()
-            cursor.execute("SELECT name FROM singer where id = '%s'" % idSinger['id_singer'])
+            cursor.execute("SELECT * FROM singer where id = '%s'" % idSinger['id_singer'])
             singer = cursor.fetchone()
-            song['singer'] = singer['name']
+            song['singer'] = singer
             data['song'] = song
             data['position'] = item['position']
             data['hierarchical'] = item['hierarchical']
@@ -101,16 +101,12 @@ def getSongSinger():
     try:
         data = []
         cursor.execute(
-            "SELECT name FROM singer WHERE id = '%s'" % singerId)
-        singer_name = cursor.fetchone()
-        cursor.execute(
             "SELECT id_song FROM singer_song WHERE id_singer = '%s'" % singerId)
         listIdSongs = cursor.fetchall()
         for song in listIdSongs:
             cursor.execute(
                 "SELECT * FROM song WHERE id = '%s'" % song['id_song'])
             song = cursor.fetchone()
-            song['singer'] = singer_name
             data.append(song)
         return Response(json.dumps(data), mimetype='application/json')
     except Exception as e:
