@@ -6,8 +6,12 @@ import requests
 from selenium import webdriver
 from datetime import datetime, timedelta
 
+
+
 SOURCE_URL = 'https://blogtruyen.com/danhsach/tatca'
 data = []
+
+client = dropbox.Dropbox("ut9MzqycHAAAAAAAAAAAM-HAvZ8JWgqcOSvr5e3VdjJnlPoTByUGs11BUsUzFl1T")
 
 # Kết nối vào database.
 connection = pymysql.connect(host='localhost',

@@ -7,6 +7,8 @@ from flask import Flask, request, Response
 
 from util.error import ErrorHandler
 
+import dropbox
+
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
@@ -18,6 +20,9 @@ VERIFY_EMAIL = 600
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+client = dropbox.Dropbox("ut9MzqycHAAAAAAAAAAAM-HAvZ8JWgqcOSvr5e3VdjJnlPoTByUGs11BUsUzFl1T")
+
+
 def conn():
     return pymysql.connect(host='us-cdbr-iron-east-03.cleardb.net',
                            user='bbc01008ee8dff',
@@ -26,6 +31,7 @@ def conn():
                            use_unicode=True,
                            charset='utf8',
                            cursorclass=pymysql.cursors.DictCursor)
+
 
 @app.route('/getChartMusic')
 def getChartMusic():
@@ -58,6 +64,8 @@ def getSongWeek():
             cursor.execute(
                 "SELECT * FROM song WHERE id = '%s'" % item['id_song'])
             song = cursor.fetchone()
+            if "https://firebasestorage.googleapis.com" not in song['link_local']:
+                song['link_local'] = client.files_get_temporary_link(song['link_local']).link
             cursor.execute(
                 "SELECT id_singer FROM singer_song WHERE id_song = '%s'" % song['id'])
             idSinger = cursor.fetchone()
@@ -107,6 +115,9 @@ def getSongSinger():
             cursor.execute(
                 "SELECT * FROM song WHERE id = '%s'" % song['id_song'])
             song = cursor.fetchone()
+            song['singer'] = singer_name
+            if "https://firebasestorage.googleapis.com" not in song['link_local']:
+                song['link_local'] = client.files_get_temporary_link(song['link_local']).link
             data.append(song)
         return Response(json.dumps(data), mimetype='application/json')
     except Exception as e:
@@ -121,6 +132,7 @@ def error_return(error):
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
     return response
+
 
 if __name__ == '__main__':
     app.run()
