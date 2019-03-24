@@ -5,7 +5,7 @@ from secrets import token_hex
 from flask import jsonify
 import os
 
-from practice10.main import auth, storage
+from practice10.learn_firebase import auth, storage
 from flask import Flask, request, Response
 
 from util.error import ErrorHandler
