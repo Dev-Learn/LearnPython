@@ -2,22 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61d79b2-932c-4bf9-ba55-ea6cfa7b48e2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/LearnPython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LearnPython.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice10/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice10/learn_firebase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice11/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice11/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice11/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice11/claw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice2/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice4/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice4/claw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice4/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice4/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice5/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice5/claw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice5/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice5/claw2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice6/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice6/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice8/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice8/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice9/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice9/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice9/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice9/claw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_1.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_10.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_10.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_11.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_11.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_12.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_12.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_13.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_13.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_14.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_14.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_15.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_15.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_16.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_16.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_17.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_17.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_2.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_3.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_4.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_5.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_5.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_6.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_7.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_8.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_8.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_9.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_9.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/claw.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/claw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/airline.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/architects.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/classroom.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/container_ship.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/doctor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/farmer_in_tractor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/ice_cream.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/laboratory.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/mechanic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/menatwork.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/officelife.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/passenger.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/security.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/solar_ladder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/stock_boy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/supermarket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice13/images/venice.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +51,7 @@
     <SUITE FILE_PATH="coverage/LearnPython$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1546753713500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice12" />
     <SUITE FILE_PATH="coverage/LearnPython$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1546764886873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice12" />
     <SUITE FILE_PATH="coverage/LearnPython$main.coverage" NAME="main Coverage Results" MODIFIED="1544623747660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice9" />
-    <SUITE FILE_PATH="coverage/LearnPython$claw.coverage" NAME="claw Coverage Results" MODIFIED="1553405520416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice13" />
+    <SUITE FILE_PATH="coverage/LearnPython$claw.coverage" NAME="claw Coverage Results" MODIFIED="1553614206768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice13" />
     <SUITE FILE_PATH="coverage/LearnPython$helloOpenCv.coverage" NAME="helloOpenCv Coverage Results" MODIFIED="1544975423097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/open_cv" />
     <SUITE FILE_PATH="coverage/LearnPython$pixelimage.coverage" NAME="pixelimage Coverage Results" MODIFIED="1544975736974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/open_cv" />
     <SUITE FILE_PATH="coverage/LearnPython$app.coverage" NAME="app Coverage Results" MODIFIED="1545062799955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice9" />
@@ -54,14 +74,16 @@
     <session id="1479034669">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,14 +107,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="89" />
-          <entry key="py" value="7908" />
+          <entry key="dummy" value="100" />
+          <entry key="py" value="9052" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="89" />
-          <entry key="Python" value="7905" />
+          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="Python" value="9049" />
           <entry key="SQL" value="3" />
         </counts>
       </usages-collector>
@@ -106,14 +128,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/practice13/claw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="161" column="61" lean-forward="true" selection-start-line="161" selection-start-column="61" selection-end-line="161" selection-end-column="61" />
+            <state relative-caret-position="334">
+              <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1553405517811" expanded="true" signature="1460:10128" ph="..." />
-                <marker date="1553405517811" expanded="true" signature="8399:10128" ph="..." />
-                <marker date="1553405517811" expanded="true" signature="8447:10128" ph="..." />
-                <marker date="1553405517811" expanded="true" signature="9878:10128" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1553613418966" expanded="true" signature="1737:1742" ph="..." />
+                <marker date="1553613418966" expanded="true" signature="2299:3002" ph="..." />
+                <marker date="1553613418966" expanded="true" signature="9761:9937" ph="..." />
+                <marker date="1553613418966" expanded="true" signature="12610:12615" ph="..." />
+                <marker date="1553613418966" expanded="true" signature="14495:14500" ph="..." />
+                <marker date="1553613418966" expanded="true" signature="14743:14746" ph="..." />
               </folding>
             </state>
           </provider>
@@ -139,6 +163,9 @@
       <find>404</find>
       <find>lastrowid</find>
       <find>updateAnswerQuestion</find>
+      <find>cursor.fetcho</find>
+      <find>'%s'</find>
+      <find>download</find>
     </findStrings>
     <replaceStrings>
       <replace>validData(cursor,'user','token',token)</replace>
@@ -375,8 +402,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26652452" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.271855" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -384,7 +412,7 @@
       <window_info id="Job Explorer" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32814237" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32814237" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -393,7 +421,7 @@
       <window_info anchor="bottom" id="DB Execution Console" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32814237" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32908458" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32814237" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32925472" />
@@ -532,8 +560,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/practice9/claw.py</url>
-          <line>180</line>
+          <line>181</line>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/practice13/claw.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -565,47 +598,47 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>answerQuestion</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[6])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.path.exists(dir + &quot;/&quot; + file_name)</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[5])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.path.exists(file_name)</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[4])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>file_name</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[3])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>image</expression-string>
+        <expression-string>s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[3]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s</expression-string>
+        <expression-string>s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.select_one('div.panel-body &gt; #testfooter &gt; #nextbutton &gt; input').attrs['value']</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.select_one('div.panel-body &gt; #testfooter &gt; #nextbutton &gt; input' )</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[1]).split('\xa0\xa0',1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>s.select_one('div.panel-body &gt; #testfooter &gt; #nextbutton')</expression-string>
+        <expression-string>str(s.select_one('div.panel-body &gt; #centreposition &gt; #col1 &gt; #form1').contents[1]).split(' ',1)[0].split(' ')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -793,13 +826,7 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice13/bmp.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="170">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/practice13/bmp.log" />
     <entry file="file://$PROJECT_DIR$/practice9/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2193">
@@ -886,14 +913,16 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice13/claw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="161" column="61" lean-forward="true" selection-start-line="161" selection-start-column="61" selection-end-line="161" selection-end-column="61" />
+        <state relative-caret-position="334">
+          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1553405517811" expanded="true" signature="1460:10128" ph="..." />
-            <marker date="1553405517811" expanded="true" signature="8399:10128" ph="..." />
-            <marker date="1553405517811" expanded="true" signature="8447:10128" ph="..." />
-            <marker date="1553405517811" expanded="true" signature="9878:10128" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1553613418966" expanded="true" signature="1737:1742" ph="..." />
+            <marker date="1553613418966" expanded="true" signature="2299:3002" ph="..." />
+            <marker date="1553613418966" expanded="true" signature="9761:9937" ph="..." />
+            <marker date="1553613418966" expanded="true" signature="12610:12615" ph="..." />
+            <marker date="1553613418966" expanded="true" signature="14495:14500" ph="..." />
+            <marker date="1553613418966" expanded="true" signature="14743:14746" ph="..." />
           </folding>
         </state>
       </provider>
