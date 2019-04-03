@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61d79b2-932c-4bf9-ba55-ea6cfa7b48e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LearnPython.iml" afterPath="$PROJECT_DIR$/.idea/LearnPython.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -90,82 +88,10 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="116" column="36" lean-forward="false" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upload.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice12/upload.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+            <state relative-caret-position="2085">
+              <caret line="139" column="26" lean-forward="true" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice9/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-                <marker date="1553087524909" expanded="true" signature="569:754" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="824:1151" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="887:925" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="1171:1559" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="1362:1542" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="1581:2410" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="1728:2393" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2146:2352" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2438:2805" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2515:2783" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2627:2783" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2836:4082" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="2841:3005" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1553087524909" expanded="true" signature="3332:3780" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="4101:5871" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="4114:5871" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="4149:5822" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="4741:5822" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="4804:5734" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="5152:5734" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="5204:5438" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="5496:5734" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="5905:5931" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="6173:6221" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="6257:6506" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="6335:6406" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="6424:6506" ph="..." />
-                <marker date="1553087524909" expanded="true" signature="6599:6675" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice9/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice12/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="115" column="19" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="115" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -256,11 +182,6 @@
               <item name="LearnPython.git" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnPython.git" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="LearnPython.git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LearnPython.git" type="462c0819:PsiDirectoryNode" />
-              <item name="practice12" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -295,7 +216,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.upload">
+  <component name="RunManager" selected="Python.app (1)">
+    <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LearnPython" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -328,24 +266,6 @@
       <module name="LearnPython" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice12/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="main2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice12" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LearnPython" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice12/main2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -386,19 +306,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.main2" />
-      <item index="1" class="java.lang.String" itemvalue="Python.xla" />
-      <item index="2" class="java.lang.String" itemvalue="Python.app" />
-      <item index="3" class="java.lang.String" itemvalue="Python.main (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.upload" />
+      <item index="0" class="java.lang.String" itemvalue="Python.xla" />
+      <item index="1" class="java.lang.String" itemvalue="Python.app" />
+      <item index="2" class="java.lang.String" itemvalue="Python.main (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.upload" />
+      <item index="4" class="java.lang.String" itemvalue="Python.app (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.upload" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.app" />
-        <item index="3" class="java.lang.String" itemvalue="Python.xla" />
-        <item index="4" class="java.lang.String" itemvalue="Python.main2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.app (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.upload" />
+        <item index="2" class="java.lang.String" itemvalue="Python.main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.app" />
+        <item index="4" class="java.lang.String" itemvalue="Python.xla" />
       </list>
     </recent_temporary>
   </component>
@@ -420,7 +340,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="981" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -430,7 +349,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25579977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25885227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -666,7 +585,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -831,9 +752,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/practice12/main.py" />
     <entry file="file://$PROJECT_DIR$/practice12/main2.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="2292" column="0" lean-forward="false" selection-start-line="2292" selection-start-column="0" selection-end-line="2292" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/dropbox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practice12/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
+        <state relative-caret-position="783">
           <caret line="115" column="19" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="115" selection-end-column="19" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -849,61 +784,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="2292" column="0" lean-forward="false" selection-start-line="2292" selection-start-column="0" selection-end-line="2292" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practice9/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="29" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1553087524909" expanded="true" signature="569:754" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="824:1151" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="887:925" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="1171:1559" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="1362:1542" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="1581:2410" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="1728:2393" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2146:2352" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2438:2805" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2515:2783" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2627:2783" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2836:4082" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="2841:3005" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1553087524909" expanded="true" signature="3332:3780" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="4101:5871" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="4114:5871" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="4149:5822" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="4741:5822" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="4804:5734" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="5152:5734" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="5204:5438" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="5496:5734" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="5905:5931" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="6173:6221" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="6257:6506" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="6335:6406" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="6424:6506" ph="..." />
-            <marker date="1553087524909" expanded="true" signature="6599:6675" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/dropbox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice12/upload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="195">
           <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -913,9 +806,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="116" column="36" lean-forward="false" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="2085">
+          <caret line="139" column="26" lean-forward="true" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

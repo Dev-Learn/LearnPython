@@ -65,7 +65,9 @@ def getSongWeek():
                 "SELECT * FROM song WHERE id = '%s'" % item['id_song'])
             song = cursor.fetchone()
             if "https://firebasestorage.googleapis.com" not in song['link_local']:
-                song['link_local'] = client.files_get_temporary_link(song['link_local']).link
+                link_local = song['link_local']
+                song['link_local'] = client.files_get_temporary_link(link_local).link
+                song['lenght'] = client.files_get_temporary_link(link_local).metadata.size
             cursor.execute(
                 "SELECT id_singer FROM singer_song WHERE id_song = '%s'" % song['id'])
             idSinger = cursor.fetchone()
@@ -116,7 +118,9 @@ def getSongSinger():
                 "SELECT * FROM song WHERE id = '%s'" % song['id_song'])
             song = cursor.fetchone()
             if "https://firebasestorage.googleapis.com" not in song['link_local']:
-                song['link_local'] = client.files_get_temporary_link(song['link_local']).link
+                link_local = song['link_local']
+                song['link_local'] = client.files_get_temporary_link(link_local).link
+                song['lenght'] = client.files_get_temporary_link(link_local).metadata.size
             data.append(song)
         return Response(json.dumps(data), mimetype='application/json')
     except Exception as e:
