@@ -57,7 +57,7 @@ def getSongWeek():
     try:
         datas = []
         cursor.execute(
-            "SELECT * FROM week_song WHERE id_week = '%s'" % weekId)
+            "SELECT * FROM week_song WHERE id_week = '%s' ORDER BY position" % weekId)
         week_songs = cursor.fetchall()
         for item in week_songs:
             data = {}
