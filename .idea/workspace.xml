@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61d79b2-932c-4bf9-ba55-ea6cfa7b48e2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_1.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_10.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_10.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_11.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_11.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_12.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_12.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_13.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_13.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_14.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_14.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_15.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_15.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_16.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_16.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_17.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_17.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_2.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_3.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_4.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_5.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_5.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_6.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_6.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_7.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_7.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_8.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_8.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_9.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/audio_question/audio_question_type1_id_9.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/claw.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice13/claw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/airline.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/architects.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/classroom.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/container_ship.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/doctor.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/farmer_in_tractor.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/ice_cream.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/laboratory.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/mechanic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/menatwork.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/officelife.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/passenger.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/security.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/solar_ladder.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/stock_boy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/supermarket.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice13/images/venice.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,11 +14,17 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/LearnPython$xla.coverage" NAME="xla Coverage Results" MODIFIED="1545145035587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/open_cv/learn" />
-    <SUITE FILE_PATH="coverage/LearnPython$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1546753713500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice12" />
+    <SUITE FILE_PATH="coverage/LearnPython$client.coverage" NAME="client Coverage Results" MODIFIED="1555224856593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
     <SUITE FILE_PATH="coverage/LearnPython$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1546764886873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice12" />
-    <SUITE FILE_PATH="coverage/LearnPython$main.coverage" NAME="main Coverage Results" MODIFIED="1544623747660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice9" />
+    <SUITE FILE_PATH="coverage/LearnPython$main.coverage" NAME="main Coverage Results" MODIFIED="1555214941197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/adb" />
     <SUITE FILE_PATH="coverage/LearnPython$claw.coverage" NAME="claw Coverage Results" MODIFIED="1553614206768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice13" />
+    <SUITE FILE_PATH="coverage/LearnPython$multiconn_client.coverage" NAME="multiconn-client Coverage Results" MODIFIED="1555301919320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
     <SUITE FILE_PATH="coverage/LearnPython$helloOpenCv.coverage" NAME="helloOpenCv Coverage Results" MODIFIED="1544975423097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/open_cv" />
+    <SUITE FILE_PATH="coverage/LearnPython$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1546753713500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice12" />
+    <SUITE FILE_PATH="coverage/LearnPython$echo_client.coverage" NAME="echo-client Coverage Results" MODIFIED="1555299419640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
+    <SUITE FILE_PATH="coverage/LearnPython$multiconn_server.coverage" NAME="multiconn-server Coverage Results" MODIFIED="1555301871581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
+    <SUITE FILE_PATH="coverage/LearnPython$server.coverage" NAME="server Coverage Results" MODIFIED="1555224853782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
+    <SUITE FILE_PATH="coverage/LearnPython$echo_server.coverage" NAME="echo-server Coverage Results" MODIFIED="1555299398803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/socket" />
     <SUITE FILE_PATH="coverage/LearnPython$pixelimage.coverage" NAME="pixelimage Coverage Results" MODIFIED="1544975736974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/open_cv" />
     <SUITE FILE_PATH="coverage/LearnPython$app.coverage" NAME="app Coverage Results" MODIFIED="1545062799955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/practice9" />
   </component>
@@ -74,16 +46,17 @@
     <session id="1479034669">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="4" />
-          <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.open.time.9" value="11" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -91,30 +64,32 @@
           <entry key="jpg" value="11" />
           <entry key="log" value="1" />
           <entry key="png" value="6" />
-          <entry key="py" value="95" />
-          <entry key="sh" value="1" />
+          <entry key="py" value="114" />
+          <entry key="pyi" value="2" />
+          <entry key="sh" value="3" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="1" />
+          <entry key="Bash" value="3" />
           <entry key="Image" value="17" />
           <entry key="Log" value="1" />
-          <entry key="Python" value="95" />
+          <entry key="Python" value="114" />
+          <entry key="PythonStub" value="2" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="100" />
-          <entry key="py" value="9052" />
+          <entry key="dummy" value="101" />
+          <entry key="py" value="9166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="100" />
-          <entry key="Python" value="9049" />
+          <entry key="PLAIN_TEXT" value="101" />
+          <entry key="Python" value="9163" />
           <entry key="SQL" value="3" />
         </counts>
       </usages-collector>
@@ -125,19 +100,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practice13/claw.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/echo-server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/echo-client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/multiconn-server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="43" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1553613418966" expanded="true" signature="1737:1742" ph="..." />
-                <marker date="1553613418966" expanded="true" signature="2299:3002" ph="..." />
-                <marker date="1553613418966" expanded="true" signature="9761:9937" ph="..." />
-                <marker date="1553613418966" expanded="true" signature="12610:12615" ph="..." />
-                <marker date="1553613418966" expanded="true" signature="14495:14500" ph="..." />
-                <marker date="1553613418966" expanded="true" signature="14743:14746" ph="..." />
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/socket/multiconn-client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,6 +194,14 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/practice13/crawl.py" />
         <option value="$PROJECT_DIR$/practice13/claw.py" />
+        <option value="$PROJECT_DIR$/adb/main.py" />
+        <option value="$PROJECT_DIR$/socket/client.py" />
+        <option value="$PROJECT_DIR$/adb/adbserver.py" />
+        <option value="$PROJECT_DIR$/socket/server.py" />
+        <option value="$PROJECT_DIR$/socket/echo_server.py" />
+        <option value="$PROJECT_DIR$/socket/echo-client.py" />
+        <option value="$PROJECT_DIR$/socket/multiconn-server.py" />
+        <option value="$PROJECT_DIR$/socket/multiconn-client.py" />
       </list>
     </option>
   </component>
@@ -204,7 +211,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -224,6 +231,11 @@
             <path>
               <item name="LearnPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="LearnPython" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LearnPython" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -259,8 +271,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.claw">
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.multiconn-client">
+    <configuration name="echo-client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,12 +280,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice9" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/socket" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\LearnPython\practice9\api.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/socket/echo-client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -282,7 +294,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="claw" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="echo-server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,12 +302,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice13" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/socket" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice13/claw.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/socket/echo-server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -304,7 +316,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="echo_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -312,12 +324,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice12" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/socket" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice12/main.py" />
+      <option name="SCRIPT_NAME" value="E:\LearnPython\socket\echo-server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -326,7 +338,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="upload" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="multiconn-client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -334,12 +346,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/practice12" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/socket" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice12/upload.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/socket/multiconn-client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -348,7 +360,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="xla" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="multiconn-server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -356,12 +368,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/open_cv/learn" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/socket" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/open_cv/learn/xla.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/socket/multiconn-server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -371,19 +383,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.xla" />
-      <item itemvalue="Python.app" />
-      <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.upload" />
-      <item itemvalue="Python.claw" />
+      <item itemvalue="Python.echo_server" />
+      <item itemvalue="Python.echo-server" />
+      <item itemvalue="Python.echo-client" />
+      <item itemvalue="Python.multiconn-server" />
+      <item itemvalue="Python.multiconn-client" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.claw" />
-        <item itemvalue="Python.upload" />
-        <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.app" />
-        <item itemvalue="Python.xla" />
+        <item itemvalue="Python.multiconn-client" />
+        <item itemvalue="Python.multiconn-server" />
+        <item itemvalue="Python.echo-client" />
+        <item itemvalue="Python.echo-server" />
+        <item itemvalue="Python.echo_server" />
       </list>
     </recent_temporary>
   </component>
@@ -404,7 +416,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.271855" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29051173" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -645,72 +657,6 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/open_cv/learn/girl4.png" />
-    <entry file="file://$PROJECT_DIR$/open_cv/learn/pixelimage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/open_cv/learn/xla.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/open_cv/learn/helloOpenCv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice12/main.py" />
-    <entry file="file://$PROJECT_DIR$/practice12/main2.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/base.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/dropbox/dropbox.py" />
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="106" column="23" lean-forward="true" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice10/learn_firebase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice9/claw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice8/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-747">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice7/run.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice5/claw.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice5/claw2.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/practice4/InteractingDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -874,9 +820,6 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="205" column="45" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
-          <folding>
-            <element signature="e#67#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -911,18 +854,104 @@ AudioSegment.from_file(audio,'mp3')</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/adb/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/adb/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1008">
+          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practice13/claw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+        <state relative-caret-position="420">
+          <caret line="383" selection-start-line="383" selection-end-line="384" selection-end-column="10" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1553613418966" expanded="true" signature="1737:1742" ph="..." />
-            <marker date="1553613418966" expanded="true" signature="2299:3002" ph="..." />
-            <marker date="1553613418966" expanded="true" signature="9761:9937" ph="..." />
-            <marker date="1553613418966" expanded="true" signature="12610:12615" ph="..." />
-            <marker date="1553613418966" expanded="true" signature="14495:14500" ph="..." />
-            <marker date="1553613418966" expanded="true" signature="14743:14746" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="1737:1742" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="2299:3002" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="9761:9937" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="12610:12615" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="14495:14500" ph="..." />
+            <marker date="1554302227915" expanded="true" signature="14743:14746" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python37/site-packages/adb/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adb/main.py" />
+    <entry file="file://$PROJECT_DIR$/practice7/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice8/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/socket.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="543" column="8" selection-start-line="543" selection-start-column="8" selection-end-line="543" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/client.py" />
+    <entry file="file://$PROJECT_DIR$/socket/server.py" />
+    <entry file="file://$PROJECT_DIR$/adb/adbserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/echo-server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/types.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1428" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/echo-client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/multiconn-server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/multiconn-client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
