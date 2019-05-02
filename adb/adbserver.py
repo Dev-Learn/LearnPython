@@ -1,7 +1,5 @@
 import subprocess
 from time import sleep
-
-from uiautomator import Device
 from pip._vendor.distlib.compat import raw_input
 
 
@@ -17,41 +15,41 @@ def connect():
 
 if __name__ == '__main__':
     # connect()
-    subprocess.call("adb shell input keyevent 26 82", shell=True)
-    sleep(1)
-    subprocess.call("adb shell input tap 545 1656", shell=True)
-    sleep(1)
-    subprocess.call("adb shell input swipe 550 500 500 500 100", shell=True)
+    ips = "164.77.124.195".split(".")
+    port = "59058"
+    subprocess.call("adb shell am start -n com.android.settings/com.android.settings.wifi.WifiSettings", shell=True)
     sleep(0.5)
-    subprocess.call("adb shell input swipe 550 500 500 500 100", shell=True)
+    subprocess.call("adb shell input swipe 350 600 350 600 500", shell=True)
     sleep(0.5)
-    subprocess.call("adb shell input tap 925 670", shell=True)
-    sleep(1)
-    subprocess.call("adb shell input swipe 500 1300 500 300 100", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input swipe 500 1300 500 300 100", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input swipe 500 300 500 1300 100", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input swipe 500 300 500 1300 100", shell=True)
-    sleep(1)
-    subprocess.call("adb shell input tap 250 300", shell=True)
-    count = 0
-    while True:
-        count += 1
-        if count < 10:
-            sleep(0.5)
-            subprocess.call("adb shell input swipe 750 500 500 500 100", shell=True)
-        elif count < 15:
-            subprocess.call("adb shell input swipe 500 500 750 500 100", shell=True)
-        else:
-            break
-    subprocess.call("adb shell input keyevent 4", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input keyevent 4", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input keyevent KEYCODE_APP_SWITCH", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input tap 900 200", shell=True)
-    sleep(0.5)
-    subprocess.call("adb shell input keyevent 26", shell=True)
+    subprocess.call("adb shell input tap 625 900", shell=True)
+    subprocess.call("adb shell input keyevent KEYCODE_BACK", shell=True)
+    subprocess.call("adb shell input tap 500 1125", shell=True)
+    subprocess.call("adb shell input tap 500 1065", shell=True)
+    subprocess.call("adb shell input tap 500 1200", shell=True)
+    subprocess.call("adb shell input tap 800 1325", shell=True)
+    sleep(0.1)
+    subprocess.call("adb shell input keyevent KEYCODE_MOVE_END", shell=True)
+    subprocess.call("adb shell input keyevent --longpress $(printf 'KEYCODE_DEL %.0s' {1..250})", shell=True)
+    sleep(0.1)
+
+    for index,ip in enumerate(ips):
+        subprocess.call("adb shell input text " + ip, shell=True)
+        if index != ips.__len__() - 1:
+            subprocess.call("adb shell input text .", shell=True)
+
+    subprocess.call("adb shell input keyevent KEYCODE_BACK", shell=True)
+    sleep(0.1)
+    subprocess.call("adb shell input tap 800 1000", shell=True)
+    sleep(0.1)
+    subprocess.call("adb shell input keyevent KEYCODE_MOVE_END", shell=True)
+    subprocess.call("adb shell input keyevent --longpress $(printf 'KEYCODE_DEL %.0s' {1..250})", shell=True)
+    sleep(0.1)
+    subprocess.call("adb shell input text " + port, shell=True)
+    sleep(0.1)
+    subprocess.call("adb shell input keyevent KEYCODE_BACK", shell=True)
+    subprocess.call("adb shell input tap 850 1650", shell=True)
+    subprocess.call("adb shell input keyevent KEYCODE_HOME", shell=True)
+    subprocess.call("adb shell input tap 750 1650", shell=True)
+    subprocess.call("adb shell input tap 500 150", shell=True)
+    subprocess.call("adb shell input keyevent KEYCODE_ENTER", shell=True)
+
