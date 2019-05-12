@@ -15,8 +15,8 @@ def connect():
 
 if __name__ == '__main__':
     # connect()
-    ips = "164.77.124.195".split(".")
-    port = "59058"
+    ips = "198.27.67.35".split(".")
+    port = "3128"
     subprocess.call("adb shell am start -n com.android.settings/com.android.settings.wifi.WifiSettings", shell=True)
     sleep(0.5)
     subprocess.call("adb shell input swipe 350 600 350 600 500", shell=True)

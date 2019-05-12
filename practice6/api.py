@@ -50,9 +50,11 @@ def upload():
 
     return render_template('complete.html',path = 'localize.xlsx')
 
+
 @app.route('/download-files/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
     return send_from_directory(directory='excels', filename=filename,as_attachment=True)
+
 
 if __name__ == '__main__':
     app.run(port=3555, debug=True)
