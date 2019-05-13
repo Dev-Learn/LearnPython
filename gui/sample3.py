@@ -4,6 +4,10 @@ from urllib.request import urlopen
 
 from PyQt5.QtWidgets import *
 
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
 
 class Form(QDialog):
     def __init__(self, parent=None):
@@ -49,6 +53,7 @@ class Form(QDialog):
             print(e)
 
     def get_data(self):
+        global file
         url = "https://www.bankofcanada.ca/valet/observations/group/FX_RATES_DAILY/csv?start_date=2017-01-03"
         self.cur_code = {"Canadian Dollar": "FXCADCAS"}
         try:

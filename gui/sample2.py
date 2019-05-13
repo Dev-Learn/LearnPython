@@ -8,8 +8,8 @@ class Form(QDialog):
         super().__init__()
 
         self.brower = QTextBrowser()
-        self.line_edit = QLineEdit("Type an expression and press Enter")
-        self.line_edit.selectAll()
+        self.line_edit = QLineEdit()
+        self.line_edit.setPlaceholderText("Type an expression and press Enter")
         layout = QVBoxLayout()
         layout.addWidget(self.brower)
         layout.addWidget(self.line_edit)
@@ -19,12 +19,12 @@ class Form(QDialog):
         self.setWindowTitle("Calculator")
 
     def updateUI(self):
+        text = self.line_edit.text()
         try:
-            text = self.line_edit.text()
             self.brower.append("%s = <b>%s</b>" % (text,eval(text)))
-            self.line_edit.clear()
         except Exception:
-            self.brower.append("<b>%s is invalid</b>")
+            self.brower.append("<b>%s is invalid</b>" % text)
+        self.line_edit.clear()
 
 
 app = QApplication(sys.argv)
