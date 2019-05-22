@@ -3,15 +3,14 @@ import random
 import string
 import sys
 
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QRegExp
+from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import *
 
 
 class NumberFormatDlg(QDialog):
-
     def __init__(self, format, parent=None):
         super(NumberFormatDlg, self).__init__(parent)
-
         thousands_label = QLabel("&Thousands separator")
         self.thousandsEdit = QLineEdit(format["thousandsseparator"])
         thousands_label.setBuddy(self.thousandsEdit)
@@ -25,12 +24,8 @@ class NumberFormatDlg(QDialog):
         self.decimalPlacesSpinBox.setValue(format["decimalplaces"])
         self.redNegativesCheckBox = QCheckBox("&Red negative numbers")
         self.redNegativesCheckBox.setChecked(format["rednegatives"])
-
-        button_box = QDialogButtonBox(QDialogButtonBox.Ok |
-                                      QDialogButtonBox.Cancel)
-
+        button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         self.format = format.copy()
-
         grid = QGridLayout()
         grid.addWidget(thousands_label, 0, 0)
         grid.addWidget(self.thousandsEdit, 0, 1)
@@ -41,7 +36,6 @@ class NumberFormatDlg(QDialog):
         grid.addWidget(self.redNegativesCheckBox, 3, 0, 1, 2)
         grid.addWidget(button_box, 4, 0, 1, 2)
         self.setLayout(grid)
-
         button_box.accepted.connect(self.accept)
         button_box.rejected.connect(self.reject)
         self.setWindowTitle("Set Number Format (Modal)")
@@ -91,10 +85,8 @@ class NumberFormatDlg(QDialog):
 
         self.format["thousandsseparator"] = thousands
         self.format["decimalmarker"] = decimal
-        self.format["decimalplaces"] = \
-            self.decimalPlacesSpinBox.value()
-        self.format["rednegatives"] = \
-            self.redNegativesCheckBox.isChecked()
+        self.format["decimalplaces"] = self.decimalPlacesSpinBox.value()
+        self.format["rednegatives"] = self.redNegativesCheckBox.isChecked()
         QDialog.accept(self)
 
     def numberFormat(self):
@@ -118,18 +110,18 @@ class Form(QDialog):
                 self.numbers[(x, y)] = (10000 * random.random()) - 5000
 
         self.table = QTableWidget()
-        format_button1 = QPushButton("Set Number Format... "
+        format_button = QPushButton("Set Number Format... "
                                      "(&Modal)")
 
         button_layout = QHBoxLayout()
         button_layout.addStretch()
-        button_layout.addWidget(format_button1)
+        button_layout.addWidget(format_button)
         layout = QVBoxLayout()
         layout.addWidget(self.table)
         layout.addLayout(button_layout)
         self.setLayout(layout)
 
-        format_button1.clicked.connect(self.setNumberFormat1)
+        format_button.clicked.connect(self.setNumberFormat)
 
         self.setWindowTitle("Numbers")
         self.refreshTable()
@@ -164,7 +156,7 @@ class Form(QDialog):
                     item.setBackground(Qt.red)
                 self.table.setItem(y, x, item)
 
-    def setNumberFormat1(self):
+    def setNumberFormat(self):
         dialog = NumberFormatDlg(self.format, self)
         if dialog.exec_():
             self.format = dialog.numberFormat()
