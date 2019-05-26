@@ -70,7 +70,7 @@ def getData(source):
 
 
 if __name__ == '__main__':
-    # main()
+    # mainWindow()
 
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM article")

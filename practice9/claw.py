@@ -177,7 +177,7 @@ def updateSQL():
 
 
 if __name__ == '__main__':
-    # main()
+    # mainWindow()
     # updateSQL()
     date = datetime.now()
     print(date)

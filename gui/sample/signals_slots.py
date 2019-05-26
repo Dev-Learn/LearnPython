@@ -16,10 +16,6 @@ class Form(QDialog):
         layout.addWidget(self.spinBox)
 
         self.setLayout(layout)
-        # self.connect(dial, SIGNAL("valueChanged(int)"),
-        #              spinBox, SLOT("setValue(int)"))
-        # self.connect(spinBox, SIGNAL("valueChanged(int)"),
-        #              dial, SLOT("setValue(int)"))
         self.setWindowTitle("Signals and Slots")
         self.dial.valueChanged.connect(self.updateSpinner)
         self.spinBox.valueChanged.connect(self.updateDial)

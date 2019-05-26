@@ -1,0 +1,5 @@
+****************
+
+Bug not show log of Pyqt5 : https://stackoverflow.com/questions/33736819/pyqt-no-error-msg-traceback-on-exit
+
+****************

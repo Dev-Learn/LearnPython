@@ -45,7 +45,7 @@ try:
                     message.process_events(mask)
                 except Exception:
                     print(
-                        "main: error: exception for",
+                        "mainWindow: error: exception for",
                         f"{message.addr}:\n{traceback.format_exc()}",
                     )
                     message.close()

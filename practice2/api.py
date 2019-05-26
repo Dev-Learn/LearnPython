@@ -14,7 +14,7 @@ def test():
 
 @app.route('/')
 def index():
-    return 'The static url is : %s' % (url_for('static', filename='js/main.js'))
+    return 'The static url is : %s' % (url_for('static', filename='js/mainWindow.js'))
 
 @app.route('/testtemplate')
 def testTemplate():
