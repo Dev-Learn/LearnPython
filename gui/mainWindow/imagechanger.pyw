@@ -468,7 +468,7 @@ class MainWindow(QMainWindow):
         self.updateStatus(("Swapped Red and Blue"
                            if on else "Unswapped Red and Blue"))
 
-    def editUnMirror(self, on):
+    def editUnMirror(self):
         if self.image.isNull():
             return
         if self.mirroredhorizontally:
