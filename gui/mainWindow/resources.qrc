@@ -13,6 +13,7 @@
 <file alias="editunmirror.png">images/editunmirror.png</file>
 <file alias="editmirrorhoriz.png">images/editmirrorhoriz.png</file>
 <file alias="editmirrorvert.png">images/editmirrorvert.png</file>
+<file alias="editresize.png">images/resize.png</file>
 <file alias="back.png">images/back.png</file>
 <file alias="home.png">images/home.png</file>
 <file alias="icon.png">images/icon.png</file>
