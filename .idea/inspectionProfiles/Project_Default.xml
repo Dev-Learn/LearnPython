@@ -42,6 +42,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="pyrebase" />
+          <option value="gui.design.findandreplacedlg.*" />
         </list>
       </option>
     </inspection_tool>

@@ -21,7 +21,7 @@ from PyQt5.QtWidgets import (
     QApplication,
 )
 
-import ui_newimagedlg
+from gui.mainWindow import ui_newimagedlg
 
 
 class NewImageDlg(QDialog, ui_newimagedlg.Ui_NewImageDlg):
