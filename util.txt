@@ -22,3 +22,8 @@ sys.excepthook = my_exception_hook
 ****************
 
 define @pyqtSlot -> from PyQt5.QtCore import pyqtSlot
+
+****************
+
+pyuic5 -o ui_findandreplacedlg.py findandreplacedlg.ui
+pyrcc5  -o qrc_resources.py resources.qrc
