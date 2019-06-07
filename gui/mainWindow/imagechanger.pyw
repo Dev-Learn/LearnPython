@@ -351,11 +351,13 @@ class MainWindow(QMainWindow):
             ["*.{}".format(format.data().decode("ascii").lower())
              for format in QImageReader.supportedImageFormats()]
         )
+        filter = "Image files ({})".format(" ".join(formats))
+        print(filter)
         fdialog_tuple = QFileDialog.getOpenFileName(
             self,
             "Image Changer - Choose Image",
             dir_,
-            "Image files ({})".format(" ".join(formats)))
+            filter)
         fname = fdialog_tuple[0]
         if fname:
             self.loadFile(fname)

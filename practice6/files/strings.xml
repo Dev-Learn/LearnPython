@@ -1,169 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">MoBo</string>
+    <string name="payment_options">Payment Options</string>
+    <string name="card_number">card number</string>
+    <string name="name_on_card">name on card</string>
+    <string name="cvv">cvv</string>
+    <string name="expiry_date">expiry date mm/yy</string>
+    <string name="save_card">save card</string>
+    <string name="introduction_save_card">Card info is encrypted and securely stored.</string>
+    <string name="proceed">proceed</string>
+    <string name="aud_per_hour">$%s Per Hour</string>
+    <string name="fess_and_charges">Fees information</string>
+    <string name="intro_fees_charges">Rental rate above is charged in hour blocks. Capped at $%s
+        per day. First 15 minutes free.
+    </string>
+    <string name="lost_power">Lost power bank penalty charge</string>
+    <string name="intro_lost_power">Power bank not returned within 48 hours will be considered lost and will incur $50
+        penalty fee.
+    </string>
+    <string name="intro_rent_now">By tapping Rent Now, you agree and authorise us to charge $50 pre-authorisation amount
+        on your card for above fees and charges.
+    </string>
+    <string name="rent_now">rent now</string>
+    <string name="rental_success">Rental Successful!</string>
+    <string name="intro_rent_success">Please retrieve Power Bank from the kiosk, simply plug in and press the ON button to start charging</string>
+    <string name="charging_cable">Charging Cables</string>
+    <string name="intro_charging_cable">Built-in charging cables are suitable for all smartphone types</string>
+    <string name="how_to_return">How to return?</string>
+    <string name="intro_how_to_return">Simply insert Power Bank firmly into any MOBO smart kiosk and check that Power
+        Bank is locked.
+    </string>
+    <string name="go_to_my_order">go to my orders</string>
+    <string name="save_cards">Saved Cards</string>
+    <string name="remove">Remove</string>
+    <string name="visa">visa</string>
+    <string name="payment_successfully">Payment successful</string>
+    <string name="payment_successfully_line_2">Thank you for making the payment.</string>
+    <string name="go_to_home_screen">We hope to see you again soon!</string>
+    <string name="go_to_home">Go to home</string>
+    <string name="order_detail">Order Details</string>
+    <string name="order_id">Order ID</string>
+    <string name="hour_rented_free">Hours Rented (in hour)</string>
+    <string name="hour_rented">Hours Rented (in hour blocks)</string>
+    <string name="rent_per_hour">Rent Per Hour</string>
+    <string name="capped_rent">Capped Rent Per Day</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="power_bank_rental_fee">Power Bank Rental Fee</string>
+    <string name="lost_power_bank_penalty">Lost Power Bank Penalty (if any)</string>
+    <string name="card_processing_fee">Card Processing Fee</string>
+    <string name="total_payable">Total Payable</string>
+    <string name="you_are_logged_out">you are\nlogged out</string>
+    <string name="empty_input_field">Please input all fields</string>
+    <string name="torch_light">Torchlight</string>
+    <string name="scan_qr_code">Please scan QR code \non the kiosk</string>
+    <string name="scan_qr_code_text">Scan QR Code</string>
+    <string name="active_orders">active orders</string>
+    <string name="past_orders">past orders</string>
+    <string name="hint_input_phone">Phone Number</string>
+    <string name="hint_input_code">Verification Code</string>
+    <string name="title_sms_verification">SMS Verification</string>
+    <string name="text_button_get_code">Click for Code</string>
+    <string name="title_phone_number">Phone Number</string>
+    <string name="text_button_login">Login</string>
+    <string name="title_order">Order</string>
+    <string name="titl_order_details">Order Details</string>
+    <string name="google_maps_key_release">AIzaSyA5sYoObQE1b9YdDyYdF1uEri_1lTaavTU</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_help">Help</string>
+    <string name="title_legal">Legal</string>
+    <string name="title_term_of_use">Term Of Use</string>
+    <string name="title_privacy_policy">Privacy Policy</string>
+    <string name="title_faq">FAQ</string>
+    <string name="title_log_out">Log Out</string>
+    <string name="message_logout">Are you sure you want to log out?</string>
+    <string name="message_default_card">Do you want to set this as default card?</string>
+    <string name="message_remove_card">Do you want to remove this card?</string>
 
-	<string name="app_name">Sikring24</string>
+    <string name="tutorial_text_1">Use app to locate nearby MoBo smart kiosks</string>
+    <string name="tutorial_text_2">Use app to scan QR code on the kiosk to rent a power bank</string>
+    <string name="tutorial_text_3">Retrieve power bank from kiosk and simply start charging. Built in charging cables
+        are
+        for all smartphone types
+    </string>
+    <string name="tutorial_text_4">Return power bank by inserting back into any MoBo smart kiosk</string>
+    <string name="tutorial_text_5">Secure and easy payment within the app</string>
+    <string name="text_button_go_to_home">Go To Home</string>
+    <string name="text_button_get_start">Get Started</string>
+    <string name="title_tutorial_1">Step 1</string>
+    <string name="title_tutorial_2">Step 2</string>
+    <string name="title_tutorial_3">Step 3</string>
+    <string name="title_tutorial_4">Step 4</string>
+    <string name="title_tutorial_5">Step 5</string>
 
-	<!--  General  -->
-	<string name="alert_title">Sikring24</string>
-	<string name="alert_cancel">Avbryt</string>
+    <string name="title_no_power_bank_1">No Power Bank</string>
+    <string name="title_no_power_bank_2">Low Battery Level</string>
+    <string name="message_no_power_bank_1_1">There is no Power Bank at this kiosk.</string>
+    <string name="message_no_power_bank_2_1">Power Banks are charging due to low battery levels.</string>
+    <string name="message_no_power_bank_1_2">Go to Home to search for nearby MoBo kiosks.</string>
+    <string name="message_no_power_bank_2_2">Go to Home to search for nearby MoBo kiosks.</string>
 
-	<!--  Login  -->
-	<string name="login_title">Verifiser</string>
-	<string name="login_phone_number">Mobil</string>
-	<string name="login_customer_number">Kundenummer</string>
-	<string name="login_pass_phrase">Passord</string>
-	<string name="login_postal_code_no47">+47</string>
-	<string name="login_verify">Verifiser</string>
-	<string name="login_verifybutton_title">Verifiser</string>
-	<string name="login_update_title">Oppdatere</string>
+    <string name="title_free_and_charge">Fees and Charges</string>
+    <string name="title_add_card">Add Card</string>
+    <string name="title_rental_success">Rental Successful</string>
+    <string name="title_payment_success">Payment Successful</string>
+    <string name="error_empty_phone">Phone number is empty</string>
+    <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="error_empty_code">Please click on [Click for Code] to receive sms verification code and enter code to proceed</string>
+    <string name="error_not_check">Please agree to our Terms and Conditions and Privacy Policy to use the app</string>
+    <string name="text_button_add_new_card">Add New Card</string>
 
-	<string name="login_phone_hint"></string>
-	<string name="login_customer_hint"></string>
-	<string name="login_firstname_hint">Fornavn</string>
-	<string name="login_lastname_hint">Etternavn</string>
-	<string name="login_passphrase_hint"></string>
-	<string name="login_phone_alert">Vennligst oppgi riktig telefonnummer.</string>
-	<string name="login_customer_alert">Feil kundenummer. Prøv igjen.</string>
-	<string name="login_firstname_alert">Vennligst skriv inn ditt fornavn.</string>
-	<string name="login_lastname_alert">Vennligst skriv inn ditt etternavn.</string>
-	<string name="login_passphrase_alert">Vennligst skriv inn ditt passord.</string>
-	<!--  Home  -->
-	<string name="home_title">Sikring24</string>
-	<string name="home_description">Trykk på alarmknappen om du trenger vekterassistanse</string>
-	<string name="home_cancel_text">Dobbeltklikk for \nå stoppe</string>
-	<string name="home_not_enough_sms">Det er ingen alarmmeldinger igjen. Vennlist fyll på nye meldinger under innstillinger.</string>
-	<string name="home_low_sms">Det er mindre enn 4 alarmmeldinger igjen. Vennligst fyll på med flere meldinger under innstillinger.</string>
-	<!--  Setting -->
-	<string name="setting_title">Innstillinger</string>
-	<string name="setting_about_title">Om Sikring24 AS</string>
-	<string name="setting_profile_title">Profil</string>
-	<string name="setting_alarm_title">Alarm</string>
-	<string name="setting_refill_title">Påfyll SMS</string>
-
-	<!--  About  -->
-	<string name="about_title">Om Sikring24 AS</string>
-	<string name="about_text">Sikring24 AS leverer alarmtjenester til privat- og næringsmarkedet i Frogn, Ås og Nesodden kommune i samarbeid med Søndre Follo Brannvesen IKS.</string>
-	<string name="about_company_name">Sikring24 AS</string>
-	<string name="about_company_address">Vardeveien 5, 1450\nNesoddtangen</string>
-	<string name="about_company_tel">T. 94 789 689</string>
-	<string name="about_company_email">E. post@sikring24.no</string>
-	<string name="about_company_www">W. http://sikring24.no</string>
-
-	<string name="about_tel">tel:94789689</string>
-	<string name="about_email">post@sikring24.no</string>
-	<string name="about_www">http://sikring24.no</string>
-	<string name="about_loc">59.854380,10.652099</string>
-
-	<!--  Refill SMS  -->
-	<string name="refill_title">Påfyll SMS</string>
-	<string name="refill_text">Alarmen sender SMS-meldinger direkte fra våre servere uten å bruke meldingsapplikasjonen i iPhone. Den kommer med %d meldinger. For å kjøpe flere meldinger, fyll på med flere meldinger her.</string>
-
-	<string name="refill_button01_title">7 NOK - 3 meldinger</string>
-	<string name="refill_button02_title">14 NOK - 9 meldinger</string>
-	<string name="refill_button03_title">21 NOK - 15 meldinger</string>
-
-	<string name="refill_sku01">sikring24.sms3</string>
-	<string name="refill_sku02">sikring24.sms9</string>
-	<string name="refill_sku03">sikring24.sms15</string>
-
-	<string name="google_map_api">AIzaSyARx3xiQ7T33w8ZkgtB85kF4UozrnLzGJ0</string>
-	<string name="google_map_server_api">AIzaSyBkEOI8JVs2cVIK_GcWYmhv08wSnJo7tKk</string>
-
-	<string name="about_company"><![CDATA[<p>947 89 689 / telefon</p>
-<p>Sikring24 har et eksklusivt samarbeid med Follo Brannvesen om utrykning ved Brann- og Innbruddsalarm. Med sentralt plasserte stasjoner i Follo er vi aldri langt unna.</p>]]></string>
-	<string name="error_empty_kundenummer">Kundenummer invalid</string>
-
-	<string name="profile_title">Din Profil</string>
-	<string name="my_group">Min gruppe</string>
-	<string name="create_group">Opprett gruppe</string>
-	<string name="title_check_in">Sjekk inn</string>
-
-	<string name="hint_first_name">Fornanv</string>
-	<string name="hint_last_name">Etternavn</string>
-	<string name="hint_email">Epost</string>
-	<string name="button_save">Oppdatere</string>
-
-	<string name="title_register_1">Trinn 1. Skriv inn bedriftsinformasjon</string>
-	<string name="hint_register_name">Kundenummer</string>
-	<string name="hint_register_password">Passord</string>
-	<string name="button_send">Send inn</string>
-	<string name="title_register_2">Trinn 2. Posisjonering</string>
-	<string name="message_register_2">SIKKERHET onsker a vite din lokasjon</string>
-	<string name="register_2_type1">Tillat</string>
-	<string name="register_2_type2">Avbryt</string>
-	<string name="title_register_3">Trinn 3. Telefonnummer</string>
-	<string name="hint_phone">Skriv inn ditt telefonnum…</string>
-	<string name="title_register_4">Step 4. PIN VERIFICATION</string>
-	<string name="message_register_4">SIKKERHET will send the 3 digit activation code as SMS to:</string>
-	<string name="register_4_correct">Is it correct ?</string>
-	<string name="title_register_5">Trinn 5. Bekreft kode</string>
-	<string name="register_5_message">Skriv inn 3-sifret kode nedenfor for a fullfore verifiseringen:</string>
-	<string name="message_register_5_resend">Har ikke mottatt den?</string>
-	<string name="button_resend">Send igjen</string>
-	<string name="title_register_6">Trinn 6. Din profil</string>
-
-	<string name="permission_message"> Denne appen trenger noen tillatelser fra deg for å kunne kjøre. Vil du gi tillatelsene nå?</string>
-	<string name="permission_button_positive">OK</string>
-	<string name="permission_button_negative">Avbryt</string>
-
-	<string name="error_empty_email">Ugyldig epost</string>
-	<string name="error_empty_password">Feil passord</string>
-	<string name="error_empty_first_name">Feil i fornavn</string>
-	<string name="error_empty_last_name">Feil i etternavn</string>
-	<string name="error_empty_phone">Feil i telefonnummer</string>
-
-	<string name="text_term">GDPR beskytter dine personlige opplysninger og ditt personvern. GDPR er en viktig del av din personvernplan.</string>
-
-	<string name="invalid_accept_location">Du må akseptere vilkårene for denne tjenesten</string>
-	<string name="hint_alarm_enable">Alarm</string>
-	<string name="hint_check_in_enter_name">Navn på sted</string>
-	<string name="title_group_name">Gruppenavn</string>
-	<string name="hint_group_name">Navn</string>
-	<string name="group_description">Gruppebeskrivelse</string>
-	<string name="hint_group_description">Beskrivelse</string>
-	<string name="title_group_geofence">GEOFENCE</string>
-	<string name="title_set_geofence">Marker område</string>
-	<string name="title_members_in_group">Medlemmer i gruppen</string>
-	<string name="title_alarm">Alarm</string>
-	<string name="hint_geofence_enter_address">Skriv inn adresse</string>
-	<string name="default_radius">0m Radius</string>
-	<string name="radius">Radius</string>
-	<string name="title_area_name">Områdenavn</string>
-	<string name="title_alerts_when_enter_area">Varsling når</string>
-	<string name="title_enter_area">Ankommer området</string>
-	<string name="title_leave_area">Forlater området</string>
-	<string name="title_add_new_geofence">Legg til område</string>
-	<string name="title_send_invite_code">Send invitasjonskode</string>
-	<string name="message_invite_code">Del denne invitasjonskoden med de du vil ha i gruppen:</string>
-	<string name="button_send_code">Send kode</string>
-	<string name="text_enter_the_invite_code">Skriv inn invitasjonskoden</string>
-	<string name="text_ask_the_admin_for_their_code">Be administrator om invitasjonskoden</string>
-	<string name="button_submit_code">Skriv inn kode</string>
-	<string name="text_create_new_group">Opprett ny gruppe</string>
-	<string name="text_leaving_this_group">Forlat denne gruppen?</string>
-	<string name="text_are_you_sure_you_want_to_leave_this_group">Er du sikker på at du vil forlate denne gruppen?</string>
-	<string name="button_yes">Ja</string>
-	<string name="button_no">Nei</string>
-	<string name="button_create">Opprett</string>
-	<string name="text_allow_terms_and_conditions">Godta vilkår</string>
-	<string name="button_cancel">Avbryt</string>
-	<string name="text_invite_new_member">Inviter nytt medlem</string>
-	<string name="text_delete">Slett</string>
-	<string name="text_admin">Admin</string>
-	<string name="text_current_location">Nåværende sted</string>
-	<string name="error_get_location">Finner ikke lokasjon</string>
-	<string name="title_group">Gruppe</string>
-	<string name="title_invite_group">Invitasjonskode</string>
-	<string name="title_create_new_group">Opprett ny gruppe</string>
-	<string name="text_error_input_name">Skriv navn på gruppen!!!</string>
-	<string name="message_progress">Laster…</string>
-	<string name="title_dialog_invalid_token">Advarsel!!!</string>
-	<string name="message_dialog_invalid_token">Du er allerede innlogget på en annen enhet. </string>
-	<string name="message_invalid_gps">Din GPS ser ut til å være avslått. Vennligst slå den på. !!!</string>
-	<string name="title_gdpr_privacy">Personvernerklæring.</string>
-	<string name="invali_area_name">Skriv inn navn på område. !!!</string>
-	<string name="invalid_name">Skriv inn navn. !!!</string>
-	<string name="message_success">Oppdatert. </string>
-	<string name="message_delete_member">Er du sikker på at du vil fjerne dette medlemmet??</string>
-	<string name="message_delete_geofence">Er du sikker på at du vil fjerne dette området??</string>
+    <string name="title_payment_method">Payment Methods</string>
+    <string name="order_id_detail">Id %s</string>
+    <string name="title_user_guide">User Guide</string>
+    <string name="title_feedback">Feedback</string>
+    <string name="total_paid">Total Paid</string>
+    <string name="amount_owing">Amount Owing</string>
 </resources>

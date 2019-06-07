@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'localize.ui'
+#
+# Created by: PyQt5 UI code generator 5.11.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(364, 459)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.frame)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.frame_2 = QtWidgets.QFrame(self.frame)
+        self.frame_2.setMinimumSize(QtCore.QSize(300, 300))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_2)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.tableWidget = QtWidgets.QTableWidget(self.frame_2)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.gridLayout_3.addWidget(self.tableWidget, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
+        self.containExport = QtWidgets.QFrame(self.frame)
+        self.containExport.setMinimumSize(QtCore.QSize(0, 50))
+        self.containExport.setMaximumSize(QtCore.QSize(16777215, 300))
+        self.containExport.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.containExport.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.containExport.setObjectName("containExport")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.containExport)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.rbXml = QtWidgets.QRadioButton(self.containExport)
+        self.rbXml.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.rbXml.setChecked(True)
+        self.rbXml.setObjectName("rbXml")
+        self.horizontalLayout.addWidget(self.rbXml)
+        self.rbExcel = QtWidgets.QRadioButton(self.containExport)
+        self.rbExcel.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.rbExcel.setObjectName("rbExcel")
+        self.horizontalLayout.addWidget(self.rbExcel)
+        self.btExport = QtWidgets.QPushButton(self.containExport)
+        self.btExport.setEnabled(True)
+        self.btExport.setObjectName("btExport")
+        self.horizontalLayout.addWidget(self.btExport)
+        self.gridLayout_2.addWidget(self.containExport, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 364, 22))
+        self.menubar.setObjectName("menubar")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.actionOpen_Xml = QtWidgets.QAction(MainWindow)
+        self.actionOpen_Xml.setObjectName("actionOpen_Xml")
+        self.actionOpen_Excel = QtWidgets.QAction(MainWindow)
+        self.actionOpen_Excel.setObjectName("actionOpen_Excel")
+        self.menuFile.addAction(self.actionOpen_Xml)
+        self.menuFile.addAction(self.actionOpen_Excel)
+        self.menubar.addAction(self.menuFile.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.rbXml.setText(_translate("MainWindow", "Export XML"))
+        self.rbExcel.setText(_translate("MainWindow", "Export Excel"))
+        self.btExport.setText(_translate("MainWindow", "Export"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.actionOpen_Xml.setText(_translate("MainWindow", "Open XML"))
+        self.actionOpen_Excel.setText(_translate("MainWindow", "Open Excel"))
+
