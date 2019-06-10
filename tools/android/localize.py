@@ -1,4 +1,5 @@
 import codecs
+import json
 import os
 import platform
 import random
@@ -10,10 +11,9 @@ from xml.dom import minidom
 
 import pandas
 import xlsxwriter
-from googletrans import Translator
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot, QTimer
-import json
+from googletrans import Translator
 
 from tools.android.ui import localize_ui, dlg_localize_type_ui
 
@@ -37,12 +37,12 @@ class LocalizeTypeDlg(QtWidgets.QDialog, dlg_localize_type_ui.Ui_Dialog):
     def __init__(self, listLanguage, parent=None):
         super(LocalizeTypeDlg, self).__init__(parent)
         self.setupUi(self)
-        data = json.load(codecs.open("Country.json", mode='r', encoding="utf8"))
+        data = json.load(codecs.open("Language_Country.json", mode='r', encoding="utf8"))
         print(data)
         for item in data:
-            code = item["ISO CODES"]
+            code = item["Language_Code"]
             if code not in listLanguage:
-                self.comboBox.addItem(item["COUNTRY"], code)
+                self.comboBox.addItem(item["Name"], code)
 
     def getValue(self):
         return self.comboBox.currentData()
@@ -50,8 +50,6 @@ class LocalizeTypeDlg(QtWidgets.QDialog, dlg_localize_type_ui.Ui_Dialog):
 
 class LOCALIZE(Enum):
     ID = "id"
-    EN = "en"
-    VI = "vi"
 
 
 def getRow(index, isValue=False):
@@ -106,9 +104,8 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         self.header = []
         self.containExport.setVisible(False)
         self.typeExport = None
-        self.actionOpen_Xml.triggered.connect(lambda: self.openFile(False))
-        self.actionOpen_Excel.triggered.connect(lambda: self.openFile(True))
-        self.actionAdd_Language.triggered.connect(self.addMoreLanguage)
+        self.actionOpen.triggered.connect(self.openFile)
+        self.actionAddLanguage.triggered.connect(self.addMoreLanguage)
         self.tableWidget.resizeColumnsToContents()
         self.tableWidget.resizeRowsToContents()
         self.translator = Translator()
@@ -126,19 +123,21 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             listData.pop(LOCALIZE.ID.value)
             listResource = listData.get(random.choice(list(listData.keys())))
             print(listResource)
-            listValue = []
             self.columnCount = self.tableWidget.columnCount()
             print(self.columnCount)
             self.tableWidget.insertColumn(self.columnCount)
-            for index, item in enumerate(listResource):
-                value = self.translator.translate(item, dest=code)
-                value = value.text
-                print(value)
-                self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(value))
+            try:
+                for index, item in enumerate(listResource):
+                    value = self.translator.translate(item, dest=code)
+                    value = value.text
+                    print(value)
+                    self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(value))
 
-            self.header.append(code)
-            print(self.header)
-            self.tableWidget.setHorizontalHeaderLabels(self.header)
+                self.header.append(code)
+                print(self.header)
+                self.tableWidget.setHorizontalHeaderLabels(self.header)
+            except ValueError as e:
+                print(e)
 
     @pyqtSlot()
     def on_btExport_clicked(self):
@@ -231,14 +230,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         print("Open File")
         file_dialog = QtWidgets.QFileDialog(self)
         # the name filters must be a list
-        if isExcel:
-            nameFilter = ["Excel files (*.xlsx)"]
-            nameSelectFilter = "Excel files (*.xlsx)"
-        else:
-            nameFilter = ["Xml files (*.xml)"]
-            nameSelectFilter = "XML files (*.xml)"
-        file_dialog.setNameFilters(nameFilter)
-        file_dialog.selectNameFilter(nameSelectFilter)
+        file_dialog.setNameFilters(["Excel files (*.xlsx)", "Xml files (*.xml)"])
         # show the dialog
         if file_dialog.exec_():
             path = file_dialog.selectedFiles()[0]
