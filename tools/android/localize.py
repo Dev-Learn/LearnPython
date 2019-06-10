@@ -1,3 +1,4 @@
+import codecs
 import os
 import platform
 import random
@@ -12,6 +13,7 @@ import xlsxwriter
 from googletrans import Translator
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot, QTimer
+import json
 
 from tools.android.ui import localize_ui, dlg_localize_type_ui
 
@@ -32,15 +34,18 @@ sys.excepthook = my_exception_hook
 
 
 class LocalizeTypeDlg(QtWidgets.QDialog, dlg_localize_type_ui.Ui_Dialog):
-
-    def __init__(self, parent=None):
+    def __init__(self, listLanguage, parent=None):
         super(LocalizeTypeDlg, self).__init__(parent)
         self.setupUi(self)
-        self.comboBox.addItem(LOCALIZE.EN.value)
-        self.comboBox.addItem(LOCALIZE.VI.value)
+        data = json.load(codecs.open("Country.json", mode='r', encoding="utf8"))
+        print(data)
+        for item in data:
+            code = item["ISO CODES"]
+            if code not in listLanguage:
+                self.comboBox.addItem(item["COUNTRY"], code)
 
     def getValue(self):
-        return self.comboBox.currentText()
+        return self.comboBox.currentData()
 
 
 class LOCALIZE(Enum):
@@ -97,13 +102,43 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
     def __init__(self):
         super(Localize, self).__init__()
         self.setupUi(self)
+        self.columnCount = 2
+        self.header = []
         self.containExport.setVisible(False)
         self.typeExport = None
         self.actionOpen_Xml.triggered.connect(lambda: self.openFile(False))
         self.actionOpen_Excel.triggered.connect(lambda: self.openFile(True))
+        self.actionAdd_Language.triggered.connect(self.addMoreLanguage)
         self.tableWidget.resizeColumnsToContents()
         self.tableWidget.resizeRowsToContents()
         self.translator = Translator()
+
+    def addMoreLanguage(self):
+        if not self.header:
+            QtWidgets.QMessageBox().warning(self, "Error", "Please import xml or xlsx file")
+            return
+        dialog = LocalizeTypeDlg(self.header)
+        if dialog.exec_():
+            code = dialog.getValue()
+            print(code)
+            listData = self.getDataFromTable()
+            print(listData)
+            listData.pop(LOCALIZE.ID.value)
+            listResource = listData.get(random.choice(list(listData.keys())))
+            print(listResource)
+            listValue = []
+            self.columnCount = self.tableWidget.columnCount()
+            print(self.columnCount)
+            self.tableWidget.insertColumn(self.columnCount)
+            for index, item in enumerate(listResource):
+                value = self.translator.translate(item, dest=code)
+                value = value.text
+                print(value)
+                self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(value))
+
+            self.header.append(code)
+            print(self.header)
+            self.tableWidget.setHorizontalHeaderLabels(self.header)
 
     @pyqtSlot()
     def on_btExport_clicked(self):
@@ -121,6 +156,14 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             self.export(isExcel, path)
 
     def export(self, isExcel, path):
+        listData = self.getDataFromTable()
+        print(listData)
+        if isExcel:
+            self.exportExcel(listData, path)
+        else:
+            self.exportXml(listData, path)
+
+    def getDataFromTable(self):
         listData = {}
         row = 0
         col = 0
@@ -140,11 +183,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             listData[header] = list
             row = 0
             col += 1
-        print(listData)
-        if isExcel:
-            self.exportExcel(listData, path)
-        else:
-            self.exportXml(listData, path)
+        return listData
 
     def exportExcel(self, listData, path):
         workbook = xlsxwriter.Workbook(path + ".xlsx")
@@ -170,10 +209,10 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             listData.pop(LOCALIZE.ID.value)
             # print(listId)
             for key, value in listData.items():
-                self.seperatefolderString(listId, key, value, path)
+                self.seperateFolderString(listId, key, value, path)
             openDiction(path)
 
-    def seperatefolderString(self, listId, key, value, path):
+    def seperateFolderString(self, listId, key, value, path):
         path = '/'.join([path, "values-%s" % key])
         if not os.path.exists(path):
             os.mkdir(path)
@@ -215,19 +254,23 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
                     QtWidgets.QMessageBox().warning(self, "Error", "Please choose file string")
                     self.openFile(isExcel)
                 return
-            else:
+            elif ".xlsx" in name:
                 df = pandas.read_excel(path)
 
-                self.tableWidget.setColumnCount(len(df.columns))
+                self.columnCount = len(df.columns)
+                self.tableWidget.setColumnCount(self.columnCount)
                 self.tableWidget.setRowCount(len(df.index))
 
                 for i in range(len(df.index)):
                     for j in range(len(df.columns)):
                         self.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem(str(df.iat[i, j])))
-                header = list(df)
-                print(header)
-                self.tableWidget.setHorizontalHeaderLabels(header)
-                self.updateRadioButton(False)
+                self.header = list(df)
+                print(self.header)
+                self.tableWidget.setHorizontalHeaderLabels(self.header)
+                self.updateRadioButton(True)
+            else:
+                QtWidgets.QMessageBox().warning(self, "Error", "Please choose file xml or xlsx")
+                self.openFile(isExcel)
             self.containExport.setVisible(True)
 
     def detectLanguage(self, items):
@@ -246,16 +289,15 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
     def detectLanguageComplete(self, size, listName, listValue):
         print(self.language)
         self.language = self.language.lang
-        print(self.language)
-        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setColumnCount(self.columnCount)
         self.tableWidget.setRowCount(size)
-        col_header = [LOCALIZE.ID.value, self.language]
-        self.tableWidget.setHorizontalHeaderLabels(col_header)
+        self.header = [LOCALIZE.ID.value, self.language]
+        self.tableWidget.setHorizontalHeaderLabels(self.header)
         if listName.__len__() == listValue.__len__():
             for index in range(0, listName.__len__() - 1):
                 self.tableWidget.setItem(index, 0, QtWidgets.QTableWidgetItem(listName[index]))
                 self.tableWidget.setItem(index, 1, QtWidgets.QTableWidgetItem(listValue[index]))
-        self.updateRadioButton(True)
+        self.updateRadioButton(False)
         self.containExport.setVisible(True)
 
     def updateRadioButton(self, isExcel):

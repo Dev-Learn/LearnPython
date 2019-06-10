@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
+    <width>479</width>
     <height>459</height>
    </rect>
   </property>
@@ -118,7 +118,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>364</width>
+     <width>479</width>
      <height>22</height>
     </rect>
    </property>
@@ -129,7 +129,14 @@
     <addaction name="actionOpen_Xml"/>
     <addaction name="actionOpen_Excel"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionAdd_Language"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen_Xml">
@@ -140,6 +147,11 @@
   <action name="actionOpen_Excel">
    <property name="text">
     <string>Open Excel</string>
+   </property>
+  </action>
+  <action name="actionAdd_Language">
+   <property name="text">
+    <string>Add Language</string>
    </property>
   </action>
  </widget>
