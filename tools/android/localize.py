@@ -5,19 +5,25 @@ import platform
 import random
 import subprocess
 import sys
-import xml.etree.ElementTree as ET
-from enum import Enum
+from functools import partial
 from xml.dom import minidom
 
 import pandas
 import xlsxwriter
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import pyqtSlot, QTimer
-from googletrans import Translator
+from PyQt5.QtCore import pyqtSlot, QThread
+from lxml import etree
 
-from tools.android.ui import localize_ui, dlg_localize_type_ui
+# module_path = os.path.abspath(os.getcwd())
+#
+# if module_path not in sys.path:
+#     print("%s" % module_path)
+#     sys.path.append(module_path)
 
 # Back up the reference to the exceptionhook
+from tools.android import worker
+from tools.android.ui import dlg_localize_type_ui, localize_ui
+
 sys._excepthook = sys.excepthook
 
 
@@ -31,6 +37,8 @@ def my_exception_hook(exctype, value, traceback):
 
 # Set the exception hook to our wrapping function
 sys.excepthook = my_exception_hook
+
+ID = "id"
 
 
 class LocalizeTypeDlg(QtWidgets.QDialog, dlg_localize_type_ui.Ui_Dialog):
@@ -47,9 +55,8 @@ class LocalizeTypeDlg(QtWidgets.QDialog, dlg_localize_type_ui.Ui_Dialog):
     def getValue(self):
         return self.comboBox.currentData()
 
-
-class LOCALIZE(Enum):
-    ID = "id"
+    def getName(self):
+        return self.comboBox.currentText()
 
 
 def getRow(index, isValue=False):
@@ -108,7 +115,6 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         self.actionAddLanguage.triggered.connect(self.addMoreLanguage)
         self.tableWidget.resizeColumnsToContents()
         self.tableWidget.resizeRowsToContents()
-        self.translator = Translator()
 
     def addMoreLanguage(self):
         if not self.header:
@@ -116,28 +122,45 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             return
         dialog = LocalizeTypeDlg(self.header)
         if dialog.exec_():
+            name = dialog.getName()
             code = dialog.getValue()
             print(code)
             listData = self.getDataFromTable()
             print(listData)
-            listData.pop(LOCALIZE.ID.value)
+            listData.pop(ID.value)
             listResource = listData.get(random.choice(list(listData.keys())))
             print(listResource)
             self.columnCount = self.tableWidget.columnCount()
             print(self.columnCount)
             self.tableWidget.insertColumn(self.columnCount)
-            try:
-                for index, item in enumerate(listResource):
-                    value = self.translator.translate(item, dest=code)
-                    value = value.text
-                    print(value)
-                    self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(value))
+            self.header.append(code)
+            print(self.header)
+            self.tableWidget.setHorizontalHeaderLabels(self.header)
+            self.showLogStatusBar("Translate Language to %s..." % name)
+            obj = worker.WorkerTranslate(translateLanguage={"listResource": listResource, "code": code})
+            thread = QThread(self)
+            obj.translateComplete.connect(self.translateLanguageComplete)
+            obj.translateStatus.connect(self.translateStatus)
+            obj.translateError.connect(self.translateError)
+            obj.moveToThread(thread)
+            thread.started.connect(partial(obj.translateLanguage))
+            thread.start()
 
-                self.header.append(code)
-                print(self.header)
-                self.tableWidget.setHorizontalHeaderLabels(self.header)
-            except ValueError as e:
-                print(e)
+    @pyqtSlot(str, int)
+    def translateLanguageComplete(self, translate, index):
+        self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(translate))
+
+    @pyqtSlot(str, str)
+    def translateStatus(self, currentText, transtateText):
+        self.showLogStatusBar("%s transtate to -> %s" % (currentText, transtateText))
+
+    @pyqtSlot()
+    def translateError(self):
+        self.tableWidget.removeColumn(self.columnCount)
+        headerError = self.header[-1]
+        self.header.remove(headerError)
+        print(self.header)
+        self.tableWidget.setHorizontalHeaderLabels(self.header)
 
     @pyqtSlot()
     def on_btExport_clicked(self):
@@ -203,9 +226,9 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         openDiction(path)
 
     def exportXml(self, listData, path):
-        if LOCALIZE.ID.value in listData.keys():
-            listId = listData.get(LOCALIZE.ID.value)
-            listData.pop(LOCALIZE.ID.value)
+        if ID in listData.keys():
+            listId = listData.get(ID)
+            listData.pop(ID)
             # print(listId)
             for key, value in listData.items():
                 self.seperateFolderString(listId, key, value, path)
@@ -217,12 +240,18 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             os.mkdir(path)
         print(path)
         path = path + "/strings.xml"
-        data = ET.Element('resources')
+        root = etree.Element('resources')
         for index, item in enumerate(value):
-            string = ET.SubElement(data, 'string')
-            string.set("name", listId[index])
-            string.text = item
-        data = ET.tostring(data)
+            child = etree.Element('string')
+            child.set('name', listId[index])
+            child.text = item
+            root.append(child)
+            # string = ET.SubElement(data, 'string')
+            # string.set("name", listId[index])
+            # string.text = item
+        # data = ET.tostring(data)
+        data = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True)
+        print(data)
         with open(path, "wb") as file:
             file.write(data)
 
@@ -230,7 +259,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         print("Open File")
         file_dialog = QtWidgets.QFileDialog(self)
         # the name filters must be a list
-        file_dialog.setNameFilters(["Excel files (*.xlsx)", "Xml files (*.xml)"])
+        file_dialog.setNameFilters(["Xml files (*.xml)", "Excel files (*.xlsx)"])
         # show the dialog
         if file_dialog.exec_():
             path = file_dialog.selectedFiles()[0]
@@ -275,15 +304,22 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             data = item.firstChild
             listValue.append(data.data if data else '')
         value = random.choice(listValue)
-        self.language = self.translator.detect(value)
-        QTimer.singleShot(0, lambda: self.detectLanguageComplete(size, listName, listValue))
+        obj = worker.WorkerTranslate(detectLanguage={"text": value, "size": size, "listName": listName,
+                                                     "listValue": listValue})
+        self.showLogStatusBar("Detect Language ...")
+        thread = QThread(self)
+        obj.detectComplete.connect(self.detectLanguageComplete)
+        obj.moveToThread(thread)
+        thread.started.connect(partial(obj.detectLanguage))
+        thread.start()
 
-    def detectLanguageComplete(self, size, listName, listValue):
-        print(self.language)
-        self.language = self.language.lang
+    @pyqtSlot(str, int, list, list)
+    def detectLanguageComplete(self, languagecode, size, listName, listValue):
+        self.showLogStatusBar("Detect Language Complete : %s..." % languagecode)
+        print(languagecode)
         self.tableWidget.setColumnCount(self.columnCount)
         self.tableWidget.setRowCount(size)
-        self.header = [LOCALIZE.ID.value, self.language]
+        self.header = [ID, languagecode]
         self.tableWidget.setHorizontalHeaderLabels(self.header)
         if listName.__len__() == listValue.__len__():
             for index in range(0, listName.__len__() - 1):
@@ -300,9 +336,13 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             self.rbExcel.setChecked(True)
             self.rbXml.setChecked(False)
 
+    def showLogStatusBar(self, message):
+        self.statusBar().showMessage(message, 5000)
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     main = Localize()
+    main.raise_()
     main.show()
     sys.exit(app.exec_())
