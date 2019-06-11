@@ -8,6 +8,8 @@ import sys
 from functools import partial
 from xml.dom import minidom
 
+sys.path.insert(0, '../android')
+
 import pandas
 import xlsxwriter
 from PyQt5 import QtWidgets
@@ -21,8 +23,8 @@ from lxml import etree
 #     sys.path.append(module_path)
 
 # Back up the reference to the exceptionhook
-from tools.android import worker
-from tools.android.ui import dlg_localize_type_ui, localize_ui
+import worker
+from ui import dlg_localize_type_ui, localize_ui
 
 sys._excepthook = sys.excepthook
 
@@ -108,6 +110,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         super(Localize, self).__init__()
         self.setupUi(self)
         self.columnCount = 2
+        self.isAddMoreLanguage = False
         self.header = []
         self.containExport.setVisible(False)
         self.typeExport = None
@@ -120,6 +123,10 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
         if not self.header:
             QtWidgets.QMessageBox().warning(self, "Error", "Please import xml or xlsx file")
             return
+        if self.isAddMoreLanguage:
+            QtWidgets.QMessageBox().warning(self, "Warning", "translating %s" % self.header[-1])
+            return
+        self.isAddMoreLanguage = True
         dialog = LocalizeTypeDlg(self.header)
         if dialog.exec_():
             name = dialog.getName()
@@ -127,7 +134,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             print(code)
             listData = self.getDataFromTable()
             print(listData)
-            listData.pop(ID.value)
+            listData.pop(ID)
             listResource = listData.get(random.choice(list(listData.keys())))
             print(listResource)
             self.columnCount = self.tableWidget.columnCount()
@@ -139,6 +146,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             self.showLogStatusBar("Translate Language to %s..." % name)
             obj = worker.WorkerTranslate(translateLanguage={"listResource": listResource, "code": code})
             thread = QThread(self)
+            obj.translateWordComplete.connect(self.translateWordComplete)
             obj.translateComplete.connect(self.translateLanguageComplete)
             obj.translateStatus.connect(self.translateStatus)
             obj.translateError.connect(self.translateError)
@@ -147,8 +155,12 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             thread.start()
 
     @pyqtSlot(str, int)
-    def translateLanguageComplete(self, translate, index):
+    def translateWordComplete(self, translate, index):
         self.tableWidget.setItem(index, self.columnCount, QtWidgets.QTableWidgetItem(translate))
+
+    @pyqtSlot()
+    def translateLanguageComplete(self):
+        self.isAddMoreLanguage = False
 
     @pyqtSlot(str, str)
     def translateStatus(self, currentText, transtateText):
