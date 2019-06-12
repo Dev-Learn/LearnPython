@@ -16,18 +16,11 @@ from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot, QThread
 from lxml import etree
 
-# module_path = os.path.abspath(os.getcwd())
-#
-# if module_path not in sys.path:
-#     print("%s" % module_path)
-#     sys.path.append(module_path)
-
 # Back up the reference to the exceptionhook
-import worker
+import localizeWorker
 from ui import dlg_localize_type_ui, localize_ui
 
 sys._excepthook = sys.excepthook
-
 
 def my_exception_hook(exctype, value, traceback):
     # Print the error and traceback
@@ -144,7 +137,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             print(self.header)
             self.tableWidget.setHorizontalHeaderLabels(self.header)
             self.showLogStatusBar("Translate Language to %s..." % name)
-            obj = worker.WorkerTranslate(translateLanguage={"listResource": listResource, "code": code})
+            obj = localizeWorker.WorkerTranslate(translateLanguage={"listResource": listResource, "code": code})
             thread = QThread(self)
             obj.translateWordComplete.connect(self.translateWordComplete)
             obj.translateComplete.connect(self.translateLanguageComplete)
@@ -316,7 +309,7 @@ class Localize(localize_ui.Ui_MainWindow, QtWidgets.QMainWindow):
             data = item.firstChild
             listValue.append(data.data if data else '')
         value = random.choice(listValue)
-        obj = worker.WorkerTranslate(detectLanguage={"text": value, "size": size, "listName": listName,
+        obj = localizeWorker.WorkerTranslate(detectLanguage={"text": value, "size": size, "listName": listName,
                                                      "listValue": listValue})
         self.showLogStatusBar("Detect Language ...")
         thread = QThread(self)
