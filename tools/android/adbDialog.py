@@ -18,7 +18,7 @@ class AdbDeviceDialog(Ui_Dialog, QtWidgets.QDialog):
 
         self.obj = WorkerScreenCap(deviceCode)
         self.thread = QThread(self)
-        self.obj.pathImage.connect(self.pathImageScreenCap)
+        self.obj.image.connect(self.pathImageScreenCap)
         self.obj.moveToThread(self.thread)
         self.thread.started.connect(partial(self.obj.runScreenCap))
         self.thread.start()
@@ -31,12 +31,13 @@ class AdbDeviceDialog(Ui_Dialog, QtWidgets.QDialog):
     def checkCode(self, code):
         return code == self.objectName()
 
-    @pyqtSlot(str)
-    def pathImageScreenCap(self, path):
-        pixmap = QPixmap(path)
-        self.image = QPixmap.toImage(pixmap)
-        image = self.image.scaled(450, 800, Qt.KeepAspectRatio)
-        self.imageShow.setPixmap(QPixmap.fromImage(image))
+    @pyqtSlot(QImage)
+    def pathImageScreenCap(self, img):
+        # pixmap = QPixmap(path)
+        # self.image = QPixmap.toImage(img)
+        if img:
+            image = img.scaled(450, 800, Qt.KeepAspectRatio)
+            self.imageShow.setPixmap(QPixmap.fromImage(image))
 
     if __name__ == "__main__":
         import sys
