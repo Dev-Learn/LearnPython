@@ -9,15 +9,16 @@ class WorkerScreenCap(QObject):
     def __init__(self,deviceCode):
         super().__init__()
         self.deviceCode = deviceCode
+        self.readData = True
 
     def runScreenCap(self):
+        print("run ScreenCap")
         dir = 'screencap'
 
         if not os.path.isdir(dir):
             os.mkdir(dir)
-        while True:
-            subprocess.call("adb -s %s shell screencap /sdcard/%s_screen.png" % (self.deviceCode, self.deviceCode), shell=True)
-            subprocess.call("adb -s %s pull /sdcard/%s_screen.png %s" % (self.deviceCode, self.deviceCode, os.path.abspath(dir)),
-                            shell=True)
-            self.pathImage.emit(os.path.join(dir, "%s_screen.png" % self.deviceCode))
-            # time.sleep(1)
+        data = subprocess.Popen("adb -s %s exec-out screenrecord --bit-rate=16m --output-format=h264 --size 1920x1080 -" % self.deviceCode, shell=True,
+                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        while self.readData:
+            line = data.stdout.readline()
+            print(line)

@@ -16,12 +16,17 @@ class AdbDeviceDialog(Ui_Dialog, QtWidgets.QDialog):
         self.image = QImage()
         self.imageShow.resize(450, 800)
 
-        obj = WorkerScreenCap(deviceCode)
-        thread = QThread(self)
-        obj.pathImage.connect(self.pathImageScreenCap)
-        obj.moveToThread(thread)
-        thread.started.connect(partial(obj.runScreenCap))
-        thread.start()
+        self.obj = WorkerScreenCap(deviceCode)
+        self.thread = QThread(self)
+        self.obj.pathImage.connect(self.pathImageScreenCap)
+        self.obj.moveToThread(self.thread)
+        self.thread.started.connect(partial(self.obj.runScreenCap))
+        self.thread.start()
+
+    def clear(self):
+        print("CLEAR - THREAD")
+        self.obj.readData = False
+        self.thread.exit()
 
     def checkCode(self, code):
         return code == self.objectName()

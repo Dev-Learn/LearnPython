@@ -56,9 +56,13 @@ class AdbMain(Ui_MainWindow, QtWidgets.QMainWindow):
         self.listDevice.addItem(item)
         self.hasDevice()
 
+        # subprocess.call("""adb -s %s exec-out screenrecord --bit-rate=16m --output-format=h264 --size 1920x1080  | /Applications/vlc.app/Contents/MacOS/VLC --demux h264""" % deviceCode)
         dialog = AdbDeviceDialog(deviceInfo=deviceInfo, deviceCode=deviceCode)
-        dialog.show()
         self.deviceDialog.append(dialog)
+        dialog.show()
+        if dialog.exec_() == QtWidgets.QDialog.Rejected:
+            print("CLEAR - THREAD")
+            dialog.clear()
 
     @pyqtSlot(str)
     def removeDeviceConnect(self, deviceCode):
@@ -68,9 +72,13 @@ class AdbMain(Ui_MainWindow, QtWidgets.QMainWindow):
             data = item.data(Qt.UserRole)
             if deviceCode in data:
                 self.listDevice.takeItem(self.listDevice.row(item))
+        #         adb shell "while true; do screenrecord --bit-rate=16m --output-format=h264 --size 1920x1080 -; done" | ffplay -
+        # adb -s CB512ETBS9 shell "while true; do screenrecord --output-format=h264 --time-limit 1 -; done" | /Applications/vlc.app/Contents/MacOS/VLC --demux h264 -
 
         for dialog in self.deviceDialog:
             if dialog.checkCode(deviceCode):
+                print("CLEAR - THREAD")
+                dialog.clear()
                 dialog.close()
 
         self.hasDevice()
