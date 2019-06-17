@@ -1,6 +1,7 @@
 import subprocess
 import cv2, os, time
 from array import array
+import numpy as np
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 from PyQt5 import QtGui
 
@@ -20,34 +21,40 @@ class WorkerScreenCap(QObject):
         if not os.path.isdir(dir):
             os.mkdir(dir)
         img = QtGui.QImage()
-        adbCmd = ['adb', '-s %s' % self.deviceCode, 'exec-out', 'screenrecord', '--output-format=h264', '-']
-        # stream = subprocess.Popen(adbCmd, stdout=subprocess.PIPE)
-        #
-        # ffmpegCmd = ['ffmpeg', '-i', '-', '-f', 'rawvideo', '-vf', 'scale=324:576',
-        #              '-vcodec', 'bmp', '-']
+        adbCmd = ['adb', 'exec-out', 'screenrecord', '--size', '450x800', '--output-format=h264', '-']
+        stream = subprocess.Popen(adbCmd, stdout=subprocess.PIPE)
 
-        # ffmpeg = subprocess.Popen(ffmpegCmd, stdin=stream.stdout, stdout=subprocess.PIPE)
-        ffmpeg = subprocess.Popen("adb -s %s exec-out screenrecord --output-format=h264 - | ffmpeg -i --f rawvideo -vf scale=324:576 -vcodecbmp -" % self.deviceCode, shell=True,
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        ffmpegCmd = ['ffmpeg', '-i', '-', '-f', 'rawvideo', '-s', '800x450',
+                     '-vcodec', 'bmp', '-']
+        ffmpeg = subprocess.Popen(ffmpegCmd, stdin=stream.stdout, stdout=subprocess.PIPE)
+
+        # while True:
+        #     fileSizeBytes = ffmpeg.stdout.read(6)
+        #     print(fileSizeBytes)
+        #     fileSize = 0
+        #     for i in range(4):
+        #         fileSize += array('B', fileSizeBytes[i + 2])[0] * 256 ** i
+        #     bmpData = fileSizeBytes + ffmpeg.stdout.read(fileSize - 6)
+        #     print(bmpData)
+        #     image = cv2.imdecode(np.fromstring(bmpData, dtype=np.uint8), 1)
+        #     cv2.imshow("im", image)
+        #     cv2.waitKey(25)
 
         while True:
-            fileSizeBytes = ffmpeg.stdout.read()
-            print(fileSizeBytes)
-            fileSize = 0
-            try:
-                for i in range(4):
-                    fileSize += array('B', fileSizeBytes[i + 2])[0] * 256 ** i
-                bmpData = fileSizeBytes + ffmpeg.stdout.read(fileSize - 6)
-                img.loadFromData(bmpData)
-                self.image.emit(img)
-            except Exception as e:
-                a = 1
-                # print(e)
-            # image = cv2.imdecode(np.fromstring(bmpData, dtype=np.uint8), 1)
+            raw_image = ffmpeg.stdout.read(800 * 450 * 3)
+            # print(raw_image)
+            image = np.frombuffer(raw_image, np.uint8)
+            image = image.reshape((800, 450, 3))
+            cv2.imshow('', image)
+            cv2.waitKey()
+            # img.loadFromData(raw_image)
+            # self.image.emit(img)
+            # print(raw_image)
+            # image = numpy.fromstring(raw_image, dtype='uint8')
+            # image = image.reshape((324, 576, 3))
+            # image = cv2.imdecode(image, 1)
             # cv2.imshow("im", image)
             # cv2.waitKey(25)
-
-
 
             # data = subprocess.Popen("adb -s %s exec-out screencap -p" % self.deviceCode, shell=True,
             #                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

@@ -36,8 +36,10 @@ class AdbDeviceDialog(Ui_Dialog, QtWidgets.QDialog):
         # pixmap = QPixmap(path)
         # self.image = QPixmap.toImage(img)
         if img:
-            image = img.scaled(450, 800, Qt.KeepAspectRatio)
-            self.imageShow.setPixmap(QPixmap.fromImage(image))
+            # image = img.scaled(450, 800, Qt.KeepAspectRatio)
+            self.imageShow.setPixmap(QPixmap.fromImage(img))
+        else:
+            print("Empty Image")
 
     if __name__ == "__main__":
         import sys
