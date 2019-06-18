@@ -25,7 +25,7 @@ class WorkerScreenCap(QObject):
         stream = subprocess.Popen(adbCmd, stdout=subprocess.PIPE)
 
         ffmpegCmd = ['ffmpeg', '-i', '-', '-f', 'rawvideo', '-s', '800x450',
-                     '-vcodec', 'bmp', '-']
+                     '-vcodec', 'h264', '-']
         ffmpeg = subprocess.Popen(ffmpegCmd, stdin=stream.stdout, stdout=subprocess.PIPE)
 
         # while True:
@@ -43,18 +43,13 @@ class WorkerScreenCap(QObject):
         while True:
             raw_image = ffmpeg.stdout.read(800 * 450 * 3)
             # print(raw_image)
-            image = np.frombuffer(raw_image, np.uint8)
-            image = image.reshape((800, 450, 3))
-            cv2.imshow('', image)
-            cv2.waitKey()
-            # img.loadFromData(raw_image)
-            # self.image.emit(img)
+            # image = np.frombuffer(raw_image, np.uint8)
+            # image = image.reshape((450, 800, 3))
+            # cv2.imshow('', image)
+            # cv2.waitKey()
+            img.loadFromData(raw_image)
+            self.image.emit(img)
             # print(raw_image)
-            # image = numpy.fromstring(raw_image, dtype='uint8')
-            # image = image.reshape((324, 576, 3))
-            # image = cv2.imdecode(image, 1)
-            # cv2.imshow("im", image)
-            # cv2.waitKey(25)
 
             # data = subprocess.Popen("adb -s %s exec-out screencap -p" % self.deviceCode, shell=True,
             #                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
