@@ -5,7 +5,6 @@ import numpy as np
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 from PyQt5 import QtGui
 
-
 class WorkerScreenCap(QObject):
     image = pyqtSignal(QtGui.QImage)
 
@@ -24,8 +23,7 @@ class WorkerScreenCap(QObject):
         adbCmd = ['adb', 'exec-out', 'screenrecord', '--size', '450x800', '--output-format=h264', '-']
         stream = subprocess.Popen(adbCmd, stdout=subprocess.PIPE)
 
-        ffmpegCmd = ['ffmpeg', '-i', '-', '-f', 'rawvideo', '-s', '800x450',
-                     '-vcodec', 'h264', '-']
+        ffmpegCmd = ['ffmpeg', '-i', '-', '-f', 'rawvideo','-pixel_format','rgb24', '-video_size', '800x450','-framerate','25', '-']
         ffmpeg = subprocess.Popen(ffmpegCmd, stdin=stream.stdout, stdout=subprocess.PIPE)
 
         # while True:
@@ -43,13 +41,11 @@ class WorkerScreenCap(QObject):
         while True:
             raw_image = ffmpeg.stdout.read(800 * 450 * 3)
             # print(raw_image)
-            # image = np.frombuffer(raw_image, np.uint8)
-            # image = image.reshape((450, 800, 3))
-            # cv2.imshow('', image)
-            # cv2.waitKey()
-            img.loadFromData(raw_image)
-            self.image.emit(img)
-            # print(raw_image)
+            f = open(os.path.join(dir, "screen.png"), 'wb')
+            f.write(raw_image)
+            # img.loadFromData(raw_image)
+            # self.image.emit(img)
+
 
             # data = subprocess.Popen("adb -s %s exec-out screencap -p" % self.deviceCode, shell=True,
             #                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

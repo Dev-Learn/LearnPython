@@ -9,9 +9,6 @@ from fake_useragent import UserAgent
 from pydub import AudioSegment
 from selenium import webdriver
 
-# SOURCE_URL = 'https://www.examenglish.com/TOEIC/TOEIC_listening_part1.htm'
-SOURCE_URL = 'https://www.examenglish.com/TOEIC/TOEIC_listening_part3.htm'
-
 LISTENING = 1
 READING = 2
 
@@ -31,7 +28,7 @@ def conn():
                            cursorclass=pymysql.cursors.DictCursor)
 
 
-def main():
+def main(SOURCE_URL):
     driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
     driver.implicitly_wait(5)
     driver.get(SOURCE_URL)
@@ -45,10 +42,11 @@ def main():
     print("description_1 " + description_1)
     topicId = LISTENING
     id = updateTopicType(title, description, description_1, topicId)
+    print(id)
     if id == 1 or id == 2:
         getQuestionType1Or2(driver, s, id, topicId)
     else:
-        getQuestionType3(driver, s, id, topicId)
+        getQuestionType3or4(driver, id, topicId)
 
 
 def updateTopicType(title, description, description_1, topicId):
@@ -68,28 +66,106 @@ def updateTopicType(title, description, description_1, topicId):
         return id['id']
 
 
-def getQuestionType3(driver, s, idTypeTopic, topicId):
-    global count
-    global SOURCE_URL
-    global isCountinue
+def getQuestionType3or4(driver, idTypeTopic, topicId):
     driver.find_element_by_xpath('//*[@id="jplayer_play"]').click()
     driver.implicitly_wait(5)
     s = bs4.BeautifulSoup(driver.page_source, 'lxml')
     audio = s.select_one('div.panel-body > #jquery_jplayer > #jqjp_audio_0').attrs['src']
     print(audio)
-    # audio = downloadFile('audio', audio, False, True)
-    idQuestion = insertQuestion(idTypeTopic, topicId, None, None, None)
+    audio = downloadFile('audio_question', audio, False, True, True, idTypeTopic)
+    print("Audio : %s" % audio)
+    idQuestion = insertQuestion(idTypeTopic, topicId, audio=audio)
     if idQuestion != -1:
-        questionChild1 = s.select_one('div.panel-body > #centreposition > #col1 > #form1')
-        print(questionChild1)
-        answer = s.select('div.panel-body > #centreposition > #col1 > #form1 > a')
-        print(answer)
+        questionChild = s.select_one('div.panel-body > #centreposition > #col1 > #form1')
+        getQuestion(topicId, idTypeTopic, idQuestion, driver, questionChild,False)
+
+
+def getQuestion(topicId, idTypeTopic, idQuestion, driver, dataContent,isLoop):
+    content = dataContent.find("div", {"id": "choices"})
+    if content:
+        if isLoop:
+            question = dataContent.contents[21]
+        else:
+            question = dataContent.contents[1]
+        print(str(question))
+        validAnswer = dataContent.select_one('span').attrs['id']
+        if question:
+            idQuestionChild = insertQuestionChild(idQuestion, question)
+            if idQuestionChild != -1:
+                getAnswerAndNextQuestion(topicId, idTypeTopic, idQuestion, idQuestionChild, driver, content,
+                                         validAnswer)
+    else:
+        driver.find_element_by_xpath('//*[@id="choices"]/input[1]').click()
+        s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+        nextText = s.select_one('div.panel-body > #testfooter > #nextbutton > input').attrs['value']
+        if 'Next' in nextText:
+            driver.find_element_by_xpath('//*[@id="nextbutton"]').click()
+            driver.implicitly_wait(5)
+            getQuestionType3or4(driver, idTypeTopic, topicId)
+        else:
+            if idTypeTopic == 3:
+                main('https://www.examenglish.com/TOEIC/TOEIC_listening_part4.htm')
+
+
+def getAnswerAndNextQuestion(topicId, idTypeTopic, idQuestion, idQuestionChild, driver, content, validAnswerId):
+    answer_type = 1
+    answerA = {}
+    answerB = {}
+    answerC = {}
+    answerD = {}
+    listAnswer = content.select('a.achoice')
+    position = 0
+    for index, answer in enumerate(listAnswer):
+        position += 1
+        if position > 4:
+            break
+        else:
+            id = answer.attrs['id']
+            # print(id)
+            isAnswer = checkAnswerTopic34(driver, validAnswerId, id)
+            # print(isAnswer)
+            # print(answer.text)
+            if index == 0:
+                answerA['content'] = answer.text
+                insertAnswer(idQuestion, answerA['content'], questionChildId=idQuestionChild)
+            if index == 1:
+                if isAnswer:
+                    answer_type = 2
+                answerB['content'] = answer.text
+                insertAnswer(idQuestion, answerB['content'], questionChildId=idQuestionChild)
+            if index == 2:
+                if isAnswer:
+                    answer_type = 3
+                answerC['content'] = answer.text
+                insertAnswer(idQuestion, answerC['content'], questionChildId=idQuestionChild)
+            if index == 3:
+                if isAnswer:
+                    answer_type = 4
+                answerD['content'] = answer.text
+                insertAnswer(idQuestion, answerD['content'], questionChildId=idQuestionChild)
+
+    # print(answer_type)
+    if answer_type == 1:
+        insertAnswerQuestion(idQuestion, answerA['content'], idQuestionChild)
+    elif answer_type == 2:
+        insertAnswerQuestion(idQuestion, answerB['content'], idQuestionChild)
+    elif answer_type == 3:
+        insertAnswerQuestion(idQuestion, answerC['content'], idQuestionChild)
+    elif answer_type == 4:
+        insertAnswerQuestion(idQuestion, answerD['content'], idQuestionChild)
+    getQuestion(topicId, idTypeTopic, idQuestion, driver, content,True)
+
+
+def checkAnswerTopic34(driver, validAnswerId, id):
+    driver.find_element_by_xpath('//*[@id="%s"]' % id).click()
+    s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+    answerQuestion = s.find("span", {"id": validAnswerId}).select_one('img').attrs['alt']
+    if 'Correct!' in answerQuestion:
+        return True
+    return False
 
 
 def getQuestionType1Or2(driver, s, idTypeTopic, topicId):
-    global count
-    global SOURCE_URL
-    global isCountinue
     image = ''
     content = ''
     answerA = {}
@@ -126,13 +202,20 @@ def getQuestionType1Or2(driver, s, idTypeTopic, topicId):
     if idQuestion != -1:
         driver.find_element_by_xpath('//*[@id="jplayer_play"]').click()
         listAudio = []
-        currentDT = datetime.datetime.now()
-        current = currentDT.minute
-        print(currentDT.minute)
+        now = datetime.datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        # print("Time - current : %s" % current_time)
         while (True):
             try:
-                time = currentDT.minute
-                if time - current > 10:
+                now = datetime.datetime.now()
+                time = now.strftime("%H:%M:%S")
+                # print("Time - time : %s" % time)
+                minusTime = datetime.datetime.strptime(time, "%H:%M:%S") - datetime.datetime.strptime(current_time,
+                                                                                                      "%H:%M:%S")
+                minusTime = minusTime.total_seconds() / 60.0
+                print(minusTime)
+                if minusTime > 2:
+                    print("break")
                     break
                 s = bs4.BeautifulSoup(driver.page_source, 'lxml')
                 audio = s.select_one('div.panel-body > #jquery_jplayer > #jqjp_audio_0').attrs['src']
@@ -192,21 +275,21 @@ def getQuestionType1Or2(driver, s, idTypeTopic, topicId):
                 print(answerB)
                 print(answerC)
                 print(answerD)
-                updateAnswer(idQuestion, answerA['content'], answerA['audio'])
-                updateAnswer(idQuestion, answerB['content'], answerB['audio'])
-                updateAnswer(idQuestion, answerC['content'], answerC['audio'])
+                insertAnswer(idQuestion, answerA['content'], answerA['audio'])
+                insertAnswer(idQuestion, answerB['content'], answerB['audio'])
+                insertAnswer(idQuestion, answerC['content'], answerC['audio'])
                 if idTypeTopic == 1:
-                    updateAnswer(idQuestion, answerD['content'], answerD['audio'])
-                answer_type = checkAnswer(driver)
+                    insertAnswer(idQuestion, answerD['content'], answerD['audio'])
+                answer_type = checkAnswerTopicType12(driver)
                 print(answer_type)
                 if answer_type == 1:
-                    updateAnswerQuestion(idQuestion, answerA['content'])
+                    insertAnswerQuestion(idQuestion, answerA['content'])
                 elif answer_type == 2:
-                    updateAnswerQuestion(idQuestion, answerB['content'])
+                    insertAnswerQuestion(idQuestion, answerB['content'])
                 elif answer_type == 3:
-                    updateAnswerQuestion(idQuestion, answerC['content'])
+                    insertAnswerQuestion(idQuestion, answerC['content'])
                 elif answer_type == 4:
-                    updateAnswerQuestion(idQuestion, answerD['content'])
+                    insertAnswerQuestion(idQuestion, answerD['content'])
             else:
                 deleteQuestion(idQuestion)
         else:
@@ -221,134 +304,13 @@ def getQuestionType1Or2(driver, s, idTypeTopic, topicId):
         s = bs4.BeautifulSoup(driver.page_source, 'lxml')
         getQuestionType1Or2(driver, s, idTypeTopic, topicId)
     else:
-        if count < 10:
-            count += 1
-            driver.refresh()
-            driver.implicitly_wait(5)
-            s = bs4.BeautifulSoup(driver.page_source, 'lxml')
-            getQuestionType1Or2(driver, s, idTypeTopic, topicId)
+        if idTypeTopic == 1:
+            main('https://www.examenglish.com/TOEIC/TOEIC_listening_part2.htm')
         else:
-            count = 1
-            if isCountinue:
-                isCountinue = False
-                SOURCE_URL = 'https://www.examenglish.com/TOEIC/TOEIC_listening_part2.htm'
-                main()
+            main('https://www.examenglish.com/TOEIC/TOEIC_listening_part3.htm')
 
 
-def deleteQuestion(idQuestion):
-    connection = conn()
-    cursor = connection.cursor()
-    sql = "DELETE question WHERE id = %s"
-    val = idQuestion
-    cursor.execute(sql, val)
-    connection.commit()
-
-
-def downloadFile(dir, path, isImage, isAudio=False):
-    # tạo thư mục
-    global url, file_name
-    if not os.path.isdir(dir):
-        os.mkdir(dir)
-
-    if isImage:
-        file_name = path.split('images/')[1]
-    else:
-        file_name = path.split('audio/')[1]
-
-    if os.path.exists(dir + "/" + file_name):
-        if isImage:
-            return None
-        else:
-            if isAudio:
-                file_name
-            else:
-                return dir + '/' + file_name
-
-    url = "https://www.examenglish.com/TOEIC/" + path
-    print(url)
-
-    ua_str = UserAgent().chrome
-    response = requests.get(url, stream=True, headers={"User-Agent": ua_str})
-    if response.status_code == 404:
-        print('Error Not Found')
-        print(url)
-        return None
-    with open(dir + '/' + file_name, 'wb') as out_file:
-        out_file.write(response.content)
-
-    print(response.status_code)
-    print(response.headers['content-type'])
-
-    if isImage:
-        return file_name
-    else:
-        if isAudio:
-            file_name
-        else:
-            return dir + '/' + file_name
-
-
-def insertQuestion(idTypeTopic, topicId, image, content, audio):
-    connection = conn()
-    cursor = connection.cursor()
-    if image:
-        sql = """SELECT  id FROM question WHERE image = %s"""
-        val = (image)
-        id = cursor.execute(sql, val)
-        if id == 0:
-            sql = "INSERT INTO `question` (topicId ,topicTypeId, image, audio ,audioChild, content) VALUES (%s,%s, %s, %s,%s,%s)"
-            val = (topicId, idTypeTopic, image, None, None, None)
-            cursor.execute(sql, val)
-            connection.commit()
-            return cursor.lastrowid
-    elif content:
-        sql = """SELECT  id FROM question WHERE content = %s"""
-        val = content
-        id = cursor.execute(sql, val)
-        if id == 0:
-            sql = "INSERT INTO `question` (topicId ,topicTypeId, image, audio ,audioChild , content) VALUES (%s,%s,%s, %s, %s,%s)"
-            val = (topicId, idTypeTopic, None, None, None, content)
-            cursor.execute(sql, val)
-            connection.commit()
-            return cursor.lastrowid
-    elif audio:
-        sql = """SELECT  id FROM question WHERE audio = %s"""
-        val = content
-        id = cursor.execute(sql, val)
-        if id == 0:
-            sql = "INSERT INTO `question` (topicId ,topicTypeId, image, audio ,audioChild , content) VALUES (%s,%s,%s, %s, %s,%s)"
-            val = (topicId, idTypeTopic, None, audio, None, None)
-            cursor.execute(sql, val)
-            connection.commit()
-            return cursor.lastrowid
-    return 1
-
-
-def updateQuestion(idQuestion, audio, audioChild=None):
-    connection = conn()
-    cursor = connection.cursor()
-    if audioChild:
-        print(audio)
-        print(audioChild)
-        sql = "UPDATE question SET audio = %s , audioChild = %s WHERE id = %s"
-        val = (audio, audioChild, idQuestion)
-    else:
-        sql = "UPDATE question SET audio = %s WHERE id = %s"
-        val = (audio, idQuestion)
-    cursor.execute(sql, val)
-    connection.commit()
-
-
-def updateAnswer(idQuestion, content, audio):
-    connection = conn()
-    cursor = connection.cursor()
-    sql = "INSERT INTO `answer` (questionId ,questionChildId, content, audio) VALUES (%s,%s, %s, %s)"
-    val = (idQuestion, None, content, audio)
-    cursor.execute(sql, val)
-    connection.commit()
-
-
-def checkAnswer(driver):
+def checkAnswerTopicType12(driver):
     driver.find_element_by_xpath('//*[@id="choices"]/input[1]').click()
     s = bs4.BeautifulSoup(driver.page_source, 'lxml')
     answerQuestion = s.select_one('div.panel-body > #centreposition > #col1 > #form1').text
@@ -372,14 +334,113 @@ def checkAnswer(driver):
     return -1
 
 
-def updateAnswerQuestion(idQuestion, content):
+def deleteQuestion(idQuestion):
+    connection = conn()
+    cursor = connection.cursor()
+    sql = "DELETE FROM question WHERE id = %s"
+    val = idQuestion
+    cursor.execute(sql, val)
+    connection.commit()
+
+
+def downloadFile(dir, path, isImage, isAudio=False, isAudioQuestion=False, typeId=None):
+    # tạo thư mục
+    global url, file_name
+    if not os.path.isdir(dir):
+        os.mkdir(dir)
+
+    if isImage:
+        file_name = path.split('images/')[1].lower()
+    else:
+        file_name = path.split('audio/')[1].lower()
+        if isAudioQuestion:
+            file_name = 'audio_question_type%s_%s' % (typeId, file_name)
+
+    if os.path.exists(dir + "/" + file_name):
+        if isImage:
+            return None
+        else:
+            if isAudio:
+                return file_name
+            else:
+                return dir + '/' + file_name
+
+    url = "https://www.examenglish.com/TOEIC/" + path
+    print(url)
+
+    ua_str = UserAgent().chrome
+    response = requests.get(url, stream=True, headers={"User-Agent": ua_str})
+    if response.status_code == 404:
+        print('Error Not Found')
+        print(url)
+        return None
+    with open(dir + '/' + file_name, 'wb') as out_file:
+        out_file.write(response.content)
+
+    print(response.status_code)
+    print(response.headers['content-type'])
+
+    if isImage:
+        return file_name
+    else:
+        if isAudio:
+            return file_name
+        else:
+            return dir + '/' + file_name
+
+
+def insertQuestion(idTypeTopic, topicId, image=None, content=None, audio=None):
+    connection = conn()
+    cursor = connection.cursor()
+    sql = "INSERT INTO `question` (topicId ,topicTypeId, image, audio ,audioChild, content) VALUES (%s,%s, %s, %s,%s,%s)"
+    val = (topicId, idTypeTopic, image, audio, None, content)
+    cursor.execute(sql, val)
+    connection.commit()
+    return cursor.lastrowid
+
+
+def insertQuestionChild(idQuestion, content):
+    connection = conn()
+    cursor = connection.cursor()
+    sql = "INSERT INTO `questionchild` (id_question ,content) VALUES (%s,%s)"
+    val = (idQuestion, content)
+    cursor.execute(sql, val)
+    connection.commit()
+    return cursor.lastrowid
+
+
+def updateQuestion(idQuestion, audio, audioChild=None):
+    connection = conn()
+    cursor = connection.cursor()
+    if audioChild:
+        print(audio)
+        print(audioChild)
+        sql = "UPDATE question SET audio = %s , audioChild = %s WHERE id = %s"
+        val = (audio, audioChild, idQuestion)
+    else:
+        sql = "UPDATE question SET audio = %s WHERE id = %s"
+        val = (audio, idQuestion)
+    cursor.execute(sql, val)
+    connection.commit()
+
+
+def insertAnswer(idQuestion, content, audio=None, questionChildId=None):
+    connection = conn()
+    cursor = connection.cursor()
+    sql = "INSERT INTO `answer` (questionId ,questionChildId, content, audio) VALUES (%s,%s, %s, %s)"
+    val = (idQuestion, questionChildId, content, audio)
+    cursor.execute(sql, val)
+    connection.commit()
+
+
+def insertAnswerQuestion(idQuestion, content, questionChildId=None):
     connection = conn()
     cursor = connection.cursor()
     sql = "INSERT INTO `answerquestion` (questionId ,questionChildId, content) VALUES (%s, %s, %s)"
-    val = (idQuestion, None, content)
+    val = (idQuestion, questionChildId, content)
     cursor.execute(sql, val)
     connection.commit()
 
 
 if __name__ == '__main__':
-    main()
+    main('https://www.examenglish.com/TOEIC/TOEIC_listening_part3.htm')
