@@ -8,6 +8,7 @@ import requests
 from fake_useragent import UserAgent
 from pydub import AudioSegment
 from selenium import webdriver
+import json
 
 LISTENING = 1
 READING = 2
@@ -29,7 +30,7 @@ def conn():
 
 
 def main(SOURCE_URL):
-    driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
+    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
     driver.implicitly_wait(5)
     driver.get(SOURCE_URL)
     s = bs4.BeautifulSoup(driver.page_source, 'lxml')
@@ -40,30 +41,144 @@ def main(SOURCE_URL):
     print("description " + description)
     description_1 = s.select_one("div.panel-body").select_one("#testheader").text.strip()
     print("description_1 " + description_1)
-    topicId = LISTENING
-    id = updateTopicType(title, description, description_1, topicId)
+    id = insertTopicType(title, description, description_1, topicId)
     print(id)
-    if id == 1 or id == 2:
-        getQuestionType1Or2(driver, s, id, topicId)
+    if topicId == LISTENING:
+        if 'TOEIC_listening_part1' in SOURCE_URL or 'TOEIC_listening_part2' in SOURCE_URL:
+            getQuestionType1Or2(driver, s, id, topicId)
+        else:
+            getQuestionType3or4(driver, id, topicId)
     else:
-        getQuestionType3or4(driver, id, topicId)
+        if 'TOEIC_reading' in SOURCE_URL or 'TOEIC_reading5_2' in SOURCE_URL or 'TOEIC_reading2' in SOURCE_URL or 'TOEIC_reading6_2' in SOURCE_URL:
+            getQuestionType5or6(driver, s, SOURCE_URL)
+        else:
+            getQuestionType7or8(SOURCE_URL, driver, s)
 
 
-def updateTopicType(title, description, description_1, topicId):
-    connection = conn()
-    cursor = connection.cursor()
-    sql = "SELECT  id FROM topictype WHERE title = %s"
-    val = title
-    cursor.execute(sql, val)
-    id = cursor.fetchone()
-    if not id or not id['id']:
-        sql = "INSERT INTO `topictype` (idTopic ,title, recommend, instruction) VALUES (%s,%s, %s, %s)"
-        val = (topicId, title, description, description_1)
-        cursor.execute(sql, val)
-        connection.commit()
-        return cursor.lastrowid
+def getQuestionType7or8(SOURCE_URL, driver, s):
+    # idQuestion = insertQuestion(idTypeTopic, topicId, audio=audio)
+    # if idQuestion != -1:
+    #     questionChild = s.select_one('div.panel-body > #centreposition > #col1 > #form1')
+    question = s.select_one('div#extracttoeic7 > p')
+    question = question.text.strip()
+    questionData = {'contain': question}
+    questionChild = s.select_one('div#centreposition > span > form')
+    listQuestionChild = []
+    getChildQuestionType7or8(SOURCE_URL, driver, questionChild, questionData, listQuestionChild, False)
+
+
+def getChildQuestionType7or8(SOURCE_URL, driver, data, questionData, listQuestionChild, isLoop):
+    content = data.find("div", {"id": "choices"})
+    if content:
+        if isLoop:
+            question = data.contents[21]
+        else:
+            question = data.contents[1]
+
+        question = question.strip()
+        question = question[1:].strip()
+        validAnswer = data.select_one('span').attrs['id']
+        if question:
+            listQuestionChild.append(getAnswerAndNextQuestion(driver=driver, content=content,
+                                                              validAnswerId=validAnswer,
+                                                              contentQuestionChild=question, isReading=True))
+            # print(questionData)
+            getChildQuestionType7or8(SOURCE_URL, driver, content, questionData, listQuestionChild, True)
     else:
-        return id['id']
+        questionData['question'] = listQuestionChild
+        listData.append(questionData)
+        driver.find_element_by_xpath('//*[@id="choices"]/input[1]').click()
+        s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+        nextText = s.select_one('div#testfooter > #nextbutton > input').attrs['value']
+        if 'Next Questions' in nextText:
+            driver.find_element_by_xpath('//*[@id="nextbutton"]').click()
+            driver.implicitly_wait(5)
+            s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+            getQuestionType7or8(SOURCE_URL, driver, s)
+        else:
+            if SOURCE_URL == 'https://www.examenglish.com/TOEIC/toeic_reading7.htm':
+                main("https://www.examenglish.com/TOEIC/toeic_reading7_2.htm")
+            elif SOURCE_URL == "https://www.examenglish.com/TOEIC/toeic_reading7_2.htm":
+                main("https://www.examenglish.com/TOEIC/toeic_double_passages.htm")
+            elif SOURCE_URL == "https://www.examenglish.com/TOEIC/toeic_double_passages.htm":
+                main("https://www.examenglish.com/TOEIC/toeic_double_passages_test2.htm")
+
+
+def getQuestionType5or6(driver, s, SOURCE_URL):
+    answerA = {}
+    answerB = {}
+    answerC = {}
+    answerD = {}
+    answerCorrect = {}
+    s = s.select_one('div#centreposition > span')
+    validAnswer = s.select_one('span').attrs['id']
+    content = s.text.strip()
+    content = content[1:].strip()
+    listAnswer = s.select('form > div > span')
+    position = 0
+    answer_type = 1
+    for index, answer in enumerate(listAnswer):
+        position += 1
+        if position > 4:
+            break
+        else:
+            id = answer.attrs['id']
+            print(id)
+            isAnswer = checkAnswerQuestion(driver, validAnswer, id, True)
+            print(isAnswer)
+            print(answer.text)
+            if index == 0:
+                answerA['content'] = answer.text.strip()
+                # insertAnswer(idQuestion, answerA['content'], questionChildId=idQuestionChild)
+            if index == 1:
+                if isAnswer:
+                    answer_type = 2
+                answerB['content'] = answer.text.strip()
+                # insertAnswer(idQuestion, answerB['content'], questionChildId=idQuestionChild)
+            if index == 2:
+                if isAnswer:
+                    answer_type = 3
+                answerC['content'] = answer.text.strip()
+                # insertAnswer(idQuestion, answerC['content'], questionChildId=idQuestionChild)
+            if index == 3:
+                if isAnswer:
+                    answer_type = 4
+                answerD['content'] = answer.text.strip()
+                # insertAnswer(idQuestion, answerD['content'], questionChildId=idQuestionChild)
+
+    if answer_type == 1:
+        answerCorrect['content'] = answerA['content']
+        # insertAnswerQuestion(idQuestion, answerA['content'], idQuestionChild)
+    elif answer_type == 2:
+        answerCorrect['content'] = answerB['content']
+        # insertAnswerQuestion(idQuestion, answerB['content'], idQuestionChild)
+    elif answer_type == 3:
+        answerCorrect['content'] = answerC['content']
+        # insertAnswerQuestion(idQuestion, answerC['content'], idQuestionChild)
+    elif answer_type == 4:
+        answerCorrect['content'] = answerD['content']
+        # insertAnswerQuestion(idQuestion, answerD['content'], idQuestionChild)
+
+    listData.append({'content': content, 'answerA': answerA, 'answerB': answerB, 'answerC': answerC, 'answerD': answerD,
+                     'answerCorrect': answerCorrect})
+
+    # print(listData)
+    s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+    nextText = s.select_one('div#testfooter > span#nextbutton > input').attrs['value']
+    if 'Next' in nextText:
+        driver.find_element_by_xpath('//*[@id="nextbutton"]').click()
+        driver.implicitly_wait(5)
+        s = bs4.BeautifulSoup(driver.page_source, 'lxml')
+        getQuestionType5or6(driver, s, SOURCE_URL)
+    else:
+        if SOURCE_URL == 'https://www.examenglish.com/TOEIC/TOEIC_reading.htm':
+            main("https://www.examenglish.com/TOEIC/TOEIC_reading5_2.htm")
+        elif SOURCE_URL == "https://www.examenglish.com/TOEIC/TOEIC_reading5_2.htm":
+            main("https://www.examenglish.com/TOEIC/TOEIC_reading2.htm")
+        elif SOURCE_URL == "https://www.examenglish.com/TOEIC/TOEIC_reading2.htm":
+            main("https://www.examenglish.com/TOEIC/TOEIC_reading6_2.htm")
+        else:
+            pass
 
 
 def getQuestionType3or4(driver, idTypeTopic, topicId):
@@ -77,10 +192,10 @@ def getQuestionType3or4(driver, idTypeTopic, topicId):
     idQuestion = insertQuestion(idTypeTopic, topicId, audio=audio)
     if idQuestion != -1:
         questionChild = s.select_one('div.panel-body > #centreposition > #col1 > #form1')
-        getQuestion(topicId, idTypeTopic, idQuestion, driver, questionChild,False)
+        getQuestion(topicId, idTypeTopic, idQuestion, driver, questionChild, False)
 
 
-def getQuestion(topicId, idTypeTopic, idQuestion, driver, dataContent,isLoop):
+def getQuestion(topicId, idTypeTopic, idQuestion, driver, dataContent, isLoop):
     content = dataContent.find("div", {"id": "choices"})
     if content:
         if isLoop:
@@ -92,8 +207,9 @@ def getQuestion(topicId, idTypeTopic, idQuestion, driver, dataContent,isLoop):
         if question:
             idQuestionChild = insertQuestionChild(idQuestion, question)
             if idQuestionChild != -1:
-                getAnswerAndNextQuestion(topicId, idTypeTopic, idQuestion, idQuestionChild, driver, content,
-                                         validAnswer)
+                getAnswerAndNextQuestion(topicId=topicId, idTypeTopic=idTypeTopic, idQuestion=idQuestion,
+                                         idQuestionChild=idQuestionChild
+                                         , driver=driver, content=content, validAnswerId=validAnswer)
     else:
         driver.find_element_by_xpath('//*[@id="choices"]/input[1]').click()
         s = bs4.BeautifulSoup(driver.page_source, 'lxml')
@@ -107,12 +223,15 @@ def getQuestion(topicId, idTypeTopic, idQuestion, driver, dataContent,isLoop):
                 main('https://www.examenglish.com/TOEIC/TOEIC_listening_part4.htm')
 
 
-def getAnswerAndNextQuestion(topicId, idTypeTopic, idQuestion, idQuestionChild, driver, content, validAnswerId):
+def getAnswerAndNextQuestion(driver, content, validAnswerId, topicId=None, idTypeTopic=None, idQuestion=None,
+                             idQuestionChild=None, isReading=False, contentQuestionChild=None):
     answer_type = 1
     answerA = {}
     answerB = {}
     answerC = {}
     answerD = {}
+    answerCorrect = {}
+    questionChild = {'question': contentQuestionChild}
     listAnswer = content.select('a.achoice')
     position = 0
     for index, answer in enumerate(listAnswer):
@@ -122,42 +241,73 @@ def getAnswerAndNextQuestion(topicId, idTypeTopic, idQuestion, idQuestionChild, 
         else:
             id = answer.attrs['id']
             # print(id)
-            isAnswer = checkAnswerTopic34(driver, validAnswerId, id)
+            isAnswer = checkAnswerQuestion(driver, validAnswerId, id)
             # print(isAnswer)
             # print(answer.text)
             if index == 0:
-                answerA['content'] = answer.text
-                insertAnswer(idQuestion, answerA['content'], questionChildId=idQuestionChild)
+                answerA['content'] = answer.text.strip()
+                if not isReading:
+                    insertAnswer(idQuestion, answerA['content'], questionChildId=idQuestionChild)
             if index == 1:
                 if isAnswer:
                     answer_type = 2
-                answerB['content'] = answer.text
-                insertAnswer(idQuestion, answerB['content'], questionChildId=idQuestionChild)
+                answerB['content'] = answer.text.strip()
+                if not isReading:
+                    insertAnswer(idQuestion, answerB['content'], questionChildId=idQuestionChild)
             if index == 2:
                 if isAnswer:
                     answer_type = 3
-                answerC['content'] = answer.text
-                insertAnswer(idQuestion, answerC['content'], questionChildId=idQuestionChild)
+                answerC['content'] = answer.text.strip()
+                if not isReading:
+                    insertAnswer(idQuestion, answerC['content'], questionChildId=idQuestionChild)
             if index == 3:
                 if isAnswer:
                     answer_type = 4
-                answerD['content'] = answer.text
-                insertAnswer(idQuestion, answerD['content'], questionChildId=idQuestionChild)
+                answerD['content'] = answer.text.strip()
+                if not isReading:
+                    insertAnswer(idQuestion, answerD['content'], questionChildId=idQuestionChild)
+
+    questionChild['answerA'] = answerA
+    questionChild['answerB'] = answerB
+    questionChild['answerC'] = answerC
+    questionChild['answerD'] = answerD
 
     # print(answer_type)
     if answer_type == 1:
-        insertAnswerQuestion(idQuestion, answerA['content'], idQuestionChild)
+        if not isReading:
+            insertAnswerQuestion(idQuestion, answerA['content'], idQuestionChild)
+        else:
+            answerCorrect['content'] = answerA['content']
     elif answer_type == 2:
-        insertAnswerQuestion(idQuestion, answerB['content'], idQuestionChild)
+        if not isReading:
+            insertAnswerQuestion(idQuestion, answerB['content'], idQuestionChild)
+        else:
+            answerCorrect['content'] = answerB['content']
     elif answer_type == 3:
-        insertAnswerQuestion(idQuestion, answerC['content'], idQuestionChild)
+        if not isReading:
+            insertAnswerQuestion(idQuestion, answerC['content'], idQuestionChild)
+        else:
+            answerCorrect['content'] = answerC['content']
     elif answer_type == 4:
-        insertAnswerQuestion(idQuestion, answerD['content'], idQuestionChild)
-    getQuestion(topicId, idTypeTopic, idQuestion, driver, content,True)
+        if not isReading:
+            insertAnswerQuestion(idQuestion, answerD['content'], idQuestionChild)
+        else:
+            answerCorrect['content'] = answerD['content']
+
+    questionChild['answerCorrect'] = answerCorrect
+
+    if not isReading:
+        getQuestion(topicId, idTypeTopic, idQuestion, driver, content, True)
+    return questionChild
 
 
-def checkAnswerTopic34(driver, validAnswerId, id):
-    driver.find_element_by_xpath('//*[@id="%s"]' % id).click()
+def checkAnswerQuestion(driver, validAnswerId, id, isReading=False):
+    if isReading:
+        path = '//*[@id="%s"]/a' % id
+    else:
+        path = '//*[@id="%s"]' % id
+    # print(path)
+    driver.find_element_by_xpath(path).click()
     s = bs4.BeautifulSoup(driver.page_source, 'lxml')
     answerQuestion = s.find("span", {"id": validAnswerId}).select_one('img').attrs['alt']
     if 'Correct!' in answerQuestion:
@@ -389,6 +539,24 @@ def downloadFile(dir, path, isImage, isAudio=False, isAudioQuestion=False, typeI
             return dir + '/' + file_name
 
 
+def insertTopicType(title, description, description_1, topicId):
+    # connection = conn()
+    # cursor = connection.cursor()
+    # sql = "SELECT  id FROM topictype WHERE title = %s"
+    # val = title
+    # cursor.execute(sql, val)
+    # id = cursor.fetchone()
+    # if not id or not id['id']:
+    #     sql = "INSERT INTO `topictype` (idTopic ,title, recommend, instruction) VALUES (%s,%s, %s, %s)"
+    #     val = (topicId, title, description, description_1)
+    #     cursor.execute(sql, val)
+    #     connection.commit()
+    #     return cursor.lastrowid
+    # else:
+    #     return id['id']
+    return 1
+
+
 def insertQuestion(idTypeTopic, topicId, image=None, content=None, audio=None):
     connection = conn()
     cursor = connection.cursor()
@@ -443,4 +611,7 @@ def insertAnswerQuestion(idQuestion, content, questionChildId=None):
 
 
 if __name__ == '__main__':
-    main('https://www.examenglish.com/TOEIC/TOEIC_listening_part3.htm')
+    topicId = READING
+    listData = []
+    main('https://www.examenglish.com/TOEIC/toeic_reading7.htm')
+    print(json.dumps(listData))
