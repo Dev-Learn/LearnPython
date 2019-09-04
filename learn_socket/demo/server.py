@@ -35,6 +35,9 @@ def handle_client(client):  # Takes client socket as argument.
             continue
         print(str(msg))
         isQuit = (msg == bytes("quit", "utf8"))
+        isInput = (msg == bytes("Input", "utf8"))
+        if isInput:
+            print("aaaa")
         for sock in clients:
             if isQuit:
                 if clients[sock] == "REMOTE".strip():
@@ -42,8 +45,12 @@ def handle_client(client):  # Takes client socket as argument.
                     continue
                 sock.send(msg)
                 continue
-            if clients[sock] == "TV".strip():
-                sock.send(msg)
+            elif isInput:
+                if clients[sock] == "REMOTE".strip():
+                    sock.send(msg)
+            else:
+                if clients[sock] == "TV".strip():
+                    sock.send(msg)
         if isQuit:
             clients.clear()
 
@@ -51,7 +58,7 @@ def handle_client(client):  # Takes client socket as argument.
 clients = {}
 # addresses = {}
 
-HOST = '192.168.1.84'
+HOST = '10.144.130.120'
 PORT = 5000
 BUFSIZ = 4096
 LIMIT = 2
@@ -61,6 +68,7 @@ SERVER = socket(AF_INET, SOCK_STREAM)
 SERVER.bind(ADDR)
 
 # https://stackoverflow.com/questions/12362542/python-server-only-one-usage-of-each-socket-address-is-normally-permitted
+# https://stackoverflow.com/questions/19071512/socket-error-errno-48-address-already-in-use
 
 if __name__ == "__main__":
     SERVER.listen(2)
