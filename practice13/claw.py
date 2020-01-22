@@ -26,7 +26,7 @@ def conn():
 
 
 def main(SOURCE_URL):
-    driver = webdriver.Chrome('E:/chromedriver_win32/chromedriver.exe')
+    driver = webdriver.Chrome('D:\chromedriver')
     driver.implicitly_wait(5)
     driver.get(SOURCE_URL)
     s = bs4.BeautifulSoup(driver.page_source, 'lxml')

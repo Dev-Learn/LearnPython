@@ -8,7 +8,6 @@ import cv2
 
 SOURCE_URL = 'http://www.lingoes.net/en/translator/langcode.htm'
 
-
 def main():
     r = requests.get(SOURCE_URL)
     if r.ok:

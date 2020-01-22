@@ -9,7 +9,7 @@ URL = 'https://www.examenglish.com/TOEIC/TOEIC_reading.html'
 # install ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # brew tap caskroom/cask
 # brew cask install chromedriver
-driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+driver = webdriver.Chrome('D:\chromedriver')
 driver.implicitly_wait(30)
 driver.get(URL)
 

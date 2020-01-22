@@ -27,3 +27,14 @@ define @pyqtSlot -> from PyQt5.QtCore import pyqtSlot
 
 pyuic5 -o ui_findandreplacedlg.py findandreplacedlg.ui
 pyrcc5  -o qrc_resources.py resources.qrc
+
+****************
+Error :
+ Traceback (most recent call last):
+  File "c:\program files\python37\lib\runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "c:\program files\python37\lib\runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "C:\Program Files\Python37\Scripts\pip3.exe\__main__.py", line 9, in <module>
+TypeError: 'module' object is not callable
+-> use python -m pip

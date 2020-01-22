@@ -4,6 +4,7 @@ import time
 import subprocess
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 
+
 class WorkerCheckAdb(QObject):
     addDeviceConnect = pyqtSignal(str, str)
     removeDeviceConnect = pyqtSignal(str)
@@ -12,20 +13,18 @@ class WorkerCheckAdb(QObject):
         super().__init__()
         self.deviceConnect = []
 
-    def setUpConnect(self,deviceCode):
+    def setUpConnect(self, deviceCode):
         deviceName = subprocess.Popen("adb -s %s shell getprop ro.product.brand" % deviceCode, shell=True,
                                       stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         deviceName = deviceName.stdout.read().strip()
         deviceName = str(deviceName.strip()).strip().split("'")[1]
         # print("setUpConnect %s - %s" % (deviceName, deviceCode))
-        self.addDeviceConnect.emit(deviceName,deviceCode)
+        self.addDeviceConnect.emit(deviceName, deviceCode)
 
-
-    def removeConnect(self,deviceCode):
+    def removeConnect(self, deviceCode):
         self.removeDeviceConnect.emit(deviceCode)
 
-
-    def isNotConnect(self,device):
+    def isNotConnect(self, device):
         isNotConnect = device["isConnect"] == False
         if isNotConnect:
             self.removeConnect(device["code"])

@@ -3,13 +3,14 @@ import sys
 import subprocess, os, platform
 
 import os
-from PyQt5 import QtWidgets,QtCore,QtGui
+from PyQt5 import QtWidgets, QtCore, QtGui
 from gui.demo import demo_ui
 
-class FileBrowser(demo_ui.Ui_MainWindow,QtWidgets.QMainWindow):
+
+class FileBrowser(demo_ui.Ui_MainWindow, QtWidgets.QMainWindow):
 
     def __init__(self):
-        super(FileBrowser,self).__init__()
+        super(FileBrowser, self).__init__()
         self.setupUi(self)
         self.fileBrower.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         self.fileBrower.customContextMenuRequested.connect(self.context_menu)
@@ -42,6 +43,7 @@ class FileBrowser(demo_ui.Ui_MainWindow,QtWidgets.QMainWindow):
             os.startfile(path)
         else:  # linux variants
             subprocess.call(('xdg-open', path))
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

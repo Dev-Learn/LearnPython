@@ -23,7 +23,7 @@ connection = pymysql.connect(host='localhost',
 
 
 def main():
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome('D:\chromedriver')
     driver.implicitly_wait(30)
     driver.get(SOURCE_URL)
     source = driver.page_source
