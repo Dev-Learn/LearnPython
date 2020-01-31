@@ -1,11 +1,16 @@
 # Import the AudioSegment class for processing audio and the
 # split_on_silence function for separating out silent chunks.
+import os
+
+import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 AudioSegment.converter = "D:\\ffmpeg-20190323-5252d59-win64-static\\bin\\ffmpeg.exe"
 AudioSegment.ffmpeg = "D:\\ffmpeg-20190323-5252d59-win64-static\\bin\\ffmpeg.exe"
 AudioSegment.ffprobe = "D:\\ffmpeg-20190323-5252d59-win64-static\\bin\\ffmpeg.exe"
+
+r = sr.Recognizer()
 
 
 # Define a function to normalize a chunk to a target amplitude.
@@ -27,88 +32,99 @@ def detect_leading_silence(sound, silence_threshold=-50.0, chunk_size=10):
     return trim_ms
 
 
-# Load your audio.
-# song = AudioSegment.from_mp3("test.mp3")
-# song = AudioSegment.from_mp3("toeic-listening-part2-0006.mp3")
-# song = AudioSegment.from_mp3("toeic-listening-part2-0047.mp3")
-song = AudioSegment.from_mp3("chunk0.mp3")
+def splitAudio(file, min_silence_len=2000, indexQuestion=-1, indexAnswer=-1, maxError=0):
+    audio = AudioSegment.from_mp3(file)
+    # Split track where the silence is 2 seconds or more and get chunks using
+    # the imported function.
+    # https://github.com/jiaaro/pydub/issues/169
+    chunks = split_on_silence(
+        # Use the loaded audio.
+        audio,
+        # # Specify that a silent chunk must be at least 2 seconds or 2000 ms long.
+        min_silence_len=min_silence_len,
+        # Consider a chunk silent if it's quieter than -16 dBFS.
+        # (You may want to adjust this parameter.)
+        silence_thresh=audio.dBFS - 14
+    )
 
-# not_silence_ranges = detect_nonsilent(
-#     song,
-#     min_silence_len=400,
-#     silence_thresh=song.dBFS - 12,
-#     seek_step=5
-# )
-#
-# not_silence_ranges = [(x - 400, y + 400) for x, y in not_silence_ranges]
-# print(not_silence_ranges)
-#
-# new_not_silent = []
-#
-# last = None
-# for x, y in not_silence_ranges:
-#     if last is not None:
-#         if x > last[1]:
-#             new_not_silent.append(last)
-#             # parts.append( clip.subclip( last[0]/1000, last[1]/1000 )  )
-#             last = [x, y]
-#         else:
-#             last[1] = y
-#     else:
-#         last = [x, y]
+    if min_silence_len >= 2000:
+        if chunks.__len__() == 3:
+            for i, chunk in enumerate(chunks):
+                splitAudio(saveFile(chunk, "question Split %s" % i), 1000, i)
+        else:
+            if maxError == 5:
+                print("Error")
+            else:
+                print("len split question = %s" % chunks.__len__())
+                maxError += 1
+                min_silence_len += 100
+                print("maxError %s" % maxError)
+                print("min_silence_len %s" % min_silence_len)
+                splitAudio(file, min_silence_len, maxError=maxError)
+    elif 1000 <= min_silence_len:
+        if chunks.__len__() == 4:
+            for i, chunk in enumerate(chunks):
+                if i == 0:
+                    normalized_chunk = match_target_amplitude(chunk, -20.0)
+                    path = "Question %s.wav" % indexQuestion
+                    normalized_chunk.export(
+                        path,
+                        bitrate="192k",
+                        format="wav"
+                    )
+                    try:
+                        with sr.AudioFile(path) as source:
+                            path = r.record(source)
+                            print('Done!')
+                        text = r.recognize_google(path, show_all=True)
+                        print(text)
+                    except Exception as e:
+                        print(e)
+                    # saveFile(chunk, "Question %s" % indexQuestion)
+                # else:
+                #     splitAudio(saveFile(chunk, "Answer Split %s_%s" % (indexQuestion, i)), 500, indexQuestion, i)
+            os.remove(file)
+        else:
+            if maxError == 5:
+                print("Next Question")
+                os.remove(file)
+            else:
+                print("len split answer= %s" % chunks.__len__())
+                maxError += 1
+                min_silence_len += 100
+                print("maxError %s" % maxError)
+                print("min_silence_len %s" % min_silence_len)
+                splitAudio(file, min_silence_len, indexQuestion, maxError=maxError)
+    else:
+        name = "Answer A"
+        if indexAnswer == 2:
+            name = "Answer B"
+        elif indexAnswer == 3:
+            name = "Answer C"
 
-# if last is not None:
-#     new_not_silent.append(last)
-# print(new_not_silent)
+        maxSize = 0
+        audioFile = chunks[0]
+        for index, chuck in enumerate(chunks):
+            if maxSize < len(chuck):
+                audioFile = chuck
+                maxSize = len(chuck)
 
-# print(song)
-# duration = len(song)
-# print(duration)
-# print(song.dBFS)
-# start_trim = detect_leading_silence(song)
-# print(start_trim)
-# # trimmed_sound = song[start_trim:duration]
-# # trimmed_sound.export("test.mp3", format="mp3")
-# # start_trim = detect_leading_silence(song)
-#
-# # silence = detect_silence(song)
-# nonsilent = detect_nonsilent(song, min_silence_len=2000, silence_thresh=-32)
-# #
-# nonsilent = [((start / 1000), (stop / 1000)) for start, stop in nonsilent]  # convert to sec
-# # print(silence)
-# print(nonsilent)
-# # pass
+        saveFile(audioFile, "Question %s __ %s" % (indexQuestion, name))
+        os.remove(file)
 
-# Split track where the silence is 2 seconds or more and get chunks using
-# the imported function.
-# https://github.com/jiaaro/pydub/issues/169
-chunks = split_on_silence(
-    # Use the loaded audio.
-    song,
-    # # Specify that a silent chunk must be at least 2 seconds or 2000 ms long.
-    min_silence_len=1250,
-    # Consider a chunk silent if it's quieter than -16 dBFS.
-    # (You may want to adjust this parameter.)
-    silence_thresh=song.dBFS - 14
-)
-#
-# print(chunks)
-#
-# Process each chunk with your parameters
-for i, chunk in enumerate(chunks):
-    # # Create a silence chunk that's 0.5 seconds (or 500 ms) long for padding.
-    # silence_chunk = AudioSegment.silent(duration=500)
-    #
-    # # Add the padding chunk to beginning and end of the entire chunk.
-    # audio_chunk = silence_chunk + chunk + silence_chunk
 
-    # Normalize the entire chunk.
+def saveFile(chunk, name):
     normalized_chunk = match_target_amplitude(chunk, -20.0)
-
-    # Export the audio chunk with new bitrate.
-    print("Exporting chunk{0}.mp3.".format(i))
+    file = "%s.mp3" % name
     normalized_chunk.export(
-        ".//chunk{0}a.mp3".format(i),
+        file,
         bitrate="192k",
         format="mp3"
     )
+    return file
+
+
+# Load your audio.
+# splitAudio("toeic-listening-part2-0006.mp3")
+# splitAudio("toeic-listening-part2-0047.mp3")
+splitAudio("toeic-listening-part2-0115.mp3")
