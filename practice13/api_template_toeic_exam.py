@@ -1,8 +1,11 @@
 from __future__ import absolute_import
+
+import json
+
 import pymysql
 from flask import Flask, Response
 from flask.json import jsonify
-import json
+
 
 class ErrorHandler(Exception):
     status_code = 400

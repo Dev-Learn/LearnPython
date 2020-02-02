@@ -1,6 +1,12 @@
+import os
+import shutil
+
 import bs4
 import requests
 from selenium import webdriver
+from toeic_practice.spilte_silence_audio import SplitAudio
+
+# from crawl import splte_silence_audio
 
 ROOT_LINK1 = "http://www.yeuanhvan.com"
 LINK_LISTENING_PART_1 = ROOT_LINK1 + "/part-1-photographs"
@@ -9,6 +15,8 @@ ROOT_LINK2 = "https://english.best/toeic/"
 
 LISTENING = "Listening"
 READING = "Reading"
+
+datas = []
 
 
 def main():
@@ -19,16 +27,18 @@ def main():
         for index, item in enumerate(items):
             crawlData(item.select_one("a")['href'])
             break
+        print(datas)
 
 
 def crawlData(link):
-    print(link)
+    # print(link)
     driver = webdriver.Chrome('E:\chromedriver_win32\chromedriver')
     driver.implicitly_wait(30)
     driver.get(ROOT_LINK1 + link)
     sourceLink = bs4.BeautifulSoup(driver.page_source, 'lxml')
     listTabQuestion = sourceLink.select("ul#set-rl_tabs-1 > li")
     for index, itemQuestion in enumerate(listTabQuestion):
+        data = {}
         driver.find_element_by_xpath("""//*[@id="set-rl_tabs-1"]/li[%s]""" % (index + 1)).click()
         driver.implicitly_wait(30)
         sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
@@ -37,10 +47,14 @@ def crawlData(link):
         for contentImage in contentImages:
             if contentImage.find('img'):
                 image = contentImage.select_one('img')['src']
-                print(image)
+                # print(image)
+                image = downloadFile("images", ROOT_LINK1 + image)
+                data['image'] = image
                 break
         audio = sourceCrawl.select_one("audio")['src']
-        print(audio)
+        audio = downloadFile('audios', ROOT_LINK1 + audio)
+        data['audio'] = audio
+        # print(audio)
         driver.find_element_by_xpath("""//*[@id="set-rl_sliders-%s"]/div[1]""" % (index + 1)).click()
         driver.implicitly_wait(30)
         sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
@@ -59,8 +73,43 @@ def crawlData(link):
         for indexAnswer, answerContent in enumerate(answerContents):
             if "(A)" in str(answerContent):
                 answers = answerContent.text.split("\n")
-                print(answers)
+                listAnswer = []
+                for answer in answers:
+                    if "(A)" in answer:
+                        answer = answer.replace("(A)", "")
+                    if "(B)" in answer:
+                        answer = answer.replace("(B)", "")
+                    if "(C)" in answer:
+                        answer = answer.replace("(C)", "")
+                    if "(D)" in answer:
+                        answer = answer.replace("(D)", "")
+                    listAnswer.append(answer.strip())
+                data["answer"] = listAnswer
+                # print(answers)
                 break
+
+        audioPath = data['audio']['path']
+        print(audioPath)
+        SplitAudio.splitAudioCrawl(index + 1, audioPath, 1000, isHasQuestion=False)
+        datas.append(data)
+
+
+def downloadFile(dir, url):
+    if not os.path.isdir(dir):
+        os.mkdir(dir)
+
+    file_name = url.split("/")[-1]
+    if os.path.exists(file_name):
+        return file_name
+
+    response = requests.get(url, stream=True)
+    if response.status_code == 404:
+        print('Error Not Found')
+        print(url)
+    with open(dir + '/' + file_name, 'wb') as out_file:
+        shutil.copyfileobj(response.raw, out_file)
+
+    return {'name': file_name, 'path': dir + '/' + file_name}
 
 
 if __name__ == '__main__':

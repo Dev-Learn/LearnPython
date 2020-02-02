@@ -185,7 +185,7 @@ def topicDetail(url, topic, listWord, listError):
                 else:
                     listWord.append(word)
             except Exception:
-                pass
+                passshutil
 
 
 def downloadFile(dir, url, is_image=False):
