@@ -12,6 +12,7 @@ from toeic_practice.spilte_silence_audio import SplitAudio
 ROOT_LINK1 = "http://www.yeuanhvan.com"
 LINK_LISTENING_PART_1 = ROOT_LINK1 + "/part-1-photographs"
 LINK_LISTENING_PART_2 = ROOT_LINK1 + "/part-2-questions-responses"
+LINK_LISTENING_PART_3 = ROOT_LINK1 + "/part-3-conversations"
 ROOT_LINK2 = "https://english.best/toeic/"
 
 LISTENING = "Listening"
@@ -22,7 +23,8 @@ datas = []
 
 def main():
     # parsePart1()
-    parsePart2()
+    # parsePart2()
+    parsePart3()
 
 
 def parsePart1():
@@ -111,6 +113,7 @@ def parsePart2():
             sourceLink = bs4.BeautifulSoup(driver.page_source, 'lxml')
             listTabQuestion = sourceLink.select("ul#set-rl_tabs-1 > li")
             for index, itemQuestion in enumerate(listTabQuestion):
+
                 driver.find_element_by_xpath("""//*[@id="set-rl_tabs-1"]/li[%s]""" % (index + 1)).click()
                 driver.implicitly_wait(30)
                 sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
@@ -179,6 +182,85 @@ def parsePart2():
                             print(dataAnswerQuestion.__len__())
                             dataAnswer.append(dataAnswerQuestion)
                 print(dataAnswer)
+
+
+
+
+def parsePart3():
+    request = requests.get(LINK_LISTENING_PART_3)
+    if request.ok:
+        source = bs4.BeautifulSoup(request.content, 'lxml')
+        items = source.select("tbody > tr")
+        for item in items:
+            link = item.select_one("a")['href']
+            print(link)
+            driver = webdriver.Chrome('E:\chromedriver_win32\chromedriver')
+            driver.implicitly_wait(30)
+            driver.get(ROOT_LINK1 + link)
+            sourceLink = bs4.BeautifulSoup(driver.page_source, 'lxml')
+            listTabQuestion = sourceLink.select("ul#set-rl_tabs-1 > li")
+            for index, itemQuestion in enumerate(listTabQuestion):
+                driver.find_element_by_xpath("""//*[@id="set-rl_tabs-1"]/li[%s]""" % (index + 1)).click()
+                driver.implicitly_wait(30)
+                sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+                sourceCrawl = sourceCrawl.select_one("div.tab-pane.rl_tabs-pane.nn_tabs-pane.active")
+                audio = sourceCrawl.select_one("audio")
+                audio = audio['src']
+                print(audio)
+                listQuestion = []
+                listQuestionContent = sourceCrawl.select("div > b")
+                for questionContent in listQuestionContent:
+                    if "<b><span style=\"font-size: 10pt; line-height: 150%; color: navy;\">" in str(questionContent):
+                        listQuestion.append(questionContent.text.split(".")[1])
+                print(listQuestion)
+                listAnswerA = []
+                listAnswerB = []
+                listAnswerC = []
+                listAnswerD = []
+                listAnswerContent = sourceCrawl.select("div > span")
+                for answerContent in listAnswerContent:
+                    if "<span style=\"font-size: 10pt; line-height: 150%;\">A." in str(answerContent):
+                        listAnswerA.append(answerContent.text.split(".")[1].strip())
+                    if "<span style=\"font-size: 10pt; line-height: 150%;\">B." in str(answerContent):
+                        listAnswerB.append(answerContent.text.split(".")[1].strip())
+                    if "<span style=\"font-size: 10pt; line-height: 150%;\">C." in str(answerContent):
+                        listAnswerC.append(answerContent.text.split(".")[1].strip())
+                    if "<span style=\"font-size: 10pt; line-height: 150%;\">D." in str(answerContent):
+                        listAnswerD.append(answerContent.text.split(".")[1].strip())
+                print(listAnswerA)
+                print(listAnswerB)
+                print(listAnswerC)
+                print(listAnswerD)
+
+                driver.find_element_by_xpath("""//*[@id="set-rl_sliders-%s"]/div[1]""" % (index + 1)).click()
+                driver.implicitly_wait(30)
+                sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+                answerCorrectContents = sourceCrawl.select_one(
+                    "div.tab-pane.rl_tabs-pane.nn_tabs-pane.active").select_one(
+                    "div.accordion-inner.panel-body")
+                dataAnswerCorrect = []
+                numberQuestion = answerCorrectContents.select("tr")
+                for indexQuestion, question in enumerate(numberQuestion):
+                    dataQuestrionCorrect = {"indexQuestion": indexQuestion}
+                    numberAnswer = question.select("td")
+                    for indexAnswer, answer in enumerate(numberAnswer):
+                        if indexAnswer == 0:
+                            continue
+                        if "rgb(255, 255, 153)" in str(answer):
+                            dataQuestrionCorrect["indexAnswer"] = indexAnswer - 1
+                            break
+                    dataAnswerCorrect.append(dataQuestrionCorrect)
+                print(dataAnswerCorrect)
+
+                driver.find_element_by_xpath("""//*[@id="set-rl_sliders-%s"]/div[2]""" % (index + 1)).click()
+                driver.implicitly_wait(30)
+                sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+                answerContents = sourceCrawl.select_one("div.tab-pane.rl_tabs-pane.nn_tabs-pane.active").select(
+                    "div.accordion-inner.panel-body")[1]
+                transcript = answerContents.select_one("div > span").text
+                print(transcript)
+
+            break
 
 
 def downloadFile(dir, url):
