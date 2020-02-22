@@ -4,6 +4,7 @@ import shutil
 import bs4
 import requests
 from selenium import webdriver
+import json
 
 from toeic_practice.spilte_silence_audio import SplitAudio
 
@@ -13,6 +14,9 @@ ROOT_LINK1 = "http://www.yeuanhvan.com"
 LINK_LISTENING_PART_1 = ROOT_LINK1 + "/part-1-photographs"
 LINK_LISTENING_PART_2 = ROOT_LINK1 + "/part-2-questions-responses"
 LINK_LISTENING_PART_3 = ROOT_LINK1 + "/part-3-conversations"
+LINK_LISTENING_PART_4 = ROOT_LINK1 + "/part-4-talks"
+LINK_LISTENING_PART_5 = ROOT_LINK1 + "/part-5-incomplete-sentence"
+LINK_LISTENING_PART_6 = ROOT_LINK1 + "/part-6-error-recognition"
 ROOT_LINK2 = "https://english.best/toeic/"
 
 LISTENING = "Listening"
@@ -24,7 +28,10 @@ datas = []
 def main():
     # parsePart1()
     # parsePart2()
-    parsePart3()
+    # parsePart3(LINK_LISTENING_PART_3)
+    # parsePart3or4(LINK_LISTENING_PART_4)
+    parsePart5or6(LINK_LISTENING_PART_5)
+    # parsePart5or6(LINK_LISTENING_PART_6)
 
 
 def parsePart1():
@@ -184,10 +191,8 @@ def parsePart2():
                 print(dataAnswer)
 
 
-
-
-def parsePart3():
-    request = requests.get(LINK_LISTENING_PART_3)
+def parsePart3or4(linkoot):
+    request = requests.get(linkoot)
     if request.ok:
         source = bs4.BeautifulSoup(request.content, 'lxml')
         items = source.select("tbody > tr")
@@ -257,9 +262,76 @@ def parsePart3():
                 sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
                 answerContents = sourceCrawl.select_one("div.tab-pane.rl_tabs-pane.nn_tabs-pane.active").select(
                     "div.accordion-inner.panel-body")[1]
-                transcript = answerContents.select_one("div > span").text
+                transcriptContent = answerContents.select("div > span")
+                transcript = ""
+                for itemTranscriptContent in transcriptContent:
+                    if len(itemTranscriptContent.text) > 1:
+                        transcript = itemTranscriptContent.text
+                        break
                 print(transcript)
+            break
 
+
+def parsePart5or6(linkRoot):
+    request = requests.get(linkRoot)
+    if request.ok:
+        source = bs4.BeautifulSoup(request.content, 'lxml')
+        items = source.select("tbody > tr")
+        for item in items:
+            link = item.select_one("a")['href']
+            print(link)
+            driver = webdriver.Chrome('E:\chromedriver_win32\chromedriver')
+            driver.implicitly_wait(30)
+            driver.get(ROOT_LINK1 + link)
+            # sourceLink = bs4.BeautifulSoup(driver.page_source, 'lxml')
+            # listTab = sourceLink.select("ul#set-rl_tabs-1 > li")
+            driver.find_element_by_xpath("""//*[@id="set-rl_tabs-1"]/li[%s]""" % (2)).click()
+            driver.implicitly_wait(30)
+            sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+            sourceCrawl = sourceCrawl.select_one("div.tab-pane.rl_tabs-pane.nn_tabs-pane.active")
+            listContent = sourceCrawl.select("div")
+            listQuestion = []
+            questionData = {}
+            isIgnoreFirst = False
+            for index,itemContent in enumerate(listContent):
+                if str(itemContent).split("div").__len__() > 3:
+                    isIgnoreFirst = True
+                    continue
+                if isIgnoreFirst:
+                    indexTemp = index - 1
+                else:
+                    indexTemp = index
+                isQuestion = indexTemp % 5 == 0
+                text = itemContent.text
+                if len(text) > 1:
+                    if isQuestion:
+                        if questionData:
+                            listQuestion.append(questionData)
+                        questionData = {}
+                        question = text.strip()[2:]
+                        questionData["Question"] = question
+                    else:
+                        if "A." in text:
+                            answerA = text.split("A.")[1].strip()
+                            questionData["answerA"] = answerA
+                            if "color: red" in str(itemContent):
+                                questionData["AnswerCorrect"] = answerA
+                        if "B." in text:
+                            answerB = text.split("B.")[1].strip()
+                            questionData["answerB"] = answerB
+                            if "color: red" in str(itemContent):
+                                questionData["AnswerCorrect"] = answerB
+                        if "C." in text:
+                            answerC = text.split("C.")[1].strip()
+                            questionData["answerC"] = answerC
+                            if "color: red" in str(itemContent):
+                                questionData["AnswerCorrect"] = answerC
+                        if "D." in text:
+                            answerD = text.split("D.")[1].strip()
+                            questionData["answerD"] = answerD
+                            if "color: red" in str(itemContent):
+                                questionData["AnswerCorrect"] = answerD
+            print(json.dumps(listQuestion))
             break
 
 
