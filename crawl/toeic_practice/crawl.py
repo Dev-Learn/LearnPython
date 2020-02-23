@@ -1,10 +1,10 @@
+import json
 import os
 import shutil
 
 import bs4
 import requests
 from selenium import webdriver
-import json
 
 from toeic_practice.spilte_silence_audio import SplitAudio
 
@@ -17,6 +17,8 @@ LINK_LISTENING_PART_3 = ROOT_LINK1 + "/part-3-conversations"
 LINK_LISTENING_PART_4 = ROOT_LINK1 + "/part-4-talks"
 LINK_LISTENING_PART_5 = ROOT_LINK1 + "/part-5-incomplete-sentence"
 LINK_LISTENING_PART_6 = ROOT_LINK1 + "/part-6-error-recognition"
+LINK_LISTENING_PART_7 = ROOT_LINK1 + "/part-6-text-completion"
+LINK_LISTENING_PART_8 = ROOT_LINK1 + "/part-7-reading-comprehension"
 ROOT_LINK2 = "https://english.best/toeic/"
 
 LISTENING = "Listening"
@@ -30,8 +32,10 @@ def main():
     # parsePart2()
     # parsePart3(LINK_LISTENING_PART_3)
     # parsePart3or4(LINK_LISTENING_PART_4)
-    parsePart5or6(LINK_LISTENING_PART_5)
+    # parsePart5or6(LINK_LISTENING_PART_5)
     # parsePart5or6(LINK_LISTENING_PART_6)
+    parsePart7()
+    # parsePart8()
 
 
 def parsePart1():
@@ -293,7 +297,7 @@ def parsePart5or6(linkRoot):
             listQuestion = []
             questionData = {}
             isIgnoreFirst = False
-            for index,itemContent in enumerate(listContent):
+            for index, itemContent in enumerate(listContent):
                 if str(itemContent).split("div").__len__() > 3:
                     isIgnoreFirst = True
                     continue
@@ -333,6 +337,136 @@ def parsePart5or6(linkRoot):
                                 questionData["AnswerCorrect"] = answerD
             print(json.dumps(listQuestion))
             break
+
+
+def parsePart7():
+    request = requests.get(LINK_LISTENING_PART_7)
+    if request.ok:
+        source = bs4.BeautifulSoup(request.content, 'lxml')
+        items = source.select("tbody > tr")
+        for item in items:
+            link = item.select_one("a")['href']
+            print(link)
+            driver = webdriver.Chrome('E:\chromedriver_win32\chromedriver')
+            driver.implicitly_wait(30)
+            driver.get(ROOT_LINK1 + link)
+            sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+
+            listAnswerCorrect = []
+            contentQuestion = sourceCrawl.select("div.accordion-inner.panel-body > table > tbody > tr > td > div")
+            if not contentQuestion:
+                contentQuestion = sourceCrawl.select("div.accordion-inner.panel-body > table > tbody > tr > td > p")
+            for itemContentQuestion in contentQuestion:
+                if "color=\"#ff0000\"" in str(itemContentQuestion):
+                    text = itemContentQuestion.select("font")
+                    for textItem in text:
+                        listAnswerCorrect.append(textItem.text)
+
+            question = str(sourceCrawl.select_one("div.accordion-inner.panel-body > table > tbody"))
+            question = question.replace("#ff0000", "#FFFFFF")
+            for itemChild in listAnswerCorrect:
+                question = question.replace(itemChild, ".........")
+
+            listAnswerContent = sourceCrawl.select("select")
+            listAnswer = []
+            for itemAnswer in listAnswerContent:
+                answerData = {}
+                listAnswerChild = []
+                dataAnswer = itemAnswer.select("option")
+                print(len(dataAnswer))
+                if len(dataAnswer) > 3:
+                    for index, childDataAnswer in enumerate(dataAnswer):
+                        if index == 0:
+                            continue
+                        text = childDataAnswer.text
+                        if text in listAnswerCorrect:
+                            answerData["CorrectAnswer"] = text
+                        listAnswerChild.append(text)
+                    answerData["ListAnswer"] = listAnswerChild
+                    listAnswer.append(answerData)
+
+            print(question)
+            print(json.dumps(listAnswer))
+
+
+def parsePart8():
+    request = requests.get(LINK_LISTENING_PART_8)
+    if request.ok:
+        source = bs4.BeautifulSoup(request.content, 'lxml')
+        items = source.select("tbody > tr")
+        listQuestionData = []
+        for item in items:
+            link = item.select_one("a")['href']
+            print(link)
+            driver = webdriver.Chrome('E:\chromedriver_win32\chromedriver')
+            driver.implicitly_wait(30)
+            driver.get(ROOT_LINK1 + link)
+            sourceLink = bs4.BeautifulSoup(driver.page_source, 'lxml')
+            listTabQuestion = sourceLink.select("ul#set-rl_tabs-1 > li")
+            for index, itemQuestion in enumerate(listTabQuestion):
+                driver.find_element_by_xpath("""//*[@id="set-rl_tabs-1"]/li[%s]""" % (index + 1)).click()
+                driver.implicitly_wait(30)
+                sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+                sourceCrawl = sourceCrawl.select_one("div.tab-pane.rl_tabs-pane.nn_tabs-pane.active")
+                table = sourceCrawl.select("table")
+                contentQuestion = sourceCrawl.select("div")
+                questionContent = ""
+                if len(table) > 1:
+                    print(table[0])
+                    questionContent = str(table[0])
+                else:
+                    for itemContentQuestion in contentQuestion:
+                        if "rgb(51, 51, 153)" in str(itemContentQuestion):
+                            questionContent += itemContentQuestion.text
+
+                listQuestion = []
+                questionData = {}
+                for itemContentQuestion in contentQuestion:
+                    if "font-size: 10pt; line-height: 150%; color: navy;" in str(itemContentQuestion):
+                        questionData = {"Question": itemContentQuestion.text.split(".")[1]}
+                    elif "font-size: 10pt; line-height: 150%" in str(itemContentQuestion):
+                        text = itemContentQuestion.text
+                        if "A." in text:
+                            answerA = text.split("A.")[1].strip()
+                            questionData["answerA"] = answerA
+                        elif "B." in text:
+                            answerB = text.split("B.")[1].strip()
+                            questionData["answerB"] = answerB
+                        elif "C." in text:
+                            answerC = text.split("C.")[1].strip()
+                            questionData["answerC"] = answerC
+                        elif "D." in text:
+                            answerD = text.split("D.")[1].strip()
+                            questionData["answerD"] = answerD
+                    else:
+                        questionData = {}
+                    if questionData and "Question" in questionData and "answerA" in questionData and "answerB" in questionData and "answerC" in questionData and "answerD" in questionData:
+                        listQuestion.append(questionData)
+
+                driver.find_element_by_xpath("""//*[@id="set-rl_sliders-%s"]/div[1]""" % (index + 1)).click()
+                driver.implicitly_wait(30)
+                sourceCrawl = bs4.BeautifulSoup(driver.page_source, 'lxml')
+                answerCorrectContents = sourceCrawl.select_one(
+                    "div.tab-pane.rl_tabs-pane.nn_tabs-pane.active").select_one(
+                    "div.accordion-inner.panel-body")
+                dataAnswerCorrect = []
+                numberQuestion = answerCorrectContents.select("tr")
+                for indexQuestion, question in enumerate(numberQuestion):
+                    dataQuestrionCorrect = {}
+                    numberAnswer = question.select("td")
+                    for indexAnswer, answer in enumerate(numberAnswer):
+                        if indexAnswer == 0:
+                            continue
+                        if "rgb(255, 255, 153)" in str(answer):
+                            dataQuestrionCorrect["indexAnswer"] = indexAnswer - 1
+                            break
+                    dataAnswerCorrect.append(dataQuestrionCorrect)
+                print(dataAnswerCorrect)
+
+                listQuestionData.append(
+                    {"contentQuestion": questionContent, "question": listQuestion, "AnswerCorrect": dataAnswerCorrect})
+            break
+        print(json.dumps(listQuestionData))
 
 
 def downloadFile(dir, url):
